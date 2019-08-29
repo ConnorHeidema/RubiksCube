@@ -43,6 +43,9 @@ private:
 		const Cube::Face& fourthFace, const Cube::Position fourthPosition);
 	void rotateFace(const Cube::Face& face);
 	void drawSquare(const Face& face, const Position& position, const int& size = 50, const int& xOffset = 800, const int& yOffset = 500);
+	void drawCentres(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
+
+	void drawSides(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 
 public:
 	Color cube[NUM_FACES][NUM_POSITIONS];
