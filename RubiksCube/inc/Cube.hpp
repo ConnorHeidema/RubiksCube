@@ -45,6 +45,15 @@ private:
 	void drawSquare(const Face& face, const Position& position, const int& size = 50, const int& xOffset = 800, const int& yOffset = 500);
 	void drawCentres(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 
+	int xFaceOffset(int face, const int& size);
+
+	int yFaceOffset(int face, const int& size);
+
+	int xPositionOffset(int position, const int& size);
+
+	int yPositionOffset(int position, const int& size);
+
+
 	void drawSides(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 
 public:

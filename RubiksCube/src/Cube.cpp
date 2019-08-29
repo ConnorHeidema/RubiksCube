@@ -24,10 +24,6 @@ void Cube::rotateFace(const Cube::Face& face) {
 	}
 }
 
-void Cube::drawSquare(const Face& face, const Position& position, const int& size, const int& xOffset, const int& yOffset) {
-
-}
-
 Cube::Cube() {
 	for (auto face = 0; face < Face::NUM_FACES; face++) {
 		for (auto position = 0; position < Position::NUM_POSITIONS; position++) {
@@ -78,6 +74,56 @@ void Cube::drawCentres(sf::RenderWindow& window, const int& size, const int& xOf
 	window.draw(visualSquare);
 }
 
+int Cube::xFaceOffset(int face, const int& size) {
+	if (face == LEFT_FACE) {
+		return -3 * size;
+	} else if (face == RIGHT_FACE) {
+		return 3 * size;
+	} else if (face == BACK_FACE) {
+		return 6 * size;
+	} else {
+		return 0;
+	}
+}
+
+int Cube::yFaceOffset(int face, const int& size) {
+	if (face == TOP_FACE) {
+		return -3 * size;
+	} else if (face == BOTTOM_FACE) {
+		return 3 * size;
+	} else {
+		return 0;
+	}
+}
+
+int Cube::xPositionOffset(int position, const int& size) {
+	switch (position) {
+	case TOP_LEFT:
+	case LEFT:
+	case BOTTOM_LEFT:
+		return -size;
+	case TOP_RIGHT:
+	case RIGHT:
+	case BOTTOM_RIGHT:
+		return size;
+	}
+	return 0;
+}
+
+int Cube::yPositionOffset(int position, const int& size) {
+	switch (position) {
+	case TOP_LEFT:
+	case TOP:
+	case TOP_RIGHT:
+		return -size;
+	case BOTTOM_LEFT:
+	case BOTTOM:
+	case BOTTOM_RIGHT:
+		return size;
+	}
+	return 0;
+}
+
 void Cube::drawSides(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
 	int xAdditionalOffset = 0;
 	int yAdditionalOffset = 0;
@@ -86,55 +132,10 @@ void Cube::drawSides(sf::RenderWindow& window, const int& size, const int& xOffs
 			xAdditionalOffset = 0;
 			yAdditionalOffset = 0;
 			sf::RectangleShape visualSquare(sf::Vector2f(size, size));
-			switch (face) {
-			case FRONT_FACE:
-				break;
-			case RIGHT_FACE:
-				xAdditionalOffset += size * 3;
-				break;
-			case BACK_FACE:
-				xAdditionalOffset += size * 6;
-				break;
-			case LEFT_FACE:
-				xAdditionalOffset -= size * 3;
-				break;
-			case TOP_FACE:
-				yAdditionalOffset -= size * 3;
-				break;
-			case BOTTOM_FACE:
-				yAdditionalOffset += size * 3;
-				break;
-			}
-			switch (position) {
-			case TOP_LEFT:
-				xAdditionalOffset -= size;
-				yAdditionalOffset -= size;
-				break;
-			case TOP:
-				yAdditionalOffset -= size;
-				break;
-			case TOP_RIGHT:
-				xAdditionalOffset += size;
-				yAdditionalOffset -= size;
-				break;
-			case RIGHT:
-				xAdditionalOffset += size;
-				break;
-			case BOTTOM_RIGHT:
-				xAdditionalOffset += size;
-				yAdditionalOffset += size;
-				break;
-			case BOTTOM:
-				yAdditionalOffset += size;
-				break;
-			case BOTTOM_LEFT:
-				xAdditionalOffset -= size;
-				yAdditionalOffset += size;
-				break;
-			case LEFT:
-				xAdditionalOffset -= size;
-				break;
-			}
+			xAdditionalOffset += xFaceOffset(face, size);
+			yAdditionalOffset += yFaceOffset(face, size);
+			xAdditionalOffset += xPositionOffset(position, size);
+			yAdditionalOffset += yPositionOffset(position, size);
 			visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
 			visualSquare.setFillColor((*colorMapping.find(cube[face][position])).second);
 			window.draw(visualSquare);
