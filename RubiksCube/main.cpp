@@ -21,6 +21,11 @@ int main() {
 				window.close();
 			}
 		}
+		if (elapsed1.asSeconds() > 1) {
+			clock.restart();
+			elapsed1 = clock.getElapsedTime();
+			cube.backMove();
+		}
 		window.clear();
 		cube.drawFlat(window);
 		window.display();

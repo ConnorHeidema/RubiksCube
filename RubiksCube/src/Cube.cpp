@@ -38,40 +38,69 @@ Cube::Cube() {
 	colorMapping.emplace(GREEN, sf::Color::Green);
 }
 
-void Cube::rightMove() {
-	rotate4Squares(FRONT_FACE, TOP_RIGHT, BOTTOM_FACE, TOP_RIGHT, BACK_FACE, BOTTOM_LEFT, TOP_FACE, TOP_RIGHT);
-	rotate4Squares(FRONT_FACE, RIGHT, BOTTOM_FACE, RIGHT, BACK_FACE, LEFT, TOP_FACE, RIGHT);
-	rotate4Squares(FRONT_FACE, BOTTOM_RIGHT, BOTTOM_FACE, BOTTOM_RIGHT, BACK_FACE, TOP_LEFT, TOP_FACE, BOTTOM_RIGHT);
+void Cube::frontMove() {
+	rotate4Squares(TOP_FACE, BOTTOM_LEFT, RIGHT_FACE, TOP_LEFT, BOTTOM_FACE, TOP_RIGHT, LEFT_FACE, BOTTOM_RIGHT);
+	rotate4Squares(TOP_FACE, BOTTOM, RIGHT_FACE, LEFT, BOTTOM_FACE, TOP, LEFT_FACE, RIGHT);
+	rotate4Squares(TOP_FACE, BOTTOM_RIGHT, RIGHT_FACE, BOTTOM_LEFT, BOTTOM_FACE, TOP_LEFT, LEFT_FACE, TOP_RIGHT);
 	rotateFace(FRONT_FACE);
 }
 
-void Cube::drawCentres(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
+void Cube::rightMove() {
+	rotate4Squares(FRONT_FACE, TOP_RIGHT, TOP_FACE, TOP_RIGHT, BACK_FACE, BOTTOM_LEFT, BOTTOM_FACE, TOP_RIGHT);
+	rotate4Squares(FRONT_FACE, RIGHT, TOP_FACE, RIGHT, BACK_FACE, LEFT, BOTTOM_FACE, RIGHT);
+	rotate4Squares(FRONT_FACE, BOTTOM_RIGHT, TOP_FACE, BOTTOM_RIGHT, BACK_FACE, TOP_LEFT, BOTTOM_FACE, BOTTOM_RIGHT);
+	rotateFace(RIGHT_FACE);
+}
+
+void Cube::backMove() {
+	rotate4Squares(TOP_FACE, TOP_LEFT, LEFT_FACE, BOTTOM_LEFT, BOTTOM_FACE, BOTTOM_RIGHT, RIGHT_FACE, TOP_RIGHT);
+	rotate4Squares(TOP_FACE, TOP, LEFT_FACE, LEFT, BOTTOM_FACE, BOTTOM, RIGHT_FACE, RIGHT);
+	rotate4Squares(TOP_FACE, TOP_RIGHT, LEFT_FACE, TOP_LEFT, BOTTOM_FACE, BOTTOM_LEFT, RIGHT_FACE, BOTTOM_RIGHT);
+	rotateFace(BACK_FACE);
+}
+
+// UNFINISHED LEFT TOP AND BOTTOM MOVE @TODO AUGUST 30
+void Cube::leftMove() {
+	rotate4Squares(FRONT_FACE, TOP_RIGHT, TOP_FACE, TOP_RIGHT, BACK_FACE, BOTTOM_LEFT, BOTTOM_FACE, TOP_RIGHT);
+	rotate4Squares(FRONT_FACE, RIGHT, TOP_FACE, RIGHT, BACK_FACE, LEFT, BOTTOM_FACE, RIGHT);
+	rotate4Squares(FRONT_FACE, BOTTOM_RIGHT, TOP_FACE, BOTTOM_RIGHT, BACK_FACE, TOP_LEFT, BOTTOM_FACE, BOTTOM_RIGHT);
+	rotateFace(LEFT_FACE);
+}
+
+void Cube::topMove() {
+	rotate4Squares(FRONT_FACE, TOP_RIGHT, TOP_FACE, TOP_RIGHT, BACK_FACE, BOTTOM_LEFT, BOTTOM_FACE, TOP_RIGHT);
+	rotate4Squares(FRONT_FACE, RIGHT, TOP_FACE, RIGHT, BACK_FACE, LEFT, BOTTOM_FACE, RIGHT);
+	rotate4Squares(FRONT_FACE, BOTTOM_RIGHT, TOP_FACE, BOTTOM_RIGHT, BACK_FACE, TOP_LEFT, BOTTOM_FACE, BOTTOM_RIGHT);
+	rotateFace(TOP_FACE);
+}
+
+void Cube::bottomMove() {
+	rotate4Squares(FRONT_FACE, TOP_RIGHT, TOP_FACE, TOP_RIGHT, BACK_FACE, BOTTOM_LEFT, BOTTOM_FACE, TOP_RIGHT);
+	rotate4Squares(FRONT_FACE, RIGHT, TOP_FACE, RIGHT, BACK_FACE, LEFT, BOTTOM_FACE, RIGHT);
+	rotate4Squares(FRONT_FACE, BOTTOM_RIGHT, TOP_FACE, BOTTOM_RIGHT, BACK_FACE, TOP_LEFT, BOTTOM_FACE, BOTTOM_RIGHT);
+	rotateFace(BOTTOM_FACE);
+}
+
+void Cube::colourSquare(sf::RenderWindow& window, sf::RectangleShape visualSquare, const int& xOffset, const int& yOffset, Color colour) {
+	visualSquare.setPosition(sf::Vector2f(xOffset, yOffset));
+	visualSquare.setFillColor((*colorMapping.find(colour)).second);
+	window.draw(visualSquare);
+}
+
+void Cube::drawCentres(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
 	int xAdditionalOffset = 3 * size;
 	int yAdditionalOffset = 0;
-	sf::RectangleShape visualSquare(sf::Vector2f(size, size));
-	visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-	visualSquare.setFillColor((*colorMapping.find(RED)).second);
-	window.draw(visualSquare);
+	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, RED);
 	xAdditionalOffset += 3 * size;
-	visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-	visualSquare.setFillColor((*colorMapping.find(YELLOW)).second);
-	window.draw(visualSquare);
+	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, YELLOW);
 	xAdditionalOffset -= 9 * size;
-	visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-	visualSquare.setFillColor((*colorMapping.find(ORANGE)).second);
-	window.draw(visualSquare);
+	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, ORANGE);
 	xAdditionalOffset += 3 * size;
-	visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-	visualSquare.setFillColor((*colorMapping.find(WHITE)).second);
-	window.draw(visualSquare);
+	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, WHITE);
 	yAdditionalOffset -= 3 * size;
-	visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-	visualSquare.setFillColor((*colorMapping.find(BLUE)).second);
-	window.draw(visualSquare);
+	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, BLUE);
 	yAdditionalOffset += 6 * size;
-	visualSquare.setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-	visualSquare.setFillColor((*colorMapping.find(GREEN)).second);
-	window.draw(visualSquare);
+	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, GREEN);
 }
 
 int Cube::xFaceOffset(int face, const int& size) {
@@ -124,14 +153,13 @@ int Cube::yPositionOffset(int position, const int& size) {
 	return 0;
 }
 
-void Cube::drawSides(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
+void Cube::drawSides(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
 	int xAdditionalOffset = 0;
 	int yAdditionalOffset = 0;
 	for (auto face = 0; face < NUM_FACES; face++) {
 		for (auto position = 0; position < NUM_POSITIONS; position++) {
 			xAdditionalOffset = 0;
 			yAdditionalOffset = 0;
-			sf::RectangleShape visualSquare(sf::Vector2f(size, size));
 			xAdditionalOffset += xFaceOffset(face, size);
 			yAdditionalOffset += yFaceOffset(face, size);
 			xAdditionalOffset += xPositionOffset(position, size);
@@ -145,6 +173,9 @@ void Cube::drawSides(sf::RenderWindow& window, const int& size, const int& xOffs
 }
 
 void Cube::drawFlat(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
-	drawCentres(window, size, xOffset, yOffset);
-	drawSides(window, size, xOffset, yOffset);
+	sf::RectangleShape visualSquare(sf::Vector2f(size, size));
+	visualSquare.setOutlineThickness(-5);
+	visualSquare.setOutlineColor(sf::Color(64, 64, 64, 255));
+	drawCentres(visualSquare, window, size, xOffset, yOffset);
+	drawSides(visualSquare, window, size, xOffset, yOffset);
 }

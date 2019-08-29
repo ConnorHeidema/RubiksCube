@@ -43,7 +43,6 @@ private:
 		const Cube::Face& fourthFace, const Cube::Position fourthPosition);
 	void rotateFace(const Cube::Face& face);
 	void drawSquare(const Face& face, const Position& position, const int& size = 50, const int& xOffset = 800, const int& yOffset = 500);
-	void drawCentres(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 
 	int xFaceOffset(int face, const int& size);
 
@@ -53,12 +52,20 @@ private:
 
 	int yPositionOffset(int position, const int& size);
 
+	void drawSides(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 
-	void drawSides(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
+	void colourSquare(sf::RenderWindow& window, sf::RectangleShape visualSquare, const int& xOffset, const int& yOffset, Color colour);
+
+	void drawCentres(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 
 public:
 	Color cube[NUM_FACES][NUM_POSITIONS];
 	Cube();
+	void frontMove();
 	void rightMove();
+	void backMove();
+	void leftMove();
+	void topMove();
+	void bottomMove();
 	void drawFlat(sf::RenderWindow& window, const int& size = 50, const int& xOffset = 800, const int& yOffset = 500);
 };
