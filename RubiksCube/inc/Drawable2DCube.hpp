@@ -6,15 +6,18 @@
 class Drawable2DCube : public virtual Cube {
 private:
 	const Color white = WHITE;
+	sf::RectangleShape squares[NUM_FACES][NUM_POSITIONS];
+	const int SIZE = 50;
+	const int OUTLINE_THICKNESS = -5;
+	const sf::Color OUTLINE_COLOUR = sf::Color(32, 32, 32, 255);
 protected:
 	Drawable2DCube();
-	int xFaceOffset(int face, const int& size);
-	int yFaceOffset(int face, const int& size);
-	int xPositionOffset(int position, const int& size);
-	int yPositionOffset(int position, const int& size);
+	int xFaceOffset(int face, const int& SIZE);
+	int yFaceOffset(int face, const int& SIZE);
+	int xPositionOffset(int position, const int& SIZE);
+	int yPositionOffset(int position, const int& SIZE);
 
-	void drawSquares(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 public:
 	virtual ~Drawable2DCube() = 0;
-	void drawFlat(sf::RenderWindow& window, const int& size = 50, const int& xOffset = 800, const int& yOffset = 500);
+	void drawFlat(sf::RenderWindow& window, const int& SIZE = 50, const int& xOffset = 800, const int& yOffset = 500);
 };
