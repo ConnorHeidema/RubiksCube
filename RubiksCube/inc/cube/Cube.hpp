@@ -5,6 +5,12 @@
  class Cube {
 protected:
 	Cube();
+	enum Rotations {
+		RIGHT_FRONT,
+		TOP_FRONT,
+		FRONT_FRONT,
+		NUM_ROTATIONS
+	};
 	enum Color {
 		WHITE,
 		RED,

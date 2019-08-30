@@ -1,4 +1,4 @@
-#include "..\inc\InteractableCube.hpp"
+#include "..\..\inc\cube\InteractableCube.hpp"
 
 void InteractableCube::rotate4Squares(const Cube::Face& firstFace, const Cube::Position firstPosition,
 	const Cube::Face& secondFace, const Cube::Position secondPosition,
@@ -164,4 +164,16 @@ void InteractableCube::rotateTopFront() {
 void InteractableCube::rotateFrontFront() {
 	rotateFace(FRONT_FACE);
 	inverseRotateFace(BACK_FACE);
+	rotateFace(TOP_FACE);
+	rotateFace(RIGHT_FACE);
+	rotateFace(BOTTOM_FACE);
+	rotateFace(LEFT_FACE);
+	Color tempFace[NUM_POSITIONS];
+	for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
+		tempFace[position] = cube[RIGHT_FACE][position];
+		cube[RIGHT_FACE][position] = cube[TOP_FACE][position];
+		cube[TOP_FACE][position] = cube[LEFT_FACE][position];
+		cube[LEFT_FACE][position] = cube[BOTTOM_FACE][position];
+		cube[BOTTOM_FACE][position] = tempFace[position];
+	}
 }

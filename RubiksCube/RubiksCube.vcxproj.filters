@@ -13,54 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\inc">
+      <UniqueIdentifier>{46866174-ba59-4503-8753-9a5c9e4d4be1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\inc\cube">
+      <UniqueIdentifier>{b997f1cd-b413-42e5-90ea-509af433c4ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{2ebe331b-e783-48e1-a60b-4c8ce2388e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\cube">
+      <UniqueIdentifier>{9339c6e9-8ace-4618-a9fc-d2fdd02d587c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\InteractableCube.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Cube\ApplicationCube.cpp">
+      <Filter>Source Files\src\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\Drawable2DCube.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Cube\Cube.cpp">
+      <Filter>Source Files\src\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Cube\Drawable2DCube.cpp">
+      <Filter>Source Files\src\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\ApplicationCube.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Cube\InteractableCube.cpp">
+      <Filter>Source Files\src\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scramble.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Cube\MoveInteractionHUDCube.cpp">
+      <Filter>Source Files\src\cube</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cube\Scramble.cpp">
+      <Filter>Source Files\src\cube</Filter>
     </ClCompile>
     <ClCompile Include="src\Util.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MoveInteractionHUDCube.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\InteractableCube.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\Cube\ApplicationCube.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Drawable2DCube.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\Cube\Cube.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Cube.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\Cube\Drawable2DCube.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ApplicationCube.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\Cube\InteractableCube.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
-    <ClInclude Include="inc\MoveInteractionHUDCube.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\Cube\MoveInteractionHUDCube.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Scramble.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\Cube\Scramble.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
     <ClInclude Include="inc\Util.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

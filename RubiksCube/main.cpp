@@ -1,4 +1,4 @@
-#include "inc\ApplicationCube.hpp"
+#include "inc\cube\ApplicationCube.hpp"
 #include <SFML\Graphics.hpp>
 #include <SFML\Window.hpp>
 #include <iostream>

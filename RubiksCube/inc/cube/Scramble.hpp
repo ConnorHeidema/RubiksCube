@@ -1,6 +1,6 @@
 #pragma once
 #include "InteractableCube.hpp"
-#include "Util.hpp"
+#include "..\Util.hpp"
 #include "SFML\Graphics.hpp"
 #include <ctime>
 #include <cstdlib>

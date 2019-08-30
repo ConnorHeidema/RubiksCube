@@ -1,4 +1,4 @@
-#include "..\inc\Cube.hpp"
+#include "..\..\inc\cube\Cube.hpp"
 
 Cube::Cube() {
 	for (auto face = 0; face < Face::NUM_FACES; face++) {

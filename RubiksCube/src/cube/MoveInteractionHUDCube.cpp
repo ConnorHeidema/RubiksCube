@@ -1,4 +1,4 @@
-#include "..\inc\MoveInteractionHUDCube.hpp"
+#include "..\..\inc\cube\MoveInteractionHUDCube.hpp"
 
 MoveInteractionHUDCube::MoveInteractionHUDCube() {
 	const int& xStartingLocation = 1500;
@@ -40,7 +40,7 @@ MoveInteractionHUDCube::MoveInteractionHUDCube() {
 	movementButtons[INVERSE][BOTTOM_FACE].setSize(sf::Vector2f(height, width));
 	movementButtons[INVERSE][BOTTOM_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation + height));
 
-	moveFnPtr[NORMAL][FRONT_FACE] = &MoveInteractionHUDCube::frontMove;
+	moveFnPtr[NORMAL][FRONT_FACE] = &MoveInteractionHUDCube::rotateFrontFront;
 	moveFnPtr[NORMAL][RIGHT_FACE] = &MoveInteractionHUDCube::rightMove;
 	moveFnPtr[NORMAL][BACK_FACE] = &MoveInteractionHUDCube::backMove;
 	moveFnPtr[NORMAL][LEFT_FACE] = &MoveInteractionHUDCube::leftMove;

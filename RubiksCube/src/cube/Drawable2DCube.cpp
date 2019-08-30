@@ -1,5 +1,4 @@
-#include "..\inc\Drawable2DCube.hpp"
-#include "..\inc\Util.hpp"
+#include "..\..\inc\cube\Drawable2DCube.hpp"
 Drawable2DCube::Drawable2DCube() {
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
 		for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {

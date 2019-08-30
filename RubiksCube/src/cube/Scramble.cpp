@@ -1,6 +1,7 @@
-#include "..\inc\Scramble.hpp"
+#include "..\..\inc\cube\Scramble.hpp"
 
 Scramble::Scramble() {
+	scrambleClicked = false;
 	scrambleButton.setFillColor(sf::Color::Magenta);
 	scrambleButton.setOutlineThickness(-5);
 	scrambleButton.setSize(sf::Vector2f(200, 75));
@@ -19,7 +20,6 @@ void Scramble::drawScrambleButton(sf::RenderWindow& window) {
 }
 
 void Scramble::scrambleClick(const sf::Vector2i& mousePosition) {
-
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !scrambleClicked && Util::isWithin(mousePosition, scrambleButton)) {
 		scrambleClicked = true;
 		scrambleCube();
@@ -32,10 +32,10 @@ void Scramble::scrambleClick(const sf::Vector2i& mousePosition) {
 Scramble::~Scramble() {};
 
 void Scramble::scrambleCube() {
-	const int randomMoves = 1000;
 	srand(time(0));
+	const int randomMoves = rand() % 1000 + 200;
 	for (auto i = 0; i < randomMoves; i++) {
-		int move = rand() % NUM_FACES;
+		int move = rand() % (NUM_FACES + NUM_ROTATIONS);
 		switch (move) {
 		case FRONT_FACE:
 			frontMove();
@@ -54,6 +54,15 @@ void Scramble::scrambleCube() {
 			break;
 		case BOTTOM_FACE:
 			bottomMove();
+			break;
+		case NUM_FACES + RIGHT_FRONT:
+			rotateRightFront();
+			break;
+		case NUM_FACES + TOP_FRONT:
+			rotateTopFront();
+			break;
+		case NUM_FACES + FRONT_FRONT:
+			rotateFrontFront();
 			break;
 		}
 	}
