@@ -4,15 +4,15 @@ Scramble::Scramble() {
 	scrambleButton.setOutlineThickness(-5);
 	scrambleButton.setSize(sf::Vector2f(200, 75));
 	scrambleButton.setPosition(sf::Vector2f(1600, 100));
-	font.loadFromFile("font/OpenSans-Regular.ttf");
-	text.setFont(font);
-	text.setString("Scramble");
-	text.setCharacterSize(75); 
-	text.setFillColor(sf::Color::Red);
-	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	text.setPosition(sf::Vector2f(1400, 100));
 };
 void Scramble::drawScrambleButton(sf::RenderWindow& window) {
+	font.loadFromFile("arial.ttf");
+	text.setFont(font);
+	text.setString("Scramble");
+	text.setCharacterSize(40);
+	text.setFillColor(sf::Color::Black);
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	text.setPosition(sf::Vector2f(1610, 110));
 	window.draw(scrambleButton);
 	window.draw(text);
 }

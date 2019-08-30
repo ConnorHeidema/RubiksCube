@@ -14,7 +14,7 @@ int main() {
 	window.setFramerateLimit(60);
 	sf::Clock clock;
 	sf::Time elapsed1;
-	
+
 	ApplicationCube cube;
 	bool isMouseClicked = false;
 	while (window.isOpen()) {
