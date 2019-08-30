@@ -18,8 +18,13 @@ void Scramble::drawScrambleButton(sf::RenderWindow& window) {
 }
 
 void Scramble::scrambleClick(const sf::Vector2i& mousePosition) {
-	if (Util::isWithin(mousePosition, scrambleButton)) {
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !scrambleClicked && Util::isWithin(mousePosition, scrambleButton)) {
+		scrambleClicked = true;
 		scrambleCube();
+	}
+	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		scrambleClicked = false;
 	}
 }
 

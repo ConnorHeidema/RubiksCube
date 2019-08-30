@@ -65,11 +65,17 @@ void MoveInteractionHUDCube::drawHUD(sf::RenderWindow& window) {
 }
 
 void MoveInteractionHUDCube::moveInteractionHudClick(const sf::Vector2i& mousePosition) {
-	for (int rectIdx = FRONT_FACE; rectIdx < NUM_FACES; rectIdx++) {
-		if (Util::isWithin(mousePosition, movementButtons[NORMAL][rectIdx])) {
-			(this->*moveFnPtr[NORMAL][rectIdx])();
-		} else if (Util::isWithin(mousePosition, movementButtons[INVERSE][rectIdx])) {
-			(this->*moveFnPtr[INVERSE][rectIdx])();
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !hudClicked) {
+		hudClicked = true;
+		for (int rectIdx = FRONT_FACE; rectIdx < NUM_FACES; rectIdx++) {
+			if (Util::isWithin(mousePosition, movementButtons[NORMAL][rectIdx])) {
+				(this->*moveFnPtr[NORMAL][rectIdx])();
+			} else if (Util::isWithin(mousePosition, movementButtons[INVERSE][rectIdx])) {
+				(this->*moveFnPtr[INVERSE][rectIdx])();
+			}
 		}
+	} 
+	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		hudClicked = false;
 	}
 }

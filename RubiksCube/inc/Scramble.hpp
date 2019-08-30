@@ -8,6 +8,7 @@
 
 class Scramble : public virtual InteractableCube {
 private:
+	bool scrambleClicked;
 	sf::RectangleShape scrambleButton;
 	sf::Text text;
 	sf::Font font;

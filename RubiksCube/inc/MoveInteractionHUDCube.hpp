@@ -4,6 +4,7 @@
 #include <iostream>
 class MoveInteractionHUDCube : public virtual InteractableCube {
 private:
+	bool hudClicked = false;
 	const int NORMAL = 0;
 	const int INVERSE = 1;
 	const sf::Color NORMAL_COLOUR = sf::Color(86,170,242,255);
