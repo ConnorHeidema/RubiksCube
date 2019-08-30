@@ -5,7 +5,7 @@
 
 class Drawable2DCube : public virtual Cube {
 private:
-	Color white = WHITE;
+	const Color white = WHITE;
 protected:
 	Drawable2DCube();
 	int xFaceOffset(int face, const int& size);
