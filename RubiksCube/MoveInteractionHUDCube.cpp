@@ -8,38 +8,38 @@ MoveInteractionHUDCube::MoveInteractionHUDCube() {
 	const int& height = 150;
 
 	for (int rectIdx = FRONT_FACE; rectIdx < NUM_FACES; rectIdx++) {
-		rectangles[NORMAL][rectIdx].setFillColor(NORMAL_COLOUR);
-		rectangles[INVERSE][rectIdx].setFillColor(REVERSE_COLOUR);
-		rectangles[NORMAL][rectIdx].setOutlineThickness(-3);
-		rectangles[INVERSE][rectIdx].setOutlineThickness(-3);
-		rectangles[NORMAL][rectIdx].setOutlineColor(sf::Color(32,32,32,255));
-		rectangles[INVERSE][rectIdx].setOutlineColor(sf::Color(32, 32, 32, 255));
+		movementButtons[NORMAL][rectIdx].setFillColor(NORMAL_COLOUR);
+		movementButtons[INVERSE][rectIdx].setFillColor(REVERSE_COLOUR);
+		movementButtons[NORMAL][rectIdx].setOutlineThickness(-3);
+		movementButtons[INVERSE][rectIdx].setOutlineThickness(-3);
+		movementButtons[NORMAL][rectIdx].setOutlineColor(sf::Color(32,32,32,255));
+		movementButtons[INVERSE][rectIdx].setOutlineColor(sf::Color(32, 32, 32, 255));
 	}
 
-	rectangles[NORMAL][FRONT_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[NORMAL][FRONT_FACE].setPosition(sf::Vector2f(xStartingLocation - height - width, yStartingLocation - 4 * width));
-	rectangles[NORMAL][RIGHT_FACE].setSize(sf::Vector2f(width, height));
-	rectangles[NORMAL][RIGHT_FACE].setPosition(sf::Vector2f(xStartingLocation + height + width, yStartingLocation));
-	rectangles[NORMAL][BACK_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[NORMAL][BACK_FACE].setPosition(sf::Vector2f(xStartingLocation + height + width, yStartingLocation - 4 * width));
-	rectangles[NORMAL][LEFT_FACE].setSize(sf::Vector2f(width, height));
-	rectangles[NORMAL][LEFT_FACE].setPosition(sf::Vector2f(xStartingLocation - 2 * width, yStartingLocation));
-	rectangles[NORMAL][TOP_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[NORMAL][TOP_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation - 2 * width));
-	rectangles[NORMAL][BOTTOM_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[NORMAL][BOTTOM_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation + height + width));
-	rectangles[INVERSE][FRONT_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[INVERSE][FRONT_FACE].setPosition(sf::Vector2f(xStartingLocation - height - width, yStartingLocation - 3 * width));
-	rectangles[INVERSE][RIGHT_FACE].setSize(sf::Vector2f(width, height));
-	rectangles[INVERSE][RIGHT_FACE].setPosition(sf::Vector2f(xStartingLocation + height, yStartingLocation));
-	rectangles[INVERSE][BACK_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[INVERSE][BACK_FACE].setPosition(sf::Vector2f(xStartingLocation + height + width, yStartingLocation - 3 * width));
-	rectangles[INVERSE][LEFT_FACE].setSize(sf::Vector2f(width, height));
-	rectangles[INVERSE][LEFT_FACE].setPosition(sf::Vector2f(xStartingLocation - width, yStartingLocation));
-	rectangles[INVERSE][TOP_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[INVERSE][TOP_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation - width));
-	rectangles[INVERSE][BOTTOM_FACE].setSize(sf::Vector2f(height, width));
-	rectangles[INVERSE][BOTTOM_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation + height));
+	movementButtons[NORMAL][FRONT_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[NORMAL][FRONT_FACE].setPosition(sf::Vector2f(xStartingLocation - height - width, yStartingLocation - 4 * width));
+	movementButtons[NORMAL][RIGHT_FACE].setSize(sf::Vector2f(width, height));
+	movementButtons[NORMAL][RIGHT_FACE].setPosition(sf::Vector2f(xStartingLocation + height + width, yStartingLocation));
+	movementButtons[NORMAL][BACK_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[NORMAL][BACK_FACE].setPosition(sf::Vector2f(xStartingLocation + height + width, yStartingLocation - 4 * width));
+	movementButtons[NORMAL][LEFT_FACE].setSize(sf::Vector2f(width, height));
+	movementButtons[NORMAL][LEFT_FACE].setPosition(sf::Vector2f(xStartingLocation - 2 * width, yStartingLocation));
+	movementButtons[NORMAL][TOP_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[NORMAL][TOP_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation - 2 * width));
+	movementButtons[NORMAL][BOTTOM_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[NORMAL][BOTTOM_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation + height + width));
+	movementButtons[INVERSE][FRONT_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[INVERSE][FRONT_FACE].setPosition(sf::Vector2f(xStartingLocation - height - width, yStartingLocation - 3 * width));
+	movementButtons[INVERSE][RIGHT_FACE].setSize(sf::Vector2f(width, height));
+	movementButtons[INVERSE][RIGHT_FACE].setPosition(sf::Vector2f(xStartingLocation + height, yStartingLocation));
+	movementButtons[INVERSE][BACK_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[INVERSE][BACK_FACE].setPosition(sf::Vector2f(xStartingLocation + height + width, yStartingLocation - 3 * width));
+	movementButtons[INVERSE][LEFT_FACE].setSize(sf::Vector2f(width, height));
+	movementButtons[INVERSE][LEFT_FACE].setPosition(sf::Vector2f(xStartingLocation - width, yStartingLocation));
+	movementButtons[INVERSE][TOP_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[INVERSE][TOP_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation - width));
+	movementButtons[INVERSE][BOTTOM_FACE].setSize(sf::Vector2f(height, width));
+	movementButtons[INVERSE][BOTTOM_FACE].setPosition(sf::Vector2f(xStartingLocation, yStartingLocation + height));
 
 	moveFnPtr[NORMAL][FRONT_FACE] = &MoveInteractionHUDCube::frontMove;
 	moveFnPtr[NORMAL][RIGHT_FACE] = &MoveInteractionHUDCube::rightMove;
@@ -59,16 +59,16 @@ MoveInteractionHUDCube::~MoveInteractionHUDCube() {};
 
 void MoveInteractionHUDCube::drawHUD(sf::RenderWindow& window) {
 	for (int rectIdx = FRONT_FACE; rectIdx < NUM_FACES; rectIdx++) {
-		window.draw(rectangles[NORMAL][rectIdx]);
-		window.draw(rectangles[INVERSE][rectIdx]);
+		window.draw(movementButtons[NORMAL][rectIdx]);
+		window.draw(movementButtons[INVERSE][rectIdx]);
 	}
 }
 
 void MoveInteractionHUDCube::moveInteractionHudClick(const sf::Vector2i& mousePosition) {
 	for (int rectIdx = FRONT_FACE; rectIdx < NUM_FACES; rectIdx++) {
-		if (Util::isWithin(mousePosition, rectangles[NORMAL][rectIdx])) {
+		if (Util::isWithin(mousePosition, movementButtons[NORMAL][rectIdx])) {
 			(this->*moveFnPtr[NORMAL][rectIdx])();
-		} else if (Util::isWithin(mousePosition, rectangles[INVERSE][rectIdx])) {
+		} else if (Util::isWithin(mousePosition, movementButtons[INVERSE][rectIdx])) {
 			(this->*moveFnPtr[INVERSE][rectIdx])();
 		}
 	}

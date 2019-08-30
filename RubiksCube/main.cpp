@@ -32,6 +32,7 @@ int main() {
 		window.clear(sf::Color(64, 64, 64,255));
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isMouseClicked) {
 			cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
+			cube.scrambleClick(sf::Mouse::getPosition(window));
 			isMouseClicked = true;
 		}
 		if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {

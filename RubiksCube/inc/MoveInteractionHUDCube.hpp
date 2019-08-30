@@ -8,7 +8,7 @@ private:
 	const int INVERSE = 1;
 	const sf::Color NORMAL_COLOUR = sf::Color(86,170,242,255);
 	const sf::Color REVERSE_COLOUR = sf::Color(185,86,242,255);
-	sf::RectangleShape rectangles[2][6];
+	sf::RectangleShape movementButtons[2][6];
 	void (MoveInteractionHUDCube::* moveFnPtr[2][NUM_FACES])(void);
 protected:
 	MoveInteractionHUDCube();

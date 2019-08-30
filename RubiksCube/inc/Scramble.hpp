@@ -4,10 +4,13 @@
 #include "InteractableCube.hpp"
 #include "SFML/Graphics.hpp"
 #include <iostream>
+#include "Util.hpp"
 
 class Scramble : public virtual InteractableCube {
 private:
 	sf::RectangleShape scrambleButton;
+	sf::Text text;
+	sf::Font font;
 	void scrambleCube();
 protected:
 	Scramble();
