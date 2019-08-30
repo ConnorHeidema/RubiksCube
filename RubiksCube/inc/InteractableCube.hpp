@@ -7,7 +7,12 @@ private:
 		const Cube::Face& secondFace, const Cube::Position secondPosition,
 		const Cube::Face& thirdFace, const Cube::Position thirdPosition,
 		const Cube::Face& fourthFace, const Cube::Position fourthPosition);
+	void inverseRotate4Squares(const Cube::Face& firstFace, const Cube::Position firstPosition,
+		const Cube::Face& secondFace, const Cube::Position secondPosition,
+		const Cube::Face& thirdFace, const Cube::Position thirdPosition,
+		const Cube::Face& fourthFace, const Cube::Position fourthPosition);
 	void rotateFace(const Cube::Face& face);
+	void inverseRotateFace(const Cube::Face& face);
 protected:
 	InteractableCube();
 	void frontMove();
@@ -22,6 +27,9 @@ protected:
 	void leftInverseMove();
 	void topInverseMove();
 	void bottomInverseMove();
+	void rotateRightFront();
+	void rotateTopFront();
+	void rotateFrontFront();
 public:
 	virtual ~InteractableCube() = 0;
 };

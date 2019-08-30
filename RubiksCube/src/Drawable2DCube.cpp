@@ -1,5 +1,5 @@
 #include "..\inc\Drawable2DCube.hpp"
-
+#include "..\inc\Util.hpp"
 Drawable2DCube::Drawable2DCube() {
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
 		for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
@@ -77,5 +77,21 @@ void Drawable2DCube::drawFlat(sf::RenderWindow& window, const int& SIZE, const i
 			squares[face][position].setFillColor((*colorMapping.find(cube[face][position])).second);
 			window.draw(squares[face][position]);
 		}
+	}
+}
+
+void Drawable2DCube::squareClick(const sf::Vector2i& mousePosition) {
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !squareClicked == true) {
+		squareClicked = true;
+		for (auto face = 0; face < NUM_FACES; face++) {
+			for (auto position = 0; position < NUM_POSITIONS; position++) {
+				if (Util::isWithin(mousePosition, squares[face][position])) {
+					cube[face][position] = static_cast<Color>((cube[face][position] + 1) % NUM_FACES);
+				}
+			}
+		}
+	}
+	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		squareClicked = false;
 	}
 }

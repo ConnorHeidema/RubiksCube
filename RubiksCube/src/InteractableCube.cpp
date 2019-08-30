@@ -11,8 +11,26 @@ void InteractableCube::rotate4Squares(const Cube::Face& firstFace, const Cube::P
 	cube[firstFace][firstPosition] = tempSquare;
 }
 
+void InteractableCube::inverseRotate4Squares(const Cube::Face& firstFace, const Cube::Position firstPosition,
+	const Cube::Face& secondFace, const Cube::Position secondPosition,
+	const Cube::Face& thirdFace, const Cube::Position thirdPosition,
+	const Cube::Face& fourthFace, const Cube::Position fourthPosition) {
+	rotate4Squares(firstFace, firstPosition, 
+		secondFace, secondPosition, 
+		thirdFace, thirdPosition, 
+		fourthFace, fourthPosition);
+	rotate4Squares(firstFace, firstPosition,
+		secondFace, secondPosition,
+		thirdFace, thirdPosition,
+		fourthFace, fourthPosition);
+	rotate4Squares(firstFace, firstPosition,
+		secondFace, secondPosition,
+		thirdFace, thirdPosition,
+		fourthFace, fourthPosition);
+}
+
 void InteractableCube::rotateFace(const Cube::Face& face) {
-	Color tempSquares[2] = { cube[face][NUM_POSITIONS - 2], cube[face][NUM_POSITIONS - 2] };
+	Color tempSquares[2] = { cube[face][NUM_POSITIONS - 3], cube[face][NUM_POSITIONS - 2] };
 	for (auto index = NUM_POSITIONS - 2; index >= 0; index--) {
 		if (index < 2) {
 			cube[face][index] = tempSquares[index];
@@ -20,6 +38,12 @@ void InteractableCube::rotateFace(const Cube::Face& face) {
 			cube[face][index] = cube[face][index - 2];
 		}
 	}
+}
+
+void InteractableCube::inverseRotateFace(const Cube::Face& face) {
+	rotateFace(face);
+	rotateFace(face);
+	rotateFace(face);
 }
 
 InteractableCube::InteractableCube() {};
@@ -101,4 +125,43 @@ void InteractableCube::bottomInverseMove() {
 	bottomMove();
 	bottomMove();
 	bottomMove();
+}
+
+void InteractableCube::rotateRightFront() {
+	rotateFace(TOP_FACE);
+	inverseRotateFace(BOTTOM_FACE);
+	Color tempFace[NUM_POSITIONS];
+	for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
+		tempFace[position] = cube[FRONT_FACE][position];
+	}
+	for (int face = FRONT_FACE; face < LEFT_FACE; face++) {
+		for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
+			cube[face][position] = cube[face + 1][position];
+		}
+	}
+	for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
+		cube[LEFT_FACE][position] = tempFace[position];
+	}
+}
+
+void InteractableCube::rotateTopFront() {
+	rotateFace(LEFT_FACE);
+	inverseRotateFace(RIGHT_FACE);
+	rotateFace(BOTTOM_FACE);
+	rotateFace(BOTTOM_FACE);
+	rotateFace(BACK_FACE);
+	rotateFace(BACK_FACE);
+	Color tempFace[NUM_POSITIONS];
+	for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
+		tempFace[position] = cube[FRONT_FACE][position];
+		cube[FRONT_FACE][position] = cube[TOP_FACE][position];
+		cube[TOP_FACE][position] = cube[BACK_FACE][position];
+		cube[BACK_FACE][position] = cube[BOTTOM_FACE][position];
+		cube[BOTTOM_FACE][position] = tempFace[position];
+	}
+}
+
+void InteractableCube::rotateFrontFront() {
+	rotateFace(FRONT_FACE);
+	inverseRotateFace(BACK_FACE);
 }

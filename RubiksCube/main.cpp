@@ -29,6 +29,7 @@ int main() {
 
 		cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
 		cube.scrambleClick(sf::Mouse::getPosition(window));
+		cube.squareClick(sf::Mouse::getPosition(window));
 
 		cube.drawScrambleButton(window);
 		cube.drawHUD(window);
