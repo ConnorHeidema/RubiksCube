@@ -13,10 +13,7 @@ protected:
 	int xPositionOffset(int position, const int& size);
 	int yPositionOffset(int position, const int& size);
 
-	void drawSides(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
-	void colourSquare(sf::RenderWindow& window, sf::RectangleShape visualSquare, const int& xOffset, const int& yOffset, Color colour);
-	void drawCentres(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
-
+	void drawSquares(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset);
 public:
 	virtual ~Drawable2DCube() = 0;
 	void drawFlat(sf::RenderWindow& window, const int& size = 50, const int& xOffset = 800, const int& yOffset = 500);

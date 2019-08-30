@@ -32,6 +32,7 @@ protected:
 		BOTTOM,
 		BOTTOM_LEFT,
 		LEFT,
+		CENTRE,
 		NUM_POSITIONS
 	};
  public:

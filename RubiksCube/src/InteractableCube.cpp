@@ -12,8 +12,8 @@ void InteractableCube::rotate4Squares(const Cube::Face& firstFace, const Cube::P
 }
 
 void InteractableCube::rotateFace(const Cube::Face& face) {
-	Color tempSquares[2] = { cube[face][NUM_POSITIONS - 2], cube[face][NUM_POSITIONS - 1] };
-	for (auto index = NUM_POSITIONS - 1; index >= 0; index--) {
+	Color tempSquares[2] = { cube[face][NUM_POSITIONS - 2], cube[face][NUM_POSITIONS - 2] };
+	for (auto index = NUM_POSITIONS - 2; index >= 0; index--) {
 		if (index < 2) {
 			cube[face][index] = tempSquares[index];
 		} else {

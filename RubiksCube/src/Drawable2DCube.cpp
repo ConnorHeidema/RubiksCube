@@ -52,7 +52,7 @@ int Drawable2DCube::yPositionOffset(int position, const int& size) {
 	return 0;
 }
 
-void Drawable2DCube::drawSides(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
+void Drawable2DCube::drawSquares(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
 	int xAdditionalOffset = 0;
 	int yAdditionalOffset = 0;
 	for (auto face = 0; face < NUM_FACES; face++) {
@@ -68,29 +68,6 @@ void Drawable2DCube::drawSides(sf::RectangleShape visualSquare, sf::RenderWindow
 			window.draw(visualSquare);
 		}
 	}
-
-}
-
-void Drawable2DCube::colourSquare(sf::RenderWindow& window, sf::RectangleShape visualSquare, const int& xOffset, const int& yOffset, Color colour) {
-	visualSquare.setPosition(sf::Vector2f(xOffset, yOffset));
-	visualSquare.setFillColor((*colorMapping.find(colour)).second);
-	window.draw(visualSquare);
-}
-
-void Drawable2DCube::drawCentres(sf::RectangleShape visualSquare, sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
-	int xAdditionalOffset = 3 * size;
-	int yAdditionalOffset = 0;
-	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, RED);
-	xAdditionalOffset += 3 * size;
-	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, YELLOW);
-	xAdditionalOffset -= 9 * size;
-	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, ORANGE);
-	xAdditionalOffset += 3 * size;
-	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, WHITE);
-	yAdditionalOffset -= 3 * size;
-	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, BLUE);
-	yAdditionalOffset += 6 * size;
-	colourSquare(window, visualSquare, xOffset + xAdditionalOffset, yOffset + yAdditionalOffset, GREEN);
 }
 
 Drawable2DCube::~Drawable2DCube() {};
@@ -99,6 +76,5 @@ void Drawable2DCube::drawFlat(sf::RenderWindow& window, const int& size, const i
 	sf::RectangleShape visualSquare(sf::Vector2f(size, size));
 	visualSquare.setOutlineThickness(-5);
 	visualSquare.setOutlineColor(sf::Color(32, 32, 32, 255));
-	drawCentres(visualSquare, window, size, xOffset, yOffset);
-	drawSides(visualSquare, window, size, xOffset, yOffset);
+	drawSquares(visualSquare, window, size, xOffset, yOffset);
 }
