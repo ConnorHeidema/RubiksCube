@@ -98,7 +98,7 @@ Drawable2DCube::~Drawable2DCube() {};
 void Drawable2DCube::drawFlat(sf::RenderWindow& window, const int& size, const int& xOffset, const int& yOffset) {
 	sf::RectangleShape visualSquare(sf::Vector2f(size, size));
 	visualSquare.setOutlineThickness(-5);
-	visualSquare.setOutlineColor(sf::Color(64, 64, 64, 255));
+	visualSquare.setOutlineColor(sf::Color(32, 32, 32, 255));
 	drawCentres(visualSquare, window, size, xOffset, yOffset);
 	drawSides(visualSquare, window, size, xOffset, yOffset);
 }

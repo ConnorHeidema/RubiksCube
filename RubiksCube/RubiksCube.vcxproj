@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -141,6 +141,8 @@
     <ClCompile Include="src\Cube.cpp" />
     <ClCompile Include="src\Drawable2DCube.cpp" />
     <ClCompile Include="src\InteractableCube.cpp" />
+    <ClCompile Include="src\Scramble.cpp" />
+    <ClCompile Include="src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\ApplicationCube.hpp" />
@@ -148,6 +150,8 @@
     <ClInclude Include="inc\Drawable2DCube.hpp" />
     <ClInclude Include="inc\InteractableCube.hpp" />
     <ClInclude Include="inc\MoveInteractionHUDCube.hpp" />
+    <ClInclude Include="inc\Scramble.hpp" />
+    <ClInclude Include="inc\Util.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

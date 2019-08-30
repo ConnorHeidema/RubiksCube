@@ -6,11 +6,10 @@ class MoveInteractionHUDCube : public virtual InteractableCube {
 private:
 	const int NORMAL = 0;
 	const int INVERSE = 1;
-	const sf::Color NORMAL_COLOUR = sf::Color::Red;
-	const sf::Color REVERSE_COLOUR = sf::Color::Blue;
+	const sf::Color NORMAL_COLOUR = sf::Color(86,170,242,255);
+	const sf::Color REVERSE_COLOUR = sf::Color(185,86,242,255);
 	sf::RectangleShape rectangles[2][6];
-	const bool isWithin(const sf::Vector2i& mouse, const sf::RectangleShape& rectangle);
-	void (MoveInteractionHUDCube::* moveFnPtr[2][6])(void);
+	void (MoveInteractionHUDCube::* moveFnPtr[2][NUM_FACES])(void);
 protected:
 	MoveInteractionHUDCube();
 public:

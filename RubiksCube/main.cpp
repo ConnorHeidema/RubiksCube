@@ -29,11 +29,7 @@ int main() {
 			clock.restart();
 			elapsed1 = clock.getElapsedTime();
 		}
-		window.clear();
-		sf::VertexArray curve(sf::PrimitiveType::LineStrip, 100);
-		for (int x = 4500; x < 5000; x++) {
-			curve.append(sf::Vertex(sf::Vector2f(x, 100 + 100*sin(0.01*x))));
-		}
+		window.clear(sf::Color(64, 64, 64,255));
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isMouseClicked) {
 			cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
 			isMouseClicked = true;
@@ -41,8 +37,8 @@ int main() {
 		if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 			isMouseClicked = false;
 		}
+		cube.drawScrambleButton(window);
 		cube.drawHUD(window);
-		window.draw(curve);
 		cube.drawFlat(window);
 		window.display();
 	}
