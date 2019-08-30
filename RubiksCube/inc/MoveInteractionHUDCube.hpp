@@ -10,6 +10,7 @@ private:
 	const sf::Color REVERSE_COLOUR = sf::Color::Blue;
 	sf::RectangleShape rectangles[2][6];
 	const bool isWithin(const sf::Vector2i& mouse, const sf::RectangleShape& rectangle);
+	void (MoveInteractionHUDCube::* moveFnPtr[2][6])(void);
 protected:
 	MoveInteractionHUDCube();
 public:

@@ -47,9 +47,6 @@
     <ClInclude Include="inc\ApplicationCube.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Drawable2DCube.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MoveInteractionHUDCube.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
