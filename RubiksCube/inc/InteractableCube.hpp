@@ -1,5 +1,6 @@
 #pragma once
 #include "Cube.hpp"
+
 class InteractableCube : public virtual Cube {
 private:
 	void rotate4Squares(const Cube::Face& firstFace, const Cube::Position firstPosition,

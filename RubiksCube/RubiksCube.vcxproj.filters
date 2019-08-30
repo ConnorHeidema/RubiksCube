@@ -30,13 +30,13 @@
     <ClCompile Include="src\ApplicationCube.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MoveInteractionHUDCube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scramble.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MoveInteractionHUDCube.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

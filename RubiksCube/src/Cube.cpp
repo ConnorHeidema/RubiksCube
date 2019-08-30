@@ -1,4 +1,4 @@
-#include "../inc/Drawable2DCube.hpp"
+#include "..\inc\Cube.hpp"
 
 Cube::Cube() {
 	for (auto face = 0; face < Face::NUM_FACES; face++) {

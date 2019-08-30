@@ -1,4 +1,4 @@
-#include "../inc/Drawable2DCube.hpp"
+#include "..\inc\Drawable2DCube.hpp"
 
 Drawable2DCube::Drawable2DCube() {};
 

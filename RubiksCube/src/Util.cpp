@@ -1,5 +1,4 @@
-#include "../inc/Util.hpp"
-#include "SFML/Graphics.hpp"
+#include "..\inc\Util.hpp"
 
 bool Util::isWithin(const sf::Vector2i& mouse, const sf::RectangleShape& rectangle) {
 	if (rectangle.getGlobalBounds().left < mouse.x && rectangle.getGlobalBounds().top < mouse.y &&

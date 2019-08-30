@@ -1,10 +1,10 @@
 #pragma once
+#include "InteractableCube.hpp"
+#include "Util.hpp"
+#include "SFML\Graphics.hpp"
 #include <ctime>
 #include <cstdlib>
-#include "InteractableCube.hpp"
-#include "SFML/Graphics.hpp"
 #include <iostream>
-#include "Util.hpp"
 
 class Scramble : public virtual InteractableCube {
 private:

@@ -1,5 +1,4 @@
-#include "inc\MoveInteractionHUDCube.hpp"
-#include "inc\Util.hpp"
+#include "..\inc\MoveInteractionHUDCube.hpp"
 
 MoveInteractionHUDCube::MoveInteractionHUDCube() {
 	const int& xStartingLocation = 1500;
@@ -10,10 +9,10 @@ MoveInteractionHUDCube::MoveInteractionHUDCube() {
 	for (int rectIdx = FRONT_FACE; rectIdx < NUM_FACES; rectIdx++) {
 		movementButtons[NORMAL][rectIdx].setFillColor(NORMAL_COLOUR);
 		movementButtons[INVERSE][rectIdx].setFillColor(REVERSE_COLOUR);
-		movementButtons[NORMAL][rectIdx].setOutlineThickness(-3);
-		movementButtons[INVERSE][rectIdx].setOutlineThickness(-3);
-		movementButtons[NORMAL][rectIdx].setOutlineColor(sf::Color(32,32,32,255));
-		movementButtons[INVERSE][rectIdx].setOutlineColor(sf::Color(32, 32, 32, 255));
+		movementButtons[NORMAL][rectIdx].setOutlineThickness(BUTTON_OUTLINE_THICKNESS);
+		movementButtons[INVERSE][rectIdx].setOutlineThickness(BUTTON_OUTLINE_THICKNESS);
+		movementButtons[NORMAL][rectIdx].setOutlineColor(BUTTON_OUTLINE_COLOUR);
+		movementButtons[INVERSE][rectIdx].setOutlineColor(BUTTON_OUTLINE_COLOUR);
 	}
 
 	movementButtons[NORMAL][FRONT_FACE].setSize(sf::Vector2f(height, width));
@@ -74,7 +73,7 @@ void MoveInteractionHUDCube::moveInteractionHudClick(const sf::Vector2i& mousePo
 				(this->*moveFnPtr[INVERSE][rectIdx])();
 			}
 		}
-	} 
+	}
 	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		hudClicked = false;
 	}

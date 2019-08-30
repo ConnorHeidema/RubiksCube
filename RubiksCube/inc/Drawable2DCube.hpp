@@ -1,7 +1,7 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
 #include "Cube.hpp"
+#include <SFML\Graphics.hpp>
+#include <SFML\Window.hpp>
 
 class Drawable2DCube : public virtual Cube {
 private:

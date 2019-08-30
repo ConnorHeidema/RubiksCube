@@ -1,8 +1,11 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include "inc/Cube.hpp"
-#include "inc/ApplicationCube.hpp"
+#include "inc\ApplicationCube.hpp"
+#include <SFML\Graphics.hpp>
+#include <SFML\Window.hpp>
 #include <iostream>
+
+const int FRAMERATE = 60;
+const sf::Color WINDOW_CLEAR_COLOUR = sf::Color(64, 64, 64, 255);
+const int PROGRAM_SUCCESS = 0;
 
 int main() {
 	ApplicationCube cube;
@@ -12,7 +15,7 @@ int main() {
 		"Rubik's Cube!",
 		sf::Style::Fullscreen
 	);
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(FRAMERATE);
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -22,7 +25,7 @@ int main() {
 			}
 		}
 
-		window.clear(sf::Color(64, 64, 64,255));
+		window.clear(WINDOW_CLEAR_COLOUR);
 
 		cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
 		cube.scrambleClick(sf::Mouse::getPosition(window));
@@ -32,5 +35,5 @@ int main() {
 		cube.drawFlat(window);
 		window.display();
 	}
-	return 0;
+	return PROGRAM_SUCCESS;
 }

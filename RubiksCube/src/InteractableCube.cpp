@@ -1,4 +1,4 @@
-#include "../inc/InteractableCube.hpp"
+#include "..\inc\InteractableCube.hpp"
 
 void InteractableCube::rotate4Squares(const Cube::Face& firstFace, const Cube::Position firstPosition,
 	const Cube::Face& secondFace, const Cube::Position secondPosition,

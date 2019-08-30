@@ -136,11 +136,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MoveInteractionHUDCube.cpp" />
     <ClCompile Include="src\ApplicationCube.cpp" />
     <ClCompile Include="src\Cube.cpp" />
     <ClCompile Include="src\Drawable2DCube.cpp" />
     <ClCompile Include="src\InteractableCube.cpp" />
+    <ClCompile Include="src\MoveInteractionHUDCube.cpp" />
     <ClCompile Include="src\Scramble.cpp" />
     <ClCompile Include="src\Util.cpp" />
   </ItemGroup>

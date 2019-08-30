@@ -1,4 +1,5 @@
 #include "..\inc\Scramble.hpp"
+
 Scramble::Scramble() {
 	scrambleButton.setFillColor(sf::Color::Magenta);
 	scrambleButton.setOutlineThickness(-5);
