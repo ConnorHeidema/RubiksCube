@@ -15,6 +15,12 @@ protected:
 	void leftMove();
 	void topMove();
 	void bottomMove();
+	void frontInverseMove();
+	void rightInverseMove();
+	void backInverseMove();
+	void leftInverseMove();
+	void topInverseMove();
+	void bottomInverseMove();
 public:
 	virtual ~InteractableCube() = 0;
 };

@@ -51,7 +51,7 @@ void InteractableCube::backMove() {
 void InteractableCube::leftMove() {
 	rotate4Squares(FRONT_FACE, TOP_LEFT, BOTTOM_FACE, TOP_LEFT, BACK_FACE, BOTTOM_RIGHT, TOP_FACE, TOP_LEFT);
 	rotate4Squares(FRONT_FACE, LEFT, BOTTOM_FACE, LEFT, BACK_FACE, RIGHT, TOP_FACE, LEFT);
-	rotate4Squares(FRONT_FACE, TOP_RIGHT, BOTTOM_FACE, TOP_RIGHT, BACK_FACE, BOTTOM_LEFT, TOP_FACE, TOP_RIGHT);
+	rotate4Squares(FRONT_FACE, BOTTOM_LEFT, BOTTOM_FACE, BOTTOM_LEFT, BACK_FACE, TOP_RIGHT, TOP_FACE, BOTTOM_LEFT);
 	rotateFace(LEFT_FACE);
 }
 
@@ -67,4 +67,40 @@ void InteractableCube::bottomMove() {
 	rotate4Squares(FRONT_FACE, BOTTOM, RIGHT_FACE, BOTTOM, BACK_FACE, BOTTOM, LEFT_FACE, BOTTOM);
 	rotate4Squares(FRONT_FACE, BOTTOM_RIGHT, RIGHT_FACE, BOTTOM_RIGHT, BACK_FACE, BOTTOM_RIGHT, LEFT_FACE, BOTTOM_RIGHT);
 	rotateFace(BOTTOM_FACE);
+}
+
+void InteractableCube::frontInverseMove() {
+	frontMove();
+	frontMove();
+	frontMove();
+}
+
+void InteractableCube::rightInverseMove() {
+	rightMove();
+	rightMove();
+	rightMove();
+}
+
+void InteractableCube::backInverseMove() {
+	backMove();
+	backMove();
+	backMove();
+}
+
+void InteractableCube::leftInverseMove() {
+	leftMove();
+	leftMove();
+	leftMove();
+}
+
+void InteractableCube::topInverseMove() {
+	topMove();
+	topMove();
+	topMove();
+}
+
+void InteractableCube::bottomInverseMove() {
+	bottomMove();
+	bottomMove();
+	bottomMove();
 }

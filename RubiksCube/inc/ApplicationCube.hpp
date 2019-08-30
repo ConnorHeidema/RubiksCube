@@ -1,6 +1,7 @@
 #pragma once
 #include "Drawable2DCube.hpp"
-#include "InteractableCube.hpp"
+#include "MoveInteractionHUDCube.hpp"
 
-class ApplicationCube : public Drawable2DCube, public InteractableCube { };
+class ApplicationCube : public Drawable2DCube, public MoveInteractionHUDCube {
+};
 

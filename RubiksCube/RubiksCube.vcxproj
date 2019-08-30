@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MoveInteractionHUDCube.cpp" />
     <ClCompile Include="src\ApplicationCube.cpp" />
     <ClCompile Include="src\Cube.cpp" />
     <ClCompile Include="src\Drawable2DCube.cpp" />
@@ -146,6 +147,8 @@
     <ClInclude Include="inc\Cube.hpp" />
     <ClInclude Include="inc\Drawable2DCube.hpp" />
     <ClInclude Include="inc\InteractableCube.hpp" />
+    <ClInclude Include="inc\MoveInteractionHUDCube.hpp" />
+    <ClInclude Include="src\Drawable2DCube.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,7 @@
 #include "inc/ApplicationCube.hpp"
 #include <iostream>
 
+
 int main() {
 	sf::RenderWindow window(
 		sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height),
@@ -13,8 +14,9 @@ int main() {
 	window.setFramerateLimit(60);
 	sf::Clock clock;
 	sf::Time elapsed1;
-	ApplicationCube cube;
 	
+	ApplicationCube cube;
+	bool isMouseClicked = false;
 	while (window.isOpen()) {
 		elapsed1 = clock.getElapsedTime();
 		sf::Event event;
@@ -29,9 +31,17 @@ int main() {
 		}
 		window.clear();
 		sf::VertexArray curve(sf::PrimitiveType::LineStrip, 100);
-		for (int x = 4000; x < 5000; x++) {
+		for (int x = 4500; x < 5000; x++) {
 			curve.append(sf::Vertex(sf::Vector2f(x, 100 + 100*sin(0.01*x))));
 		}
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isMouseClicked) {
+			cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
+			isMouseClicked = true;
+		}
+		if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+			isMouseClicked = false;
+		}
+		cube.drawHUD(window);
 		window.draw(curve);
 		cube.drawFlat(window);
 		window.display();
