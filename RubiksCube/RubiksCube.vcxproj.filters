@@ -51,6 +51,9 @@
     <ClCompile Include="src\Util.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Cube\ApplicationCube.hpp">
@@ -72,6 +75,9 @@
       <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
     <ClInclude Include="inc\Util.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Button.hpp">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
   </ItemGroup>

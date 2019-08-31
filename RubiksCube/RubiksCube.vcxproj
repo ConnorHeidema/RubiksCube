@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Cube\ApplicationCube.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
     <ClCompile Include="src\Cube\Drawable2DCube.cpp" />
@@ -145,6 +146,7 @@
     <ClCompile Include="src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Button.hpp" />
     <ClInclude Include="inc\Cube\ApplicationCube.hpp" />
     <ClInclude Include="inc\Cube\Cube.hpp" />
     <ClInclude Include="inc\Cube\Drawable2DCube.hpp" />
