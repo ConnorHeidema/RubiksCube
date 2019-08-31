@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include "..\Button.hpp"
 #include <map>
+#include <list>
 
  class Cube {
 protected:
@@ -45,4 +47,5 @@ protected:
 	virtual ~Cube() = 0;
 	std::map<Color, const sf::Color> colorMapping;
 	Color cube[NUM_FACES][NUM_POSITIONS];
+	std::list<Button> buttons;
 };

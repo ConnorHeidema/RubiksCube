@@ -143,6 +143,7 @@
     <ClCompile Include="src\Cube\InteractableCube.cpp" />
     <ClCompile Include="src\Cube\MoveInteractionHUDCube.cpp" />
     <ClCompile Include="src\Cube\Scramble.cpp" />
+    <ClCompile Include="src\Image.cpp" />
     <ClCompile Include="src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="inc\Cube\InteractableCube.hpp" />
     <ClInclude Include="inc\Cube\MoveInteractionHUDCube.hpp" />
     <ClInclude Include="inc\Cube\Scramble.hpp" />
+    <ClInclude Include="inc\Image.hpp" />
     <ClInclude Include="inc\Util.hpp" />
   </ItemGroup>
   <ItemGroup>

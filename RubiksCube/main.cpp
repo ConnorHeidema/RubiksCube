@@ -20,7 +20,7 @@ int main() {
 		sf::Style::Fullscreen
 	);
 
-	Button button(3, 3, 3, 3, 3, sf::Color::Green, sf::Color::Red, []() {std::cout << "hellowowlrd"; }, []() {std::cout << "goodbye\n\n\n"; });
+	Button button(100, 200, 75, 30, 50, sf::Color::Green, sf::Color::Red,sf::Text(), sf::Font(), []() {std::cout << "hellowowlrd"; }, []() {std::cout << "goodbye\n\n\n"; }, "Scramble");
 
 	window.setFramerateLimit(FRAMERATE);
 
@@ -41,8 +41,11 @@ int main() {
 		cube.drawScrambleButton(window);
 		cube.drawHUD(window);
 		cube.drawFlat(window);
+		Image image = button.getButtonImage();
+		window.draw(image.rectangle);
+		//window.draw(image.text);
 
-		button.action();
+		button.action(sf::Mouse::getPosition(window));
 		window.display();
 	}
 	return PROGRAM_SUCCESS;
