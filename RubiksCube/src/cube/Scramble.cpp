@@ -1,32 +1,17 @@
 #include "..\..\inc\cube\Scramble.hpp"
 
-Scramble::Scramble() {
-	scrambleClicked = false;
-	scrambleButton.setFillColor(sf::Color::Magenta);
-	scrambleButton.setOutlineThickness(-5);
-	scrambleButton.setSize(sf::Vector2f(200, 75));
-	scrambleButton.setPosition(sf::Vector2f(1600, 100));
-};
-void Scramble::drawScrambleButton(sf::RenderWindow& window) {
-	font.loadFromFile("arial.ttf");
-	text.setFont(font);
-	text.setString("Scramble");
-	text.setCharacterSize(40);
-	text.setFillColor(sf::Color::Black);
-	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	text.setPosition(sf::Vector2f(1610, 110));
-	window.draw(scrambleButton);
-	window.draw(text);
+Scramble::ScrambleButton::ScrambleButton(Scramble* scramble, int xPosition, int yPosition,
+	int xSize, int ySize, int thickness,
+	sf::Color color, sf::Color outlineColour,
+	sf::Text text, sf::Font font, std::string buttonText) : 
+	Button(xPosition, yPosition, xSize, ySize, thickness, color, outlineColour, text, font, buttonText){
+	outerReference = scramble;
 }
 
-void Scramble::scrambleClick(const sf::Vector2i& mousePosition) {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !scrambleClicked && Util::isWithin(mousePosition, scrambleButton)) {
-		scrambleClicked = true;
-		scrambleCube();
-	}
-	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		scrambleClicked = false;
-	}
+Scramble::Scramble() {
+	ScrambleButton* scrambleButtonPtr = 
+		new ScrambleButton(this, 1610, 110, 40, 40, -5, sf::Color::Magenta, sf::Color::Green, sf::Text(), sf::Font(), "Scramble");
+	buttons.push_back(scrambleButtonPtr);
 }
 
 Scramble::~Scramble() {};
@@ -66,4 +51,11 @@ void Scramble::scrambleCube() {
 			break;
 		}
 	}
+}
+
+void Scramble::ScrambleButton::leftButtonClicked() {
+	outerReference->scrambleCube();
+}
+
+void Scramble::ScrambleButton::rightButtonClicked() {
 }

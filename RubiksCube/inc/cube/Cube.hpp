@@ -47,5 +47,5 @@ protected:
 	virtual ~Cube() = 0;
 	std::map<Color, const sf::Color> colorMapping;
 	Color cube[NUM_FACES][NUM_POSITIONS];
-	std::list<Button> buttons;
+	std::list<Button*> buttons;
 };

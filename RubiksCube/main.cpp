@@ -4,14 +4,13 @@
 #include <iostream>
 #include "inc/Button.hpp"
 #include <vector>
+#include <algorithm>
 
 const int FRAMERATE = 60;
 const sf::Color WINDOW_CLEAR_COLOUR = sf::Color(64, 64, 64, 255);
-const int PROGRAM_SUCCESS = 0;
+const int PROGRAM_OUT_OF_GAME_LOOP = 0;
 
 int main() {
-	std::vector<Button> buttons;
-
 	ApplicationCube cube;
 
 	sf::RenderWindow window(
@@ -20,14 +19,15 @@ int main() {
 		sf::Style::Fullscreen
 	);
 
-	Button button(100, 200, 75, 30, 50, sf::Color::Green, sf::Color::Red,sf::Text(), sf::Font(), []() {std::cout << "hellowowlrd"; }, []() {std::cout << "goodbye\n\n\n"; }, "Scramble");
-
 	window.setFramerateLimit(FRAMERATE);
 
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
+				std::for_each(cube.buttons.begin(), cube.buttons.end(), [](Button* thisButton) {
+					delete thisButton;
+					});
 				window.close();
 			}
 		}
@@ -35,18 +35,20 @@ int main() {
 		window.clear(WINDOW_CLEAR_COLOUR);
 
 		cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
-		cube.scrambleClick(sf::Mouse::getPosition(window));
 		cube.squareClick(sf::Mouse::getPosition(window));
-
-		cube.drawScrambleButton(window);
+		std::for_each(cube.buttons.begin(), cube.buttons.end(), [&window](Button* button) {
+			Image image = button->getButtonImage();
+			button->action(sf::Mouse::getPosition());
+			window.draw(image.rectangle);
+			window.draw(image.text);
+			});
 		cube.drawHUD(window);
 		cube.drawFlat(window);
-		Image image = button.getButtonImage();
-		window.draw(image.rectangle);
-		//window.draw(image.text);
 
-		button.action(sf::Mouse::getPosition(window));
 		window.display();
 	}
-	return PROGRAM_SUCCESS;
+	std::for_each(cube.buttons.begin(), cube.buttons.end(), [](Button* thisButton) {
+		delete thisButton;
+		});
+	return PROGRAM_OUT_OF_GAME_LOOP;
 }

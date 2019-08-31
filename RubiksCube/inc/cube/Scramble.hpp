@@ -8,17 +8,20 @@
 
 class Scramble : public virtual InteractableCube {
 private:
-	bool scrambleClicked;
-	sf::RectangleShape scrambleButton;
-	sf::Text text;
-	sf::Font font;
 	void scrambleCube();
+	class ScrambleButton : public Button {
+		friend class Scramble;
+		ScrambleButton(Scramble* scramble, int xPosition = 0, int yPosition = 0,
+			int xSize = 50, int ySize = 50, int thickness = -5,
+			sf::Color color = sf::Color::Red, sf::Color outlineColour = sf::Color::Blue,
+			sf::Text text = sf::Text(), sf::Font font = sf::Font(), std::string buttonText = "null");
+	private:
+		Scramble* outerReference;
+		void leftButtonClicked() override;
+		void rightButtonClicked() override;
+	};
 protected:
 	Scramble();
 public:
-	void drawScrambleButton(sf::RenderWindow& window);
-	void scrambleClick(const sf::Vector2i& mousePosition);
 	virtual ~Scramble() = 0;
-
 };
-
