@@ -46,8 +46,29 @@ void InteractableCube::inverseRotateFace(const Cube::Face& face) {
 	rotateFace(face);
 }
 
-InteractableCube::InteractableCube() {};
-InteractableCube::~InteractableCube() {};
+InteractableCube::InteractableCube() {
+	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove);
+	buttons.push_back(movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE]);
+};
+
+InteractableCube::~InteractableCube() {
+	delete[] movementButtons;
+};
+
+InteractableCube::InteractableCubeButton::InteractableCubeButton(InteractableCube* interactableCube, 
+	void (InteractableCube::* function)(), int xPosition, int yPosition,
+	int xSize, int ySize, int thickness, sf::Color color, sf::Color outlineColour, sf::Text text, sf::Font font, std::string buttonText) :
+	Button(xPosition, yPosition, xSize, ySize, thickness, color, outlineColour, text, font, buttonText) {
+	outerReference = interactableCube;
+	this->moveFnPtr = function;
+}
+
+void InteractableCube::InteractableCubeButton::leftButtonClicked() {
+	((*outerReference).*moveFnPtr)();
+}
+
+void InteractableCube::InteractableCubeButton::rightButtonClicked() {
+}
 
 void InteractableCube::frontMove() {
 	rotate4Squares(TOP_FACE, BOTTOM_LEFT, RIGHT_FACE, TOP_LEFT, BOTTOM_FACE, TOP_RIGHT, LEFT_FACE, BOTTOM_RIGHT);
