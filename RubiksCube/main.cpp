@@ -26,13 +26,16 @@ int main() {
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
-				ranges::for_each(cube, [](Button* thisButton) {delete thisButton;});
+				std::for_each(cube.buttons.begin(), cube.buttons.end(), [](Button* thisButton) {
+					delete thisButton;
+					});
 				window.close();
 			}
 		}
 
 		window.clear(WINDOW_CLEAR_COLOUR);
-		ranges::for_each(cube, [&window](Button* button) {
+
+		std::for_each(cube.buttons.begin(), cube.buttons.end(), [&window](Button* button) {
 			Image image = button->getButtonImage();
 			button->action(sf::Mouse::getPosition());
 			window.draw(image.rectangle);
@@ -46,6 +49,8 @@ int main() {
 
 		window.display();
 	}
-	ranges::for_each(cube, [](Button* thisButton) {delete thisButton;});
+	std::for_each(cube.buttons.begin(), cube.buttons.end(), [](Button* thisButton) {
+		delete thisButton;
+		});
 	return PROGRAM_OUT_OF_GAME_LOOP;
 }
