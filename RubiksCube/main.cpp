@@ -41,11 +41,8 @@ int main() {
 			window.draw(image.rectangle);
 			window.draw(image.text);
 			});
-
 		cube.moveInteractionHudClick(sf::Mouse::getPosition(window));
-		cube.squareClick(sf::Mouse::getPosition(window));
 		cube.drawHUD(window);
-		cube.drawFlat(window);
 
 		window.display();
 	}

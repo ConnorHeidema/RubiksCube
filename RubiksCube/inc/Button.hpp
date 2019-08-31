@@ -8,8 +8,9 @@
 #include <string>
 #include <iostream>
 class Button {
-private:
+protected:
 	Image image;
+private:
 	bool leftClicked;
 	bool rightClicked;
 public:
@@ -17,7 +18,7 @@ public:
 		int xSize = 50, int ySize = 50, int thickness = -5,
 		sf::Color color = sf::Color::Red, sf::Color outlineColour = sf::Color::Blue,
 		sf::Text text = sf::Text(), sf::Font font = sf::Font(), std::string buttonText = "null");
-	Image getButtonImage();
+	virtual Image getButtonImage();
 	void action(sf::Vector2i mousePosition);
 	virtual void leftButtonClicked() = 0;
 	virtual void rightButtonClicked() = 0;

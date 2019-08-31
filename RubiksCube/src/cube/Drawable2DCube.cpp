@@ -2,9 +2,16 @@
 Drawable2DCube::Drawable2DCube() {
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
 		for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
-			squares[face][position].setSize(sf::Vector2f(SIZE, SIZE));
-			squares[face][position].setOutlineThickness(OUTLINE_THICKNESS);
-			squares[face][position].setOutlineColor(OUTLINE_COLOUR);
+			int xAdditionalOffset = 0;
+			int yAdditionalOffset = 0;
+			xAdditionalOffset += xFaceOffset(face, SIZE);
+			yAdditionalOffset += yFaceOffset(face, SIZE);
+			xAdditionalOffset += xPositionOffset(position, SIZE);
+			yAdditionalOffset += yPositionOffset(position, SIZE);
+			squares[face][position] = new SquareButton(this, face, position, 
+				800 + xAdditionalOffset, 500 + yAdditionalOffset, SIZE, SIZE, OUTLINE_THICKNESS, 
+				(*colorMapping.find(cube[face][position])).second, OUTLINE_COLOUR,sf::Text(), sf::Font(), "");
+			buttons.push_back(squares[face][position]);
 		}
 	}
 };
@@ -59,38 +66,25 @@ int Drawable2DCube::yPositionOffset(int position, const int& SIZE) {
 	return 0;
 }
 
-Drawable2DCube::~Drawable2DCube() {};
+Drawable2DCube::~Drawable2DCube() {
+	delete[] squares;
+};
 
-void Drawable2DCube::drawFlat(sf::RenderWindow& window, const int& SIZE, const int& xOffset, const int& yOffset) {
-	int xAdditionalOffset = 0;
-	int yAdditionalOffset = 0;
-	for (auto face = 0; face < NUM_FACES; face++) {
-		for (auto position = 0; position < NUM_POSITIONS; position++) {
-			xAdditionalOffset = 0;
-			yAdditionalOffset = 0;
-			xAdditionalOffset += xFaceOffset(face, SIZE);
-			yAdditionalOffset += yFaceOffset(face, SIZE);
-			xAdditionalOffset += xPositionOffset(position, SIZE);
-			yAdditionalOffset += yPositionOffset(position, SIZE);
-			squares[face][position].setPosition(sf::Vector2f(xOffset + xAdditionalOffset, yOffset + yAdditionalOffset));
-			squares[face][position].setFillColor((*colorMapping.find(cube[face][position])).second);
-			window.draw(squares[face][position]);
-		}
-	}
+Drawable2DCube::SquareButton::SquareButton(Drawable2DCube* drawable2DCube, int face, int position, int xPosition, int yPosition, 
+	int xSize, int ySize, int thickness, sf::Color color, sf::Color outlineColour, sf::Text text, sf::Font font, std::string buttonText) :
+	Button(xPosition, yPosition, xSize, ySize, thickness, color, outlineColour, text, font, buttonText) {
+	outerReference = drawable2DCube;
+	colour = &(outerReference->cube[face][position]);
 }
 
-void Drawable2DCube::squareClick(const sf::Vector2i& mousePosition) {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !squareClicked == true) {
-		squareClicked = true;
-		for (auto face = 0; face < NUM_FACES; face++) {
-			for (auto position = 0; position < NUM_POSITIONS; position++) {
-				if (Util::isWithin(mousePosition, squares[face][position])) {
-					cube[face][position] = static_cast<Color>((cube[face][position] + 1) % NUM_FACES);
-				}
-			}
-		}
-	}
-	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		squareClicked = false;
-	}
+void Drawable2DCube::SquareButton::leftButtonClicked() {
+	*colour = static_cast<Color>((*colour + 1) % NUM_FACES);
+}
+
+void Drawable2DCube::SquareButton::rightButtonClicked() {
+}
+
+Image Drawable2DCube::SquareButton::getButtonImage() {
+	image.rectangle.setFillColor((*outerReference->colorMapping.find(*colour)).second);
+	return image;
 }
