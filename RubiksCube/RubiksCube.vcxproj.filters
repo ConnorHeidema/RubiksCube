@@ -25,6 +25,12 @@
     <Filter Include="Source Files\src\cube">
       <UniqueIdentifier>{9339c6e9-8ace-4618-a9fc-d2fdd02d587c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\inc\algorithm">
+      <UniqueIdentifier>{8aadf271-cdea-41ff-be7c-baf71e7376c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\algorithm">
+      <UniqueIdentifier>{e204bada-727e-4eb1-8c79-4774ab621f46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,9 +48,6 @@
     <ClCompile Include="src\Cube\InteractableCube.cpp">
       <Filter>Source Files\src\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube\MoveInteractionHUDCube.cpp">
-      <Filter>Source Files\src\cube</Filter>
-    </ClCompile>
     <ClCompile Include="src\Cube\Scramble.cpp">
       <Filter>Source Files\src\cube</Filter>
     </ClCompile>
@@ -56,6 +59,21 @@
     </ClCompile>
     <ClCompile Include="src\Image.cpp">
       <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cube\Reset.cpp">
+      <Filter>Source Files\src\cube</Filter>
+    </ClCompile>
+    <ClCompile Include="src\algorithm\AlgorithmStep.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\algorithm\AlignBottomCornerStep.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\algorithm\AlignBottomSidesStep.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cube\Solve.cpp">
+      <Filter>Source Files\src\cube</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +89,6 @@
     <ClInclude Include="inc\Cube\InteractableCube.hpp">
       <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Cube\MoveInteractionHUDCube.hpp">
-      <Filter>Header Files\inc\cube</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Cube\Scramble.hpp">
       <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
@@ -85,6 +100,21 @@
     </ClInclude>
     <ClInclude Include="inc\Image.hpp">
       <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\cube\Reset.hpp">
+      <Filter>Header Files\inc\cube</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlgorithmStep.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlignBottomCornerStep.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlignBottomSidesStep.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\cube\Solve.hpp">
+      <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

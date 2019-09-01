@@ -46,22 +46,28 @@ void InteractableCube::inverseRotateFace(const Cube::Face& face) {
 	rotateFace(face);
 }
 
+const sf::Color InteractableCube::InteractableCubeButton::NORMAL_COLOUR = sf::Color(86, 170, 242, 255);
+const sf::Color InteractableCube::InteractableCubeButton::REVERSE_COLOUR = sf::Color(185, 86, 242, 255);
+const sf::Color InteractableCube::InteractableCubeButton::BUTTON_OUTLINE_COLOUR = sf::Color(32, 32, 32, 255);
+const int InteractableCube::InteractableCubeButton::BUTTON_OUTLINE_THICKNESS = -3;
+
 InteractableCube::InteractableCube() {
-	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove,0);
-	movementButtons[InteractableCubeButton::NORMAL][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightMove,50);
-	movementButtons[InteractableCubeButton::NORMAL][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backMove,100);
-	movementButtons[InteractableCubeButton::NORMAL][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftMove,150);
-	movementButtons[InteractableCubeButton::NORMAL][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topMove,200);
-	movementButtons[InteractableCubeButton::NORMAL][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomMove,250);
-	movementButtons[InteractableCubeButton::INVERSE][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontInverseMove,300);
-	movementButtons[InteractableCubeButton::INVERSE][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightInverseMove,350);
-	movementButtons[InteractableCubeButton::INVERSE][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backInverseMove,400);
-	movementButtons[InteractableCubeButton::INVERSE][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftInverseMove,450);
-	movementButtons[InteractableCubeButton::INVERSE][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topInverseMove,500);
-	movementButtons[InteractableCubeButton::INVERSE][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomInverseMove,550);
-	rotateButtons[RIGHT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateRightFront,600);
-	rotateButtons[TOP_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateTopFront,650);
-	rotateButtons[FRONT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateFrontFront,700);
+	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove, "Move Front",
+		150,250,250,50,-5);
+	movementButtons[InteractableCubeButton::NORMAL][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightMove,"Move Right", 150, 300, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backMove, "Move Back", 150, 350, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftMove, "Move Left", 150, 400, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topMove, "Move Top", 150, 450, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomMove, "Move Bottom", 150, 500, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontInverseMove, "Move Front Inv",150, 550, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightInverseMove, "Move Right Inv", 150, 600, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backInverseMove, "Move Back Inv", 150, 650, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftInverseMove, "Move Left Inv", 150, 700, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topInverseMove, "Move Top Inv", 150, 750, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomInverseMove, "Move Bottom Inv", 150, 800, 250, 50);
+	rotateButtons[RIGHT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateRightFront, "Rotate Right Front", 150, 850, 250, 50);
+	rotateButtons[TOP_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateTopFront, "Rotate Top Front", 150, 900, 250, 50);
+	rotateButtons[FRONT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateFrontFront, "Rotate Front Front", 150, 950, 250, 50);
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
 		buttons.push_back(movementButtons[InteractableCubeButton::NORMAL][face]);
 		buttons.push_back(movementButtons[InteractableCubeButton::INVERSE][face]);
@@ -79,6 +85,14 @@ InteractableCube::~InteractableCube() {
 InteractableCube::InteractableCubeButton::InteractableCubeButton(InteractableCube* interactableCube, 
 	void (InteractableCube::* function)(), int xPosition, int yPosition,
 	int xSize, int ySize, int thickness, sf::Color color, sf::Color outlineColour, sf::Text text, sf::Font font, std::string buttonText) :
+	Button(xPosition, yPosition, xSize, ySize, thickness, color, outlineColour, text, font, buttonText) {
+	outerReference = interactableCube;
+	this->moveFnPtr = function;
+}
+
+InteractableCube::InteractableCubeButton::InteractableCubeButton(InteractableCube* interactableCube, 
+	void(InteractableCube::* function)(), std::string buttonText, int xPosition, int yPosition, int xSize, int ySize, 
+	int thickness, sf::Color color, sf::Color outlineColour, sf::Text text, sf::Font font) :
 	Button(xPosition, yPosition, xSize, ySize, thickness, color, outlineColour, text, font, buttonText) {
 	outerReference = interactableCube;
 	this->moveFnPtr = function;

@@ -9,12 +9,14 @@ Scramble::ScrambleButton::ScrambleButton(Scramble* scramble, int xPosition, int 
 }
 
 Scramble::Scramble() {
-	ScrambleButton* scrambleButtonPtr = 
+	scrambleButtonPtr = 
 		new ScrambleButton(this, 1610, 110, 200, 75, -5, sf::Color::Magenta, sf::Color::Green, sf::Text(), sf::Font(), "Scramble");
 	buttons.push_back(scrambleButtonPtr);
 }
 
-Scramble::~Scramble() {};
+Scramble::~Scramble() {
+	delete scrambleButtonPtr;
+};
 
 void Scramble::scrambleCube() {
 	srand(time(0));

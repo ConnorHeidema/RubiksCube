@@ -6,22 +6,22 @@
 #include <cstdlib>
 #include <iostream>
 
-class Scramble : public virtual InteractableCube {
+class Reset : public virtual InteractableCube {
 private:
-	void scrambleCube();
-	class ScrambleButton : public Button {
-		friend class Scramble;
-		ScrambleButton(Scramble* scramble, int xPosition = 0, int yPosition = 0,
+	void resetCube();
+	class ResetButton : public Button {
+		friend class Reset;
+		ResetButton(Reset* reset, int xPosition = 0, int yPosition = 0,
 			int xSize = 50, int ySize = 50, int thickness = -5,
 			sf::Color color = sf::Color::Red, sf::Color outlineColour = sf::Color::Blue,
 			sf::Text text = sf::Text(), sf::Font font = sf::Font(), std::string buttonText = "null");
-		Scramble* outerReference;
+		Reset* outerReference;
 		void leftButtonClicked() override;
 		void rightButtonClicked() override;
 	};
-	ScrambleButton* scrambleButtonPtr;
+	ResetButton* resetButtonPtr;
 protected:
-	Scramble();
+	Reset();
 public:
-	virtual ~Scramble() = 0;
+	virtual ~Reset() = 0;
 };

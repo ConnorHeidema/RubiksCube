@@ -1,4 +1,5 @@
 #include "..\inc\Button.hpp"
+#include "..\inc\Util.hpp"
 
 Button::Button(int xPosition, int yPosition,
 	int xSize, int ySize, int thickness,

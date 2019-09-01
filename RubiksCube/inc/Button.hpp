@@ -1,6 +1,5 @@
 #pragma once
 #include "Image.hpp"
-#include "Util.hpp"
 #include "SFML\Graphics.hpp"
 #include "SFML\Window.hpp"
 #include <functional>

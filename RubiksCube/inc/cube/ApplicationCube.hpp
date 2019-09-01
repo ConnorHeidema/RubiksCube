@@ -1,8 +1,13 @@
 #pragma once
 #include "Drawable2DCube.hpp"
-#include "MoveInteractionHUDCube.hpp"
+#include "InteractableCube.hpp"
 #include "Scramble.hpp"
+#include "Reset.hpp"
+#include "Solve.hpp"
 
-
-class ApplicationCube : public virtual Drawable2DCube, public virtual MoveInteractionHUDCube, public virtual Scramble {
-};
+class ApplicationCube : 
+	public virtual Drawable2DCube, 
+	public virtual InteractableCube, 
+	public virtual Scramble,
+	public virtual Reset,
+	public virtual Solve {};
