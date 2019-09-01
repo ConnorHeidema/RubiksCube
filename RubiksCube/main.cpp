@@ -26,9 +26,6 @@ int main() {
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
-				std::for_each(cube.buttons.begin(), cube.buttons.end(), [](Button* thisButton) {
-					delete thisButton;
-					});
 				window.close();
 			}
 		}
@@ -46,8 +43,5 @@ int main() {
 
 		window.display();
 	}
-	std::for_each(cube.buttons.begin(), cube.buttons.end(), [](Button* thisButton) {
-		delete thisButton;
-		});
 	return PROGRAM_OUT_OF_GAME_LOOP;
 }

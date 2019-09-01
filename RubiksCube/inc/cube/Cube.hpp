@@ -1,6 +1,6 @@
 #pragma once
-#include <SFML\Graphics.hpp>
 #include "..\Button.hpp"
+#include <SFML\Graphics.hpp>
 #include <map>
 #include <list>
 

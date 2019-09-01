@@ -23,6 +23,7 @@ private:
 		virtual void rightButtonClicked() override;
 	};
 	InteractableCubeButton* movementButtons[2][NUM_FACES];
+	InteractableCubeButton* rotateButtons[3];
 
 	void rotate4Squares(const Cube::Face& firstFace, const Cube::Position firstPosition,
 		const Cube::Face& secondFace, const Cube::Position secondPosition,

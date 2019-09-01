@@ -47,12 +47,33 @@ void InteractableCube::inverseRotateFace(const Cube::Face& face) {
 }
 
 InteractableCube::InteractableCube() {
-	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove);
-	buttons.push_back(movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE]);
+	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove,0);
+	movementButtons[InteractableCubeButton::NORMAL][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightMove,50);
+	movementButtons[InteractableCubeButton::NORMAL][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backMove,100);
+	movementButtons[InteractableCubeButton::NORMAL][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftMove,150);
+	movementButtons[InteractableCubeButton::NORMAL][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topMove,200);
+	movementButtons[InteractableCubeButton::NORMAL][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomMove,250);
+	movementButtons[InteractableCubeButton::INVERSE][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontInverseMove,300);
+	movementButtons[InteractableCubeButton::INVERSE][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightInverseMove,350);
+	movementButtons[InteractableCubeButton::INVERSE][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backInverseMove,400);
+	movementButtons[InteractableCubeButton::INVERSE][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftInverseMove,450);
+	movementButtons[InteractableCubeButton::INVERSE][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topInverseMove,500);
+	movementButtons[InteractableCubeButton::INVERSE][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomInverseMove,550);
+	rotateButtons[RIGHT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateRightFront,600);
+	rotateButtons[TOP_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateTopFront,650);
+	rotateButtons[FRONT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateFrontFront,700);
+	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
+		buttons.push_back(movementButtons[InteractableCubeButton::NORMAL][face]);
+		buttons.push_back(movementButtons[InteractableCubeButton::INVERSE][face]);
+	}
+	for (int rotation = RIGHT_FRONT; rotation < NUM_ROTATIONS; rotation++) {
+		buttons.push_back(rotateButtons[rotation]);
+	}
 };
 
 InteractableCube::~InteractableCube() {
 	delete[] movementButtons;
+	delete[] rotateButtons;
 };
 
 InteractableCube::InteractableCubeButton::InteractableCubeButton(InteractableCube* interactableCube, 

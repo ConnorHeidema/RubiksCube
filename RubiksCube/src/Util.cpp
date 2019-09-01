@@ -8,3 +8,15 @@ bool Util::isWithin(const sf::Vector2i& mouse, const sf::RectangleShape& rectang
 	}
 	return false;
 }
+
+//DebugButton::DebugButton(int xPosition, int yPosition, int xSize, int ySize, int thickness, 
+//	sf::Color color, sf::Color outlineColour, sf::Text text, sf::Font font, std::string buttonText) :
+//	Button(xPosition, yPosition, xSize, ySize, thickness, color, outlineColour, text, font, buttonText) {
+//}
+//
+//void DebugButton::leftButtonClicked() {
+//	std::cout << "Mouse position \nx:" << sf::Mouse::getPosition().x << "\ny:" << sf::Mouse::getPosition().y;
+//}
+//
+//void DebugButton::rightButtonClicked() {
+//}
