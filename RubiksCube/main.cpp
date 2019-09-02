@@ -13,9 +13,9 @@ const int PROGRAM_OUT_OF_GAME_LOOP = 0;
 
 int main() {
 	ApplicationCube cube;
-	//DebugButton debugButton(0,0, sf::VideoMode::getDesktopMode().width, 
-	//	sf::VideoMode::getDesktopMode().height,0,sf::Color::Transparent,sf::Color::Transparent,
-	//	sf::Text(), sf::Font(), "DEBUG");
+	DebugButton debugButton(0,0, sf::VideoMode::getDesktopMode().width, 
+		sf::VideoMode::getDesktopMode().height,0,sf::Color::Transparent,sf::Color::Transparent,
+		sf::Text(), sf::Font(), "-");
 
 	sf::RenderWindow window(
 		sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height),
@@ -42,10 +42,10 @@ int main() {
 			window.draw(image.text);
 			});
 
-		//Image image = debugButton.getButtonImage();
-		//debugButton.action(sf::Mouse::getPosition());
-		//window.draw(image.rectangle);
-		//window.draw(image.text);
+		Image image = debugButton.getButtonImage();
+		debugButton.action(sf::Mouse::getPosition());
+		window.draw(image.rectangle);
+		window.draw(image.text);
 
 		window.display();
 	}

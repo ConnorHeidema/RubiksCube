@@ -12,6 +12,8 @@ protected:
 private:
 	bool leftClicked;
 	bool rightClicked;
+	virtual void leftButtonClicked() = 0;
+	virtual void rightButtonClicked() = 0;
 public:
 	Button(int xPosition = 0, int yPosition = 0,
 		int xSize = 50, int ySize = 50, int thickness = -5,
@@ -19,6 +21,4 @@ public:
 		sf::Text text = sf::Text(), sf::Font font = sf::Font(), std::string buttonText = "null");
 	virtual Image getButtonImage();
 	void action(sf::Vector2i mousePosition);
-	virtual void leftButtonClicked() = 0;
-	virtual void rightButtonClicked() = 0;
 };

@@ -46,3 +46,9 @@ void Button::action(sf::Vector2i mousePosition) {
 		rightClicked = false;
 	}
 }
+
+void Button::leftButtonClicked() {
+}
+
+void Button::rightButtonClicked() {
+}

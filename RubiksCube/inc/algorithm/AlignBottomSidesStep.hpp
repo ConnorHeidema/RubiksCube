@@ -6,13 +6,16 @@ class AlignBottomSidesStep :
 public:
 	virtual bool stepIsComplete(InteractableCube& cube) override;
 	virtual std::list<std::string> makeMoves(InteractableCube& cube, int maxMovesAllowed = 1000) override;
-	void backTopCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void topTopCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void topRightCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void rightTopCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void topLeftCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void leftTopCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void frontTopCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
-	void topBottomCubeAlign(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void orientation1Steps(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void orientation2Steps(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void frontFaceTop(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void backFaceTop(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void rightFaceTop(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void leftFaceTop(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void topFaceTop(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void topFaceRight(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void topFaceLeft(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+	void topFaceBottom(std::list<std::string>&, InteractableCube& cube, int maxMovesAllowed = 1000);
+
 };
 
