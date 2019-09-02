@@ -46,7 +46,7 @@ void Solve::SolveButton::leftButtonClicked() {
 	size_t currentMoveOffset = 0;
 	for (const auto& move : outerReference->moveList) {
 		currentMoveOffset += move.length();
-		if (currentMoveOffset > 120) {
+		if (currentMoveOffset > 100) {
 			moveString += "\r\n";
 			currentMoveOffset = 0;
 		}

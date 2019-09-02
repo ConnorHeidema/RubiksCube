@@ -1,5 +1,8 @@
 #include "..\..\inc\algorithm\AlgorithmStep.hpp"
 
+AlgorithmStep::~AlgorithmStep() {
+}
+
 std::string AlgorithmStep::performStep(InteractableCube& cube, void(InteractableCube::* function)()) {
 	std::string functionCalledString;
 	if (function == &InteractableCube::frontMove) functionCalledString = "front";

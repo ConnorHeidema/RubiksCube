@@ -139,6 +139,7 @@
     <ClCompile Include="src\algorithm\AlgorithmStep.cpp" />
     <ClCompile Include="src\algorithm\AlignBottomCornerStep.cpp" />
     <ClCompile Include="src\algorithm\AlignBottomSidesStep.cpp" />
+    <ClCompile Include="src\algorithm\AlignMiddleSidesStep.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Cube\ApplicationCube.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="inc\algorithm\AlgorithmStep.hpp" />
     <ClInclude Include="inc\algorithm\AlignBottomCornerStep.hpp" />
     <ClInclude Include="inc\algorithm\AlignBottomSidesStep.hpp" />
+    <ClInclude Include="inc\algorithm\AlignMiddleSidesStep.hpp" />
     <ClInclude Include="inc\Button.hpp" />
     <ClInclude Include="inc\Cube\ApplicationCube.hpp" />
     <ClInclude Include="inc\Cube\Cube.hpp" />
