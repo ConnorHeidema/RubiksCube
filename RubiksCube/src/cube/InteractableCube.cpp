@@ -52,22 +52,21 @@ const sf::Color InteractableCube::InteractableCubeButton::BUTTON_OUTLINE_COLOUR 
 const int InteractableCube::InteractableCubeButton::BUTTON_OUTLINE_THICKNESS = -3;
 
 InteractableCube::InteractableCube() {
-	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove, "Move Front",
-		150,250,250,50,-5);
-	movementButtons[InteractableCubeButton::NORMAL][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightMove,"Move Right", 150, 300, 250, 50);
-	movementButtons[InteractableCubeButton::NORMAL][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backMove, "Move Back", 150, 350, 250, 50);
-	movementButtons[InteractableCubeButton::NORMAL][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftMove, "Move Left", 150, 400, 250, 50);
-	movementButtons[InteractableCubeButton::NORMAL][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topMove, "Move Top", 150, 450, 250, 50);
-	movementButtons[InteractableCubeButton::NORMAL][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomMove, "Move Bottom", 150, 500, 250, 50);
-	movementButtons[InteractableCubeButton::INVERSE][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontInverseMove, "Move Front Inv",150, 550, 250, 50);
-	movementButtons[InteractableCubeButton::INVERSE][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightInverseMove, "Move Right Inv", 150, 600, 250, 50);
-	movementButtons[InteractableCubeButton::INVERSE][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backInverseMove, "Move Back Inv", 150, 650, 250, 50);
-	movementButtons[InteractableCubeButton::INVERSE][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftInverseMove, "Move Left Inv", 150, 700, 250, 50);
-	movementButtons[InteractableCubeButton::INVERSE][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topInverseMove, "Move Top Inv", 150, 750, 250, 50);
-	movementButtons[InteractableCubeButton::INVERSE][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomInverseMove, "Move Bottom Inv", 150, 800, 250, 50);
-	rotateButtons[RIGHT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateRightFront, "Rotate Right Front", 150, 850, 250, 50);
-	rotateButtons[TOP_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateTopFront, "Rotate Top Front", 150, 900, 250, 50);
-	rotateButtons[FRONT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateFrontFront, "Rotate Front Front", 150, 950, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontMove, "Move Front",75,250,250,50,-5);
+	movementButtons[InteractableCubeButton::NORMAL][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightMove,"Move Right", 75, 300, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backMove, "Move Back", 75, 350, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftMove, "Move Left", 75, 400, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topMove, "Move Top", 75, 450, 250, 50);
+	movementButtons[InteractableCubeButton::NORMAL][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomMove, "Move Bottom", 75, 500, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][FRONT_FACE] = new InteractableCubeButton(this, &InteractableCube::frontInverseMove, "Move Front Inv", 325, 250, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][RIGHT_FACE] = new InteractableCubeButton(this, &InteractableCube::rightInverseMove, "Move Right Inv", 325, 300, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][LEFT_FACE] = new InteractableCubeButton(this, &InteractableCube::backInverseMove, "Move Back Inv", 325, 350, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][BACK_FACE] = new InteractableCubeButton(this, &InteractableCube::leftInverseMove, "Move Left Inv", 325, 400, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][TOP_FACE] = new InteractableCubeButton(this, &InteractableCube::topInverseMove, "Move Top Inv", 325, 450, 250, 50);
+	movementButtons[InteractableCubeButton::INVERSE][BOTTOM_FACE] = new InteractableCubeButton(this, &InteractableCube::bottomInverseMove, "Move Bottom Inv", 325, 500, 250, 50);
+	rotateButtons[RIGHT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateRightFront, "Rotate Right Front", 200, 600, 250, 50);
+	rotateButtons[TOP_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateTopFront, "Rotate Top Front", 200, 650, 250, 50);
+	rotateButtons[FRONT_FRONT] = new InteractableCubeButton(this, &InteractableCube::rotateFrontFront, "Rotate Front Front", 200, 700, 250, 50);
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
 		buttons.push_back(movementButtons[InteractableCubeButton::NORMAL][face]);
 		buttons.push_back(movementButtons[InteractableCubeButton::INVERSE][face]);

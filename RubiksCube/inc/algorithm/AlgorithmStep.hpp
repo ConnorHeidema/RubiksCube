@@ -7,5 +7,5 @@ class AlgorithmStep {
 public:
 	virtual bool stepIsComplete(InteractableCube& cube) = 0;
 	virtual std::list<std::string> makeMoves(InteractableCube& cube, int maxMovesAllowed = 100) = 0;
-	virtual std::string performStep(void(InteractableCube::* function)());
+	std::string performStep(InteractableCube& cube, void(InteractableCube::* function)());
 };

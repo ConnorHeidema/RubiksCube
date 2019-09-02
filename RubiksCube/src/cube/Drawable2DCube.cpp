@@ -82,6 +82,11 @@ void Drawable2DCube::SquareButton::leftButtonClicked() {
 }
 
 void Drawable2DCube::SquareButton::rightButtonClicked() {
+	if (*colour == 0) {
+		*colour = Cube::GREEN;
+	} else {
+		*colour = static_cast<Color>((*colour - 1) % NUM_FACES);
+	}
 }
 
 Image Drawable2DCube::SquareButton::getButtonImage() {
