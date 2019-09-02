@@ -1,6 +1,14 @@
 #include "..\..\inc\algorithm\AlignBottomSidesStep.hpp"
 
 bool AlignBottomSidesStep::stepIsComplete(InteractableCube& cube) {
+	if (cube.cube[Cube::FRONT_FACE][Cube::TOP] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::FRONT_FACE][Cube::RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::FRONT_FACE][Cube::BOTTOM] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::FRONT_FACE][Cube::LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::TOP_FACE][Cube::BOTTOM] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::RIGHT_FACE][Cube::LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BOTTOM_FACE][Cube::TOP] == cube.cube[Cube::BOTTOM_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::LEFT_FACE][Cube::RIGHT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE]) return true;
 	return false;
 }
 

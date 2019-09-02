@@ -28,16 +28,14 @@ void Solve::solveCube() {
 	this->moveList.clear();
 	std::list<AlgorithmStep*> currentStep = { 
 		new AlignBottomSidesStep() ,
-		new AlignBottomCornerStep() 
+		new AlignBottomCornerStep()
 	};
 	Solve* cubePtr = this;
 	std::for_each(currentStep.begin(), currentStep.end(), [&currentStep, &cubePtr](AlgorithmStep* step) {
-		//if (!step->stepIsComplete(*cubePtr)) {
-			(cubePtr->moveList).splice((cubePtr->moveList).end(), step->makeMoves(*cubePtr));
-		//}
 		if (!step->stepIsComplete(*cubePtr)) {
-			std::cout << "ERROR IN STEP" << std::endl;
+			(cubePtr->moveList).splice((cubePtr->moveList).end(), step->makeMoves(*cubePtr));
 		}
+		std::cout << (step->stepIsComplete(*cubePtr) ? "Step successful\n" : "ERROR IN STEP\n");
 		delete step;
 		});
 }

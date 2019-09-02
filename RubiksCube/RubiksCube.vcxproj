@@ -140,6 +140,7 @@
     <ClCompile Include="src\algorithm\AlignBottomCornerStep.cpp" />
     <ClCompile Include="src\algorithm\AlignBottomSidesStep.cpp" />
     <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\CornerCube.cpp" />
     <ClCompile Include="src\Cube\ApplicationCube.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
     <ClCompile Include="src\Cube\Drawable2DCube.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="src\Cube\Scramble.cpp" />
     <ClCompile Include="src\cube\Solve.cpp" />
     <ClCompile Include="src\Image.cpp" />
+    <ClCompile Include="src\SquarePlacement.cpp" />
     <ClCompile Include="src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +157,7 @@
     <ClInclude Include="inc\algorithm\AlignBottomCornerStep.hpp" />
     <ClInclude Include="inc\algorithm\AlignBottomSidesStep.hpp" />
     <ClInclude Include="inc\Button.hpp" />
+    <ClInclude Include="inc\CornerCube.hpp" />
     <ClInclude Include="inc\Cube\ApplicationCube.hpp" />
     <ClInclude Include="inc\Cube\Cube.hpp" />
     <ClInclude Include="inc\Cube\Drawable2DCube.hpp" />
@@ -163,6 +166,7 @@
     <ClInclude Include="inc\Cube\Scramble.hpp" />
     <ClInclude Include="inc\cube\Solve.hpp" />
     <ClInclude Include="inc\Image.hpp" />
+    <ClInclude Include="inc\SquarePlacement.hpp" />
     <ClInclude Include="inc\Util.hpp" />
   </ItemGroup>
   <ItemGroup>
