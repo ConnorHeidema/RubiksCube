@@ -1,7 +1,7 @@
 #pragma once
 #include "..\cube\InteractableCube.hpp"
 #include "../cube/Cube.hpp"
-#include "list"
+#include <list>
 #include <string>
 class AlgorithmStep {
 public:

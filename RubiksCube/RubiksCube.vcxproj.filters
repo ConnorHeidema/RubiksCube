@@ -75,12 +75,6 @@
     <ClCompile Include="src\cube\Solve.cpp">
       <Filter>Source Files\src\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\SquarePlacement.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CornerCube.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Cube\ApplicationCube.hpp">
@@ -121,12 +115,6 @@
     </ClInclude>
     <ClInclude Include="inc\cube\Solve.hpp">
       <Filter>Header Files\inc\cube</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SquarePlacement.hpp">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CornerCube.hpp">
-      <Filter>Header Files\inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

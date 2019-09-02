@@ -30,9 +30,4 @@ std::list<std::string> AlignBottomCornerStep::makeMoves(InteractableCube& cube, 
 
 void AlignBottomCornerStep::alignCorner(std::list<std::string>& stepsUsed,InteractableCube& cube, int maxMovesAllowed,
 	const Cube::Color& firstColour, const Cube::Color& secondColour, const Cube::Color& thirdColour) {
-	CornerCube cornerCube = findCorner(firstColour, secondColour, thirdColour);
-}
-
-CornerCube AlignBottomCornerStep::findCorner(const Cube::Color& firstColour, const Cube::Color& secondColour, const Cube::Color& thirdColour) {
-	return CornerCube(1,1,1,1,1,1);
 }

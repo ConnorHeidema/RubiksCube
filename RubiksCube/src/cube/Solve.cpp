@@ -27,7 +27,7 @@ Solve::~Solve() {
 void Solve::solveCube() {
 	this->moveList.clear();
 	std::list<AlgorithmStep*> currentStep = { 
-		new AlignBottomSidesStep() ,
+		new AlignBottomSidesStep(),
 		new AlignBottomCornerStep()
 	};
 	Solve* cubePtr = this;
@@ -43,7 +43,7 @@ void Solve::solveCube() {
 void Solve::SolveButton::leftButtonClicked() {
 	outerReference->solveCube();
 	std::string moveString;
-	int currentMoveOffset = 0;
+	size_t currentMoveOffset = 0;
 	for (const auto& move : outerReference->moveList) {
 		currentMoveOffset += move.length();
 		if (currentMoveOffset > 120) {
