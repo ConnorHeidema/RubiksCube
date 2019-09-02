@@ -1,10 +1,11 @@
 #include "..\..\inc\algorithm\AlignBottomCornerStep.hpp"
 
-bool AlignBottomCornerStep::stepIsComplete(Cube& cube) {
+bool AlignBottomCornerStep::stepIsComplete(InteractableCube& cube) {
 	return false;
 }
 
-int AlignBottomCornerStep::makeMoves(Cube& cube, int maxMovesAllowed) {
-	return 0;
+std::list<std::string> AlignBottomCornerStep::makeMoves(InteractableCube& cube, int maxMovesAllowed) {
+	std::list <std::string> stepsUsed;
+	return stepsUsed;
 }
 

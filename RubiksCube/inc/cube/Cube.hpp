@@ -7,6 +7,7 @@
  class Cube {
 protected:
 	Cube();
+ public:
 	enum Rotations {
 		RIGHT_FRONT,
 		TOP_FRONT,

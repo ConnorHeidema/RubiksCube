@@ -7,8 +7,8 @@ private:
 		friend class InteractableCube;
 		static const sf::Color NORMAL_COLOUR;
 		static const sf::Color REVERSE_COLOUR;
-		static const sf::Color BUTTON_OUTLINE_COLOUR;// = sf::Color(32, 32, 32, 255);
-		static const int BUTTON_OUTLINE_THICKNESS;// = -3;
+		static const sf::Color BUTTON_OUTLINE_COLOUR;
+		static const int BUTTON_OUTLINE_THICKNESS;
 		void (InteractableCube::* moveFnPtr)(void);
 		InteractableCubeButton(InteractableCube* interactableCube, void (InteractableCube::* function)(), int xPosition = 0, int yPosition = 0,
 			int xSize = 50, int ySize = 50, int thickness = -5,
@@ -39,7 +39,7 @@ private:
 		const Cube::Face& fourthFace, const Cube::Position fourthPosition);
 	void rotateFace(const Cube::Face& face);
 	void inverseRotateFace(const Cube::Face& face);
-protected:
+public:
 	InteractableCube();
 	void frontMove();
 	void rightMove();
@@ -56,7 +56,6 @@ protected:
 	void rotateRightFront();
 	void rotateTopFront();
 	void rotateFrontFront();
-public:
 	virtual ~InteractableCube() = 0;
 };
 

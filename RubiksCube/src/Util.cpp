@@ -15,7 +15,7 @@ DebugButton::DebugButton(int xPosition, int yPosition, int xSize, int ySize, int
 }
 
 void DebugButton::leftButtonClicked() {
-	std::cout << "Mouse position \nx:" << sf::Mouse::getPosition().x << "\ny:" << sf::Mouse::getPosition().y;
+	std::cout << "Mouse position \nx:" << sf::Mouse::getPosition().x << "\ny:" << sf::Mouse::getPosition().y << std::endl;
 }
 
 void DebugButton::rightButtonClicked() {
