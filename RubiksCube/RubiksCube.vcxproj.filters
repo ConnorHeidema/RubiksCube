@@ -87,6 +87,9 @@
     <ClCompile Include="src\algorithm\AlignTopCorners.cpp">
       <Filter>Source Files\src\algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="src\algorithm\AlignFinalCornersFully.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Cube\ApplicationCube.hpp">
@@ -138,6 +141,9 @@
       <Filter>Header Files\inc\algorithm</Filter>
     </ClInclude>
     <ClInclude Include="inc\algorithm\AlignTopCorners.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlignFinalCornersFully.hpp">
       <Filter>Header Files\inc\algorithm</Filter>
     </ClInclude>
   </ItemGroup>

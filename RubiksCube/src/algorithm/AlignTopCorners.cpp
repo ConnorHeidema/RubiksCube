@@ -6,9 +6,9 @@ bool AlignTopCorners::stepIsComplete(InteractableCube& cube) {
 		if ((cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
 			cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
 			cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
-			(cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
+			(cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+			cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+			cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
 			(cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
 			cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
 			cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE])) {
@@ -22,21 +22,35 @@ bool AlignTopCorners::stepIsComplete(InteractableCube& cube) {
 std::list<std::string> AlignTopCorners::makeMoves(InteractableCube& cube, int maxMovesAllowed) {
 
 	std::list<std::string> stepsUsed;
-	for (int i = 0; i < 4; i++) {
-		if ((cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
-			(cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
-			(cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
-			cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE])) {
-			while () {
-				topCornerPermutation(stepsUsed, cube, maxMovesAllowed);
+	for (int k = 0; k < 4; k++) {
+		for (int i = 0; i < 4; i++) {
+			if ((cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+				cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+				cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
+				(cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+					cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+					cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE]) &&
+					(cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+						cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+						cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE])) {
+				for (int j = 0; j < 4; j++) {
+					if ((cube.cube[Cube::FRONT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+						cube.cube[Cube::FRONT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+						cube.cube[Cube::FRONT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE]) &&
+						(cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+							cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+							cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE]) &&
+							(cube.cube[Cube::LEFT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] ||
+								cube.cube[Cube::LEFT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] ||
+								cube.cube[Cube::LEFT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE])) {
+						return stepsUsed;
+					}
+					topCornerPermutation(stepsUsed, cube, maxMovesAllowed);
+				}
 			}
+			stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateRightFront));
 		}
-		stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateRightFront));
+		topCornerPermutation(stepsUsed, cube, maxMovesAllowed);
 	}
 	return stepsUsed;
 }

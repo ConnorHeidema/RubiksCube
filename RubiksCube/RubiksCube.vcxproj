@@ -139,6 +139,7 @@
     <ClCompile Include="src\algorithm\AlgorithmStep.cpp" />
     <ClCompile Include="src\algorithm\AlignBottomCornerStep.cpp" />
     <ClCompile Include="src\algorithm\AlignBottomSidesStep.cpp" />
+    <ClCompile Include="src\algorithm\AlignFinalCornersFully.cpp" />
     <ClCompile Include="src\algorithm\AlignMiddleSidesStep.cpp" />
     <ClCompile Include="src\algorithm\AlignTopCorners.cpp" />
     <ClCompile Include="src\algorithm\AlignTopCross.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="inc\algorithm\AlgorithmStep.hpp" />
     <ClInclude Include="inc\algorithm\AlignBottomCornerStep.hpp" />
     <ClInclude Include="inc\algorithm\AlignBottomSidesStep.hpp" />
+    <ClInclude Include="inc\algorithm\AlignFinalCornersFully.hpp" />
     <ClInclude Include="inc\algorithm\AlignMiddleSidesStep.hpp" />
     <ClInclude Include="inc\algorithm\AlignTopCorners.hpp" />
     <ClInclude Include="inc\algorithm\AlignTopCross.hpp" />

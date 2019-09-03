@@ -32,7 +32,8 @@ void Solve::solveCube() {
 		new AlignMiddleSidesStep(),
 		new AlignTopCross(),
 		new AlignTopSquares(),
-		new AlignTopCorners()
+		new AlignTopCorners(),
+		new AlignFinalCornersFully()
 	};
 	Solve* cubePtr = this;
 	std::for_each(currentStep.begin(), currentStep.end(), [&currentStep, &cubePtr](AlgorithmStep* step) {

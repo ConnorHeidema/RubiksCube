@@ -7,6 +7,7 @@
 #include "..\algorithm\AlignTopCross.hpp"
 #include "..\algorithm\AlignTopSquares.hpp"
 #include "..\algorithm\AlignTopCorners.hpp"
+#include "..\algorithm\AlignFinalCornersFully.hpp"
 #include "SFML\Graphics.hpp"
 #include <ctime>
 #include <cstdlib>
