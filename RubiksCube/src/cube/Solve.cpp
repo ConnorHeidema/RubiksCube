@@ -28,7 +28,8 @@ void Solve::solveCube() {
 	this->moveList.clear();
 	std::list<AlgorithmStep*> currentStep = { 
 		new AlignBottomSidesStep(),
-		new AlignBottomCornerStep()
+		new AlignBottomCornerStep(),
+		new AlignMiddleSidesStep()
 	};
 	Solve* cubePtr = this;
 	std::for_each(currentStep.begin(), currentStep.end(), [&currentStep, &cubePtr](AlgorithmStep* step) {

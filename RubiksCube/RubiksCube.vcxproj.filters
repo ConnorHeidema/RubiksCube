@@ -78,6 +78,9 @@
     <ClCompile Include="src\algorithm\AlignMiddleSidesStep.cpp">
       <Filter>Source Files\src\algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="src\algorithm\AlignTopCross.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Cube\ApplicationCube.hpp">
@@ -120,6 +123,9 @@
       <Filter>Header Files\inc\cube</Filter>
     </ClInclude>
     <ClInclude Include="inc\algorithm\AlignMiddleSidesStep.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlignTopCross.hpp">
       <Filter>Header Files\inc\algorithm</Filter>
     </ClInclude>
   </ItemGroup>
