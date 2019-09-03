@@ -4,6 +4,9 @@
 #include "..\algorithm\AlignBottomSidesStep.hpp"
 #include "..\algorithm\AlignBottomCornerStep.hpp"
 #include "..\algorithm\AlignMiddleSidesStep.hpp"
+#include "..\algorithm\AlignTopCross.hpp"
+#include "..\algorithm\AlignTopSquares.hpp"
+#include "..\algorithm\AlignTopCorners.hpp"
 #include "SFML\Graphics.hpp"
 #include <ctime>
 #include <cstdlib>

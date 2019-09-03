@@ -81,6 +81,12 @@
     <ClCompile Include="src\algorithm\AlignTopCross.cpp">
       <Filter>Source Files\src\algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="src\algorithm\AlignTopSquares.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\algorithm\AlignTopCorners.cpp">
+      <Filter>Source Files\src\algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Cube\ApplicationCube.hpp">
@@ -126,6 +132,12 @@
       <Filter>Header Files\inc\algorithm</Filter>
     </ClInclude>
     <ClInclude Include="inc\algorithm\AlignTopCross.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlignTopSquares.hpp">
+      <Filter>Header Files\inc\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\algorithm\AlignTopCorners.hpp">
       <Filter>Header Files\inc\algorithm</Filter>
     </ClInclude>
   </ItemGroup>

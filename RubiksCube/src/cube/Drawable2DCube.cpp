@@ -1,5 +1,7 @@
 #include "..\..\inc\cube\Drawable2DCube.hpp"
 Drawable2DCube::Drawable2DCube() {
+	const int initialXLocation = 800;
+	const int initialYLocation = 250;
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
 		for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
 			int xAdditionalOffset = 0;
@@ -9,7 +11,7 @@ Drawable2DCube::Drawable2DCube() {
 			xAdditionalOffset += xPositionOffset(position, SIZE);
 			yAdditionalOffset += yPositionOffset(position, SIZE);
 			squares[face][position] = new SquareButton(this, face, position, 
-				800 + xAdditionalOffset, 500 + yAdditionalOffset, SIZE, SIZE, OUTLINE_THICKNESS, 
+				initialXLocation + xAdditionalOffset, initialYLocation + yAdditionalOffset, SIZE, SIZE, OUTLINE_THICKNESS,
 				(*colorMapping.find(cube[face][position])).second, OUTLINE_COLOUR,sf::Text(), sf::Font(), "");
 			buttons.push_back(squares[face][position]);
 		}
