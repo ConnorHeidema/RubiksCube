@@ -152,6 +152,7 @@
     <ClCompile Include="src\cube\Reset.cpp" />
     <ClCompile Include="src\Cube\Scramble.cpp" />
     <ClCompile Include="src\cube\Solve.cpp" />
+    <ClCompile Include="src\cube\TestSolvableCubes.cpp" />
     <ClCompile Include="src\Image.cpp" />
     <ClCompile Include="src\Util.cpp" />
   </ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="inc\cube\Reset.hpp" />
     <ClInclude Include="inc\Cube\Scramble.hpp" />
     <ClInclude Include="inc\cube\Solve.hpp" />
+    <ClInclude Include="inc\cube\TestSolvableCubes.hpp" />
     <ClInclude Include="inc\Image.hpp" />
     <ClInclude Include="inc\Util.hpp" />
   </ItemGroup>

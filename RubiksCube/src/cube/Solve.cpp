@@ -56,8 +56,9 @@ void Solve::SolveButton::leftButtonClicked() {
 			currentMoveOffset = 0;
 		}
 		moveString += move + ", ";
+		solutionReference->image.text.setString(moveString);
+		sf::sleep(sf::seconds(.01));
 	}
-	solutionReference->image.text.setString(moveString);
 }
 
 void Solve::SolveButton::rightButtonClicked() {

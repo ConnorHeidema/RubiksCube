@@ -34,7 +34,6 @@ int main() {
 		}
 
 		window.clear(WINDOW_CLEAR_COLOUR);
-
 		std::for_each(cube.buttons.begin(), cube.buttons.end(), [&window](Button* button) {
 			Image image = button->getButtonImage();
 			button->action(sf::Mouse::getPosition());
@@ -46,7 +45,6 @@ int main() {
 		debugButton.action(sf::Mouse::getPosition());
 		window.draw(image.rectangle);
 		window.draw(image.text);
-
 		window.display();
 	}
 	return PROGRAM_OUT_OF_GAME_LOOP;
