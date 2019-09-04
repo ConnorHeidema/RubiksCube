@@ -3,43 +3,41 @@ bool CondenseCubeList::removeQuadrouples(std::list<std::string>& movesList) {
 	if (movesList.size() < 4) {
 		return false;
 	}
-	bool changed = false;
 	auto listIter = movesList.begin();
 	while (listIter != movesList.end()) {
-		if (std::next(listIter, 4) == movesList.end()) {
-			return changed;
-		} else if (std::all_of(listIter, std::next(listIter, 4), 
+		if (std::all_of(listIter, std::next(listIter, 4), 
 			std::bind2nd(std::equal_to<std::string>(), *listIter))) {
-			listIter = movesList.erase(std::next(listIter, 1), std::next(listIter, 5));
-			changed = true;
-			break;
+			listIter = movesList.erase(listIter, std::next(listIter, 4));
+			return true;
 		} else {
 			listIter++;
+			if (std::next(listIter, 4) == movesList.end()) {
+				break;
+			}
 		}
 	}
-	return changed;
+	return false;
 }
 
 bool CondenseCubeList::reverseTriples(std::list<std::string>& movesList) {
 	if (movesList.size() < 3) {
 		return false;
 	}
-	bool changed = false;
 	auto listIter = movesList.begin();
 	while (listIter != movesList.end()) {
-		if (std::next(listIter, 3) == movesList.end()) {
-			return changed;
-		} else if (std::all_of(listIter, std::next(listIter, 3),
+		if (std::all_of(listIter, std::next(listIter, 3),
 			std::bind2nd(std::equal_to<std::string>(), *listIter))) {
 			*listIter = reverseMoveStringMapping->at(*listIter);
-			listIter = movesList.erase(std::next(listIter, 1), std::next(listIter, 4));
-			changed = true;
-			break;
+			listIter = movesList.erase(std::next(listIter, 1), std::next(listIter, 3));
+			return true;
 		} else {
 			listIter++;
+			if (std::next(listIter, 3) == movesList.end()) {
+				break;
+			}
 		}
 	}
-	return changed;
+	return false;
 }
 
 bool CondenseCubeList::removeBackForths(std::list<std::string>& movesList) {
@@ -49,17 +47,17 @@ bool CondenseCubeList::removeBackForths(std::list<std::string>& movesList) {
 	bool changed = false;
 	auto listIter = movesList.begin();
 	while (listIter != movesList.end()) {
-		if (std::next(listIter, 2) == movesList.end()) {
-			return changed;
-		} else if (reverseMoveStringMapping->at(*listIter) == *std::next(listIter)) {
+		if (reverseMoveStringMapping->at(*listIter) == *std::next(listIter)) {
 			listIter = movesList.erase(listIter, std::next(listIter, 2));
-			changed = true;
-			break;
+			return true;
 		} else {
 			listIter++;
+			if (std::next(listIter, 2) == movesList.end()) {
+				break;
+			}
 		}
 	}
-	return changed;
+	return false;
 }
 
 void CondenseCubeList::removeRotations(std::list<std::string>& movesList) {
@@ -153,7 +151,7 @@ CondenseCubeList::CondenseCubeList() {
 	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Front Front Inverse"));
 	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Front Front"));
 	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Top Front"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Top Front Inverse"));
+	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Top Front Inverse"));
 
 	topFrontMoveStringMapping = new std::map<std::string, std::string>;
 	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Bottom"));
@@ -216,7 +214,7 @@ CondenseCubeList::CondenseCubeList() {
 	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Front Front"));
 	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Front Front Inverse"));
 	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Top Front Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Top Front"));
+	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Top Front"));
 
 	topFrontInverseMoveStringMapping = new std::map<std::string, std::string>;
 	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Top"));

@@ -69,6 +69,9 @@ InteractableCube::InteractableCube() {
 	moveMapping->insert(std::pair<std::string, void (InteractableCube::*)()>("Rotate Right Front", &InteractableCube::rotateRightFront));
 	moveMapping->insert(std::pair<std::string, void (InteractableCube::*)()>("Rotate Top Front", &InteractableCube::rotateTopFront));
 	moveMapping->insert(std::pair<std::string, void (InteractableCube::*)()>("Rotate Front Front", &InteractableCube::rotateFrontFront));
+	moveMapping->insert(std::pair<std::string, void (InteractableCube::*)()>("Rotate Right Front Inverse", &InteractableCube::rotateRightFrontInverse));
+	moveMapping->insert(std::pair<std::string, void (InteractableCube::*)()>("Rotate Top Front Inverse", &InteractableCube::rotateTopFrontInverse));
+	moveMapping->insert(std::pair<std::string, void (InteractableCube::*)()>("Rotate Front Front Inverse", &InteractableCube::rotateFrontFrontInverse));
 
 	movementButtons[InteractableCubeButton::NORMAL][FRONT_FACE] = new InteractableCubeButton(this, "Front", "Front", 75,50,250,50,-5);
 	movementButtons[InteractableCubeButton::NORMAL][RIGHT_FACE] = new InteractableCubeButton(this, "Right", "Right", 75, 100, 250, 50, -5);

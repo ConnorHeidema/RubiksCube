@@ -1,22 +1,22 @@
 #include "..\..\inc\algorithm\AlignBottomCornerStep.hpp"
 
 bool AlignBottomCornerStep::stepIsComplete(InteractableCube& cube) {
-	if (cube.cube[Cube::FRONT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::FRONT_FACE][Cube::TOP] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::FRONT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] && 
-		cube.cube[Cube::RIGHT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::RIGHT_FACE][Cube::TOP] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::RIGHT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::BACK_FACE][Cube::TOP_LEFT] == cube.cube[Cube::BACK_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::BACK_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::BACK_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::BACK_FACE][Cube::TOP_LEFT] == cube.cube[Cube::BACK_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::LEFT_FACE][Cube::TOP_LEFT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::LEFT_FACE][Cube::TOP] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::LEFT_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::TOP_FACE][Cube::TOP_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::TOP_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::TOP_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE] &&
-		cube.cube[Cube::TOP_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::TOP_FACE][Cube::CENTRE]) {
+	if (cube.cube[Cube::FRONT_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::FRONT_FACE][Cube::BOTTOM] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::FRONT_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::FRONT_FACE][Cube::CENTRE] && 
+		cube.cube[Cube::RIGHT_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::RIGHT_FACE][Cube::BOTTOM] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::RIGHT_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::RIGHT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BACK_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::BACK_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BACK_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::BACK_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BACK_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::BACK_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::LEFT_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::LEFT_FACE][Cube::BOTTOM] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::LEFT_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::LEFT_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BOTTOM_FACE][Cube::TOP_LEFT] == cube.cube[Cube::BOTTOM_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BOTTOM_FACE][Cube::TOP_RIGHT] == cube.cube[Cube::BOTTOM_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BOTTOM_FACE][Cube::BOTTOM_LEFT] == cube.cube[Cube::BOTTOM_FACE][Cube::CENTRE] &&
+		cube.cube[Cube::BOTTOM_FACE][Cube::BOTTOM_RIGHT] == cube.cube[Cube::BOTTOM_FACE][Cube::CENTRE]) {
 		return true;
 	}
 	return false;
@@ -24,9 +24,7 @@ bool AlignBottomCornerStep::stepIsComplete(InteractableCube& cube) {
 
 std::list<std::string> AlignBottomCornerStep::makeMoves(InteractableCube& cube, int maxMovesAllowed) {
 	std::list <std::string> stepsUsed;
-	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
-	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
-	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
+	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFrontInverse));
 	for (int rotations = 0; rotations < 5; rotations++) {
 		bool cubeMoved = false;
 		cubeMoved = alignCorner(stepsUsed, cube, 1000);
@@ -35,6 +33,8 @@ std::list<std::string> AlignBottomCornerStep::makeMoves(InteractableCube& cube, 
 		}
 		stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateRightFront));
 	}
+	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
+	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
 	return stepsUsed;
 }
 

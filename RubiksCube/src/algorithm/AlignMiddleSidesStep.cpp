@@ -16,8 +16,6 @@ bool AlignMiddleSidesStep::stepIsComplete(InteractableCube& cube) {
 
 std::list<std::string> AlignMiddleSidesStep::makeMoves(InteractableCube& cube, int maxMovesAllowed) {
 	std::list <std::string> stepsUsed;
-	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
-	stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateTopFront));
 	for (int i = 0; i < 4; i++) {
 		if (cube.cube[Cube::FRONT_FACE][Cube::RIGHT] != cube.cube[Cube::TOP_FACE][Cube::CENTRE] &&
 			cube.cube[Cube::RIGHT_FACE][Cube::LEFT] != cube.cube[Cube::TOP_FACE][Cube::CENTRE]) {

@@ -11,7 +11,7 @@ Solve::SolveButton::SolveButton(Solve* solve, SolutionButton* solutionButton, in
 
 Solve::Solve() {
 	solutionButtonPtr =
-		new SolutionButton(this, 350, 650, 0, 44, 0, sf::Color::Transparent, sf::Color::Transparent, sf::Text(), sf::Font(), "No solution yet");
+		new SolutionButton(this, 10, 650, 0, 35, 0, sf::Color::Transparent, sf::Color::Transparent, sf::Text(), sf::Font(), "No solution yet");
 	solveButtonPtr =
 		new SolveButton(this, solutionButtonPtr, 1700, 210, 200, 75, -5, sf::Color::Green, sf::Color::Magenta, sf::Text(), sf::Font(), "Solve");
 	buttons.push_back(solveButtonPtr);
@@ -50,14 +50,16 @@ void Solve::SolveButton::leftButtonClicked() {
 	outerReference->solveCube();
 	std::string moveString;
 	size_t currentMoveOffset = 0;
+	int moveNumber = 0;
 	for (const auto& move : outerReference->moveList) {
-		currentMoveOffset += move.length();
-		if (currentMoveOffset > 100) {
+		currentMoveOffset += move.length() + std::to_string(moveNumber).size() + 3;
+		if (currentMoveOffset > 200) {
 			moveString += "\r\n";
 			currentMoveOffset = 0;
 		}
-		moveString += move + ", ";
+		moveString += std::to_string(moveNumber) + ":" + move + ", ";
 		solutionReference->image.text.setString(moveString);
+		moveNumber++;
 	}
 }
 
