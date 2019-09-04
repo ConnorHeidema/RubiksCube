@@ -10,7 +10,7 @@ Scramble::ScrambleButton::ScrambleButton(Scramble* scramble, int xPosition, int 
 
 Scramble::Scramble() {
 	scrambleButtonPtr = 
-		new ScrambleButton(this, 1610, 110, 200, 75, -5, sf::Color::Magenta, sf::Color::Green, sf::Text(), sf::Font(), "Scramble");
+		new ScrambleButton(this, 1700, 60, 200, 75, -5, sf::Color::Magenta, sf::Color::Green, sf::Text(), sf::Font(), "Scramble");
 	buttons.push_back(scrambleButtonPtr);
 }
 

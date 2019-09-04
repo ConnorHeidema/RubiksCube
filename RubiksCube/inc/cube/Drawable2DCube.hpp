@@ -22,6 +22,9 @@ private:
 
 	const Color white = WHITE;
 	SquareButton* squares[NUM_FACES][NUM_POSITIONS];
+
+	SquareButton* solvingSquares[NUM_FACES][NUM_POSITIONS];
+
 	const int SIZE = 50;
 	const int OUTLINE_THICKNESS = -5;
 	const sf::Color OUTLINE_COLOUR = sf::Color(32, 32, 32, 255);

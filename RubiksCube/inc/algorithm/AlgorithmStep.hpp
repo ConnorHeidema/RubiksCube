@@ -3,6 +3,10 @@
 #include "../cube/Cube.hpp"
 #include <list>
 #include <string>
+#include <iostream>
+#include <unordered_map>
+#include <algorithm>
+
 class AlgorithmStep {
 public:
 	virtual ~AlgorithmStep() = 0;

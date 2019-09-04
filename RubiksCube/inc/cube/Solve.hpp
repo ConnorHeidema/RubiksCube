@@ -8,6 +8,7 @@
 #include "..\algorithm\AlignTopSquares.hpp"
 #include "..\algorithm\AlignTopCorners.hpp"
 #include "..\algorithm\AlignFinalCornersFully.hpp"
+#include "..\CondenseCubeList.hpp"
 #include "SFML\Graphics.hpp"
 #include "SFML\System.hpp"
 #include <ctime>

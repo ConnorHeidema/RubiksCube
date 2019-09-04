@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include "..\inc\Util.hpp"
 class Button {
 protected:
 	Image image;

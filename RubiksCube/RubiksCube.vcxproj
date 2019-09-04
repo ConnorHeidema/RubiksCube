@@ -145,6 +145,7 @@
     <ClCompile Include="src\algorithm\AlignTopCross.cpp" />
     <ClCompile Include="src\algorithm\AlignTopSquares.cpp" />
     <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\CondenseCubeList.cpp" />
     <ClCompile Include="src\Cube\ApplicationCube.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
     <ClCompile Include="src\Cube\Drawable2DCube.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="inc\algorithm\AlignTopCross.hpp" />
     <ClInclude Include="inc\algorithm\AlignTopSquares.hpp" />
     <ClInclude Include="inc\Button.hpp" />
+    <ClInclude Include="inc\CondenseCubeList.hpp" />
     <ClInclude Include="inc\Cube\ApplicationCube.hpp" />
     <ClInclude Include="inc\Cube\Cube.hpp" />
     <ClInclude Include="inc\Cube\Drawable2DCube.hpp" />

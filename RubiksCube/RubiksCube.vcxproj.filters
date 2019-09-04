@@ -93,6 +93,9 @@
     <ClCompile Include="src\cube\TestSolvableCubes.cpp">
       <Filter>Source Files\src\algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="src\CondenseCubeList.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Cube\ApplicationCube.hpp">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="inc\cube\TestSolvableCubes.hpp">
       <Filter>Header Files\inc\cube</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CondenseCubeList.hpp">
+      <Filter>Header Files\inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

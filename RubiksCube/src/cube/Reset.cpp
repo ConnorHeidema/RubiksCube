@@ -11,7 +11,7 @@ Reset::ResetButton::ResetButton(Reset* reset, int xPosition, int yPosition,
 
 Reset::Reset() {
 	resetButtonPtr =
-		new ResetButton(this, 1610, 185, 200, 75, -5, sf::Color::Green, sf::Color::Magenta, sf::Text(), sf::Font(), "Reset");
+		new ResetButton(this, 1700, 135, 200, 75, -5, sf::Color::Green, sf::Color::Magenta, sf::Text(), sf::Font(), "Reset");
 	buttons.push_back(resetButtonPtr);
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Cube.hpp"
+#include <map>
 
 class InteractableCube : public virtual Cube {
 private:
@@ -10,19 +11,13 @@ private:
 		static const sf::Color BUTTON_OUTLINE_COLOUR;
 		static const int BUTTON_OUTLINE_THICKNESS;
 		void (InteractableCube::* moveFnPtr)(void);
-		InteractableCubeButton(InteractableCube* interactableCube, void (InteractableCube::* function)(), int xPosition = 0, int yPosition = 0,
-			int xSize = 50, int ySize = 50, int thickness = -5,
-			sf::Color color = NORMAL_COLOUR, sf::Color outlineColour = sf::Color::Blue,
-			sf::Text text = sf::Text(), sf::Font font = sf::Font(), std::string buttonText = "null");
-		InteractableCubeButton(InteractableCube* interactableCube, void (InteractableCube::* function)(), std::string buttonText = "null", int xPosition = 0, int yPosition = 0,
-			int xSize = 50, int ySize = 50, int thickness = -5,
-			sf::Color color = NORMAL_COLOUR, sf::Color outlineColour = sf::Color::Blue,
-			sf::Text text = sf::Text(), sf::Font font = sf::Font());
 		InteractableCube* outerReference;
 		
 	public:
 		static const int NORMAL = 0;
 		static const int INVERSE = 1;
+		InteractableCubeButton(InteractableCube* interactableCube, std::string movement, std::string buttonText, int xPosition, int yPosition, int xSize, int ySize, int thickness, 
+			sf::Text text = sf::Text(), sf::Color color = NORMAL_COLOUR, sf::Color outlineColour = sf::Color::Blue, sf::Font font = sf::Font());
 		virtual void leftButtonClicked() override;
 		virtual void rightButtonClicked() override;
 	};
@@ -56,6 +51,10 @@ public:
 	void rotateRightFront();
 	void rotateTopFront();
 	void rotateFrontFront();
+	void rotateTopFrontInverse();
+	void rotateRightFrontInverse();
+	void rotateFrontFrontInverse();
 	virtual ~InteractableCube() = 0;
+	std::map<std::string, void (InteractableCube::*)()>* moveMapping;
 };
 

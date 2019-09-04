@@ -9,12 +9,11 @@ Solve::SolveButton::SolveButton(Solve* solve, SolutionButton* solutionButton, in
 	outerReference = solve;
 }
 
-
 Solve::Solve() {
 	solutionButtonPtr =
-		new SolutionButton(this, 500, 550, 0, 44, 0, sf::Color::Transparent, sf::Color::Transparent, sf::Text(), sf::Font(), "No solution yet");
+		new SolutionButton(this, 350, 650, 0, 44, 0, sf::Color::Transparent, sf::Color::Transparent, sf::Text(), sf::Font(), "No solution yet");
 	solveButtonPtr =
-		new SolveButton(this, solutionButtonPtr, 1610, 260, 200, 75, -5, sf::Color::Green, sf::Color::Magenta, sf::Text(), sf::Font(), "Solve");
+		new SolveButton(this, solutionButtonPtr, 1700, 210, 200, 75, -5, sf::Color::Green, sf::Color::Magenta, sf::Text(), sf::Font(), "Solve");
 	buttons.push_back(solveButtonPtr);
 	buttons.push_back(solutionButtonPtr);
 }
@@ -43,6 +42,8 @@ void Solve::solveCube() {
 		std::cout << (step->stepIsComplete(*cubePtr) ? "Step successful\n" : "ERROR IN STEP\n");
 		delete step;
 		});
+	CondenseCubeList condenseCubeList;
+	condenseCubeList.condenseList(cubePtr->moveList);
 }
 
 void Solve::SolveButton::leftButtonClicked() {
@@ -57,7 +58,6 @@ void Solve::SolveButton::leftButtonClicked() {
 		}
 		moveString += move + ", ";
 		solutionReference->image.text.setString(moveString);
-		sf::sleep(sf::seconds(.01));
 	}
 }
 
