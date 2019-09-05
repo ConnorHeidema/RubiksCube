@@ -11,7 +11,7 @@ bool CondenseCubeList::removeQuadrouples(std::list<std::string>& movesList) {
 			return true;
 		} else {
 			listIter++;
-			if (std::next(listIter, 4) == movesList.end()) {
+			if (std::next(listIter, 3) == movesList.end()) {
 				break;
 			}
 		}
@@ -32,7 +32,7 @@ bool CondenseCubeList::reverseTriples(std::list<std::string>& movesList) {
 			return true;
 		} else {
 			listIter++;
-			if (std::next(listIter, 3) == movesList.end()) {
+			if (std::next(listIter, 2) == movesList.end()) {
 				break;
 			}
 		}
@@ -52,7 +52,7 @@ bool CondenseCubeList::removeBackForths(std::list<std::string>& movesList) {
 			return true;
 		} else {
 			listIter++;
-			if (std::next(listIter, 2) == movesList.end()) {
+			if (std::next(listIter) == movesList.end()) {
 				break;
 			}
 		}
@@ -64,35 +64,11 @@ void CondenseCubeList::removeRotations(std::list<std::string>& movesList) {
 	int check = 0;
 	auto listIter = movesList.begin();
 	while (listIter != movesList.end()) {
-		if (*listIter == "Rotate Right Front") {
+		if (std::find(rotationList->begin(), rotationList->end(), *listIter) != rotationList->end()) {
+			std::string rotation = *listIter;
 			listIter = movesList.erase(listIter);
 			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
-				*morphingIter = rightFrontMoveStringMapping->at(*morphingIter);
-			}
-		} else if (*listIter == "Rotate Top Front") {
-			listIter = movesList.erase(listIter);
-			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
-				*morphingIter = topFrontMoveStringMapping->at(*morphingIter);
-			}
-		} else if (*listIter == "Rotate Front Front") {
-			listIter = movesList.erase(listIter);
-			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
-				*morphingIter = frontFrontMoveStringMapping->at(*morphingIter);
-			}
-		} else if (*listIter == "Rotate Right Front Inverse") {
-			listIter = movesList.erase(listIter);
-			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
-				*morphingIter = rightFrontInverseMoveStringMapping->at(*morphingIter);
-			}
-		} else if (*listIter == "Rotate Top Front Inverse") {
-			listIter = movesList.erase(listIter);
-			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
-				*morphingIter = topFrontInverseMoveStringMapping->at(*morphingIter);
-			}
-		} else if (*listIter == "Rotate Front Front Inverse") {
-			listIter = movesList.erase(listIter);
-			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
-				*morphingIter = frontFrontInverseMoveStringMapping->at(*morphingIter);
+				*morphingIter = rotationMoveStringMapping->at(std::pair<std::string, std::string>(rotation, *morphingIter));
 			}
 		} else {
 			listIter++;
@@ -132,139 +108,133 @@ CondenseCubeList::CondenseCubeList() {
 	reverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Top Front"));
 	reverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Front Front"));
 
-	rightFrontMoveStringMapping = new std::map<std::string, std::string>;
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Left"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Left", "Back"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Back", "Right"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Right", "Front"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front Inverse", "Left Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Left Inverse", "Back Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Back Inverse", "Right Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Right Inverse", "Front Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Top", "Top"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Top Inverse", "Top Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom", "Bottom"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom Inverse", "Bottom Inverse"));
+	using stringToString = std::pair<std::string, std::string>;
+	using pairToString = std::pair<std::pair<std::string, std::string>, std::string>;
+	rotationMoveStringMapping = new std::map<stringToString, std::string>;
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Front"), "Left"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Left"), "Back"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Back"), "Right"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Right"), "Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Front Inverse"), "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Left Inverse"), "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Back Inverse"), "Right Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Right Inverse"), "Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Top"), "Top"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Top Inverse"), "Top Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Bottom"), "Bottom"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Bottom Inverse"), "Bottom Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Rotate Right Front"), "Rotate Right Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Rotate Right Front Inverse"), "Rotate Right Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Rotate Top Front"), "Rotate Front Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Rotate Top Front Inverse"), "Rotate Front Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Rotate Front Front"), "Rotate Top Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front Inverse", "Rotate Front Front Inverse"), "Rotate Top Front Inverse"));
 
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front", "Rotate Right Front"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front Inverse", "Rotate Right Front Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Front Front Inverse"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Front Front"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Top Front"));
-	rightFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Top Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Front"), "Right"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Right"), "Back"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Back"), "Left"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Left"), "Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Front Inverse"), "Right Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Right Inverse"), "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Back Inverse"), "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Left Inverse"), "Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Top"), "Top"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Top Inverse"), "Top Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Bottom"), "Bottom"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Bottom Inverse"), "Bottom Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Rotate Right Front"), "Rotate Right Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Rotate Right Front Inverse"), "Rotate Right Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Rotate Top Front"), "Rotate Front Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Rotate Top Front Inverse"), "Rotate Front Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Rotate Front Front"), "Rotate Top Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Right Front", "Rotate Front Front Inverse"), "Rotate Top Front"));
 
-	topFrontMoveStringMapping = new std::map<std::string, std::string>;
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Bottom"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom", "Back"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Back", "Top"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Top", "Front"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front Inverse", "Bottom Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom Inverse", "Back Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Back Inverse", "Top Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Top Inverse", "Front Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Right", "Right"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Right Inverse", "Right Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Left", "Left"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Left Inverse", "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Front"), "Bottom"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Bottom"), "Back"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Back"), "Top"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Top"), "Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Front Inverse"), "Bottom Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Bottom Inverse"), "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Back Inverse"), "Top Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Top Inverse"), "Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Right"), "Right"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Right Inverse"), "Right Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Left"), "Left"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Left Inverse"), "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Rotate Right Front"), "Rotate Front Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Rotate Right Front Inverse"), "Rotate Front Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Rotate Top Front"), "Rotate Top Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Rotate Top Front Inverse"), "Rotate Top Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Rotate Front Front"), "Rotate Right Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front Inverse", "Rotate Front Front Inverse"), "Rotate Right Front"));
 
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front", "Rotate Front Front"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front Inverse", "Rotate Front Front Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Top Front"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Top Front Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Right Front Inverse"));
-	topFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Right Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Front"), "Top"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Top"), "Back"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Back"), "Bottom"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Bottom"), "Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Front Inverse"), "Top Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Top Inverse"), "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Back Inverse"), "Bottom Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Bottom Inverse"), "Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Right"), "Right"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Right Inverse"), "Right Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Left"), "Left"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Left Inverse"), "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Rotate Right Front"), "Rotate Front Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Rotate Right Front Inverse"), "Rotate Front Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Rotate Top Front"), "Rotate Top Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Rotate Top Front Inverse"), "Rotate Top Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Rotate Front Front"), "Rotate Right Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Top Front", "Rotate Front Front Inverse"), "Rotate Right Front Inverse"));
+	
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Top"), "Right"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Right"), "Bottom"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Bottom"), "Left"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Left"), "Top"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Top Inverse"), "Right Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Right Inverse"), "Bottom Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Bottom Inverse"), "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Left Inverse"), "Top Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Front"), "Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Front Inverse"), "Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Back"), "Back"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Back Inverse"), "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Rotate Right Front"), "Rotate Top Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Rotate Right Front Inverse"), "Rotate Top Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Rotate Top Front"), "Rotate Right Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Rotate Top Front Inverse"), "Rotate Right Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Rotate Front Front"), "Rotate Front Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front Inverse", "Rotate Front Front Inverse"), "Rotate Front Front Inverse"));
 
-	frontFrontMoveStringMapping = new std::map<std::string, std::string>;
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Top", "Right"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Right", "Bottom"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom", "Left"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Left", "Top"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Top Inverse", "Right Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Right Inverse", "Bottom Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom Inverse", "Left Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Left Inverse", "Top Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Front"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Front Inverse", "Front Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Back", "Back"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Back Inverse", "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Top"), "Left"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Left"), "Bottom"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Bottom"), "Right"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Right"), "Top"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Top Inverse"), "Left Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Left Inverse"), "Bottom Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Bottom Inverse"), "Right Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Right Inverse"), "Top Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Front"), "Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Front Inverse"), "Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Back"), "Back"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Back Inverse"), "Back Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Rotate Right Front"), "Rotate Top Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Rotate Right Front Inverse"), "Rotate Top Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Rotate Top Front"), "Rotate Right Front Inverse"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Rotate Top Front Inverse"), "Rotate Right Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Rotate Front Front"), "Rotate Front Front"));
+	rotationMoveStringMapping->insert(pairToString(stringToString("Rotate Front Front", "Rotate Front Front Inverse"), "Rotate Front Front Inverse"));
 
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front", "Rotate Top Front Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front Inverse", "Rotate Top Front"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Right Front"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Right Front Inverse"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Front Front"));
-	frontFrontMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Front Front Inverse"));
-
-	rightFrontInverseMoveStringMapping = new std::map<std::string, std::string>;
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Right"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Right", "Back"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Back", "Left"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Left", "Front"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front Inverse", "Right Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Right Inverse", "Back Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Back Inverse", "Left Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Left Inverse", "Front Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Top", "Top"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Top Inverse", "Top Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom", "Bottom"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom Inverse", "Bottom Inverse"));
-
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front", "Rotate Right Front"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front Inverse", "Rotate Right Front Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Front Front"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Front Front Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Top Front Inverse"));
-	rightFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Top Front"));
-
-	topFrontInverseMoveStringMapping = new std::map<std::string, std::string>;
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Top"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Top", "Back"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Back", "Bottom"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom", "Front"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front Inverse", "Top Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Top Inverse", "Back Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Back Inverse", "Bottom Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom Inverse", "Front Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Right", "Right"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Right Inverse", "Right Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Left", "Left"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Left Inverse", "Left Inverse"));
-
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front", "Rotate Front Front Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front Inverse", "Rotate Front Front"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Top Front"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Top Front Inverse"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Right Front"));
-	topFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Right Front Inverse"));
-
-	frontFrontInverseMoveStringMapping = new std::map<std::string, std::string>;
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Top", "Left"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Left", "Bottom"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom", "Right"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Right", "Top"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Top Inverse", "Left Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Left Inverse", "Bottom Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Bottom Inverse", "Right Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Right Inverse", "Top Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front", "Front"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Front Inverse", "Front Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Back", "Back"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Back Inverse", "Back Inverse"));
-
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front", "Rotate Top Front"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Right Front Inverse", "Rotate Top Front Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front", "Rotate Right Front Inverse"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Top Front Inverse", "Rotate Right Front"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front", "Rotate Front Front"));
-	frontFrontInverseMoveStringMapping->insert(std::pair<std::string, std::string>("Rotate Front Front Inverse", "Rotate Front Front Inverse"));
+	rotationList = new std::list<std::string>();
+	rotationList->emplace_back("Rotate Right Front");
+	rotationList->emplace_back("Rotate Right Front Inverse");
+	rotationList->emplace_back("Rotate Top Front");
+	rotationList->emplace_back("Rotate Top Front Inverse");
+	rotationList->emplace_back("Rotate Front Front");
+	rotationList->emplace_back("Rotate Front Front Inverse");
 }
 
 CondenseCubeList::~CondenseCubeList() {
 	delete reverseMoveStringMapping;
-	delete rightFrontMoveStringMapping;
-	delete topFrontMoveStringMapping;
-	delete frontFrontMoveStringMapping;
-	delete rightFrontInverseMoveStringMapping;
-	delete topFrontInverseMoveStringMapping;
-	delete frontFrontInverseMoveStringMapping;
+	delete rotationMoveStringMapping;
 }

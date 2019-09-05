@@ -12,13 +12,10 @@ class CondenseCubeList {
 	bool reverseTriples(std::list<std::string>&);
 	bool removeBackForths(std::list<std::string>& movesList);
 	void removeRotations(std::list<std::string>&);
+
 	std::map<std::string, std::string>* reverseMoveStringMapping;
-	std::map<std::string, std::string>* rightFrontMoveStringMapping;
-	std::map<std::string, std::string>* topFrontMoveStringMapping;
-	std::map<std::string, std::string>* frontFrontMoveStringMapping;
-	std::map<std::string, std::string>* rightFrontInverseMoveStringMapping;
-	std::map<std::string, std::string>* topFrontInverseMoveStringMapping;
-	std::map<std::string, std::string>* frontFrontInverseMoveStringMapping;
+	std::map<std::pair<std::string, std::string>, std::string>* rotationMoveStringMapping;
+	std::list<std::string>* rotationList;
 
 public:
 	CondenseCubeList();

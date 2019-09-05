@@ -50,7 +50,7 @@ void Solve::SolveButton::leftButtonClicked() {
 	outerReference->solveCube();
 	std::string moveString;
 	size_t currentMoveOffset = 0;
-	int moveNumber = 0;
+	int moveNumber = 1;
 	for (const auto& move : outerReference->moveList) {
 		currentMoveOffset += move.length() + std::to_string(moveNumber).size() + 3;
 		if (currentMoveOffset > 200) {
