@@ -30,6 +30,7 @@ int main() {
 		std::for_each(cube.buttons.begin(), cube.buttons.end(), [&window](Button* button) {
 			Image image = button->getButtonImage();
 			button->action(sf::Mouse::getPosition());
+			button->update();
 			window.draw(image.rectangle);
 			window.draw(image.text);
 			});

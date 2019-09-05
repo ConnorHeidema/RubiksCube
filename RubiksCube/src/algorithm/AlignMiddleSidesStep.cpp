@@ -44,7 +44,7 @@ std::list<std::string> AlignMiddleSidesStep::makeMoves(InteractableCube& cube, i
 		}
 		stepsUsed.emplace_back(performStep(cube, &InteractableCube::rotateRightFront));
 	}
-	return std::list<std::string>();
+	return stepsUsed;
 }
 
 void AlignMiddleSidesStep::topRight(std::list<std::string>& stepsUsed, InteractableCube& cube, int maxMovesAllowed) {

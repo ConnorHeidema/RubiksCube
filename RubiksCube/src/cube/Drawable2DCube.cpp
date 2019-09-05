@@ -14,11 +14,6 @@ Drawable2DCube::Drawable2DCube() {
 				initialXLocation + xAdditionalOffset, initialYLocation + yAdditionalOffset, SIZE, SIZE, OUTLINE_THICKNESS,
 				(*colorMapping.find(cube[face][position])).second, OUTLINE_COLOUR,sf::Text(), sf::Font(), "");
 			buttons.push_back(squares[face][position]);
-
-			solvingSquares[face][position] = new SquareButton(this, face, position,
-				initialXLocation + 500 + xAdditionalOffset, initialYLocation + 175 + yAdditionalOffset, SIZE, SIZE, OUTLINE_THICKNESS,
-				(*colorMapping.find(cube[face][position])).second, OUTLINE_COLOUR, sf::Text(), sf::Font(), "");
-			buttons.push_back(solvingSquares[face][position]);
 		}
 	}
 };

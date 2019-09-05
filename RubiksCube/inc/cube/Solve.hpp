@@ -16,10 +16,12 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <map>
 class Solve : public virtual InteractableCube {
 private:
 	void solveCube();
-
+	bool solved = true;
+	int stepsGoneThrough = 0;
 	class SolutionButton : public Button {
 		friend class Solve;
 		SolutionButton(Solve* solution, int xPosition = 0, int yPosition = 0,
@@ -40,7 +42,10 @@ private:
 		Solve* outerReference;
 		void leftButtonClicked() override;
 		void rightButtonClicked() override;
+		void update() override;
 		SolutionButton* solutionReference;
+		const int timeExpansionCap = 20;
+		int timeExpansion = 0;
 	};
 
 	SolveButton* solveButtonPtr;
@@ -48,6 +53,9 @@ private:
 protected:
 	Solve();
 public:
+	Color tempCube[NUM_FACES][NUM_POSITIONS];
 	std::list<std::string> moveList;
 	virtual ~Solve() = 0;
+
+	std::map<std::string, void (InteractableCube::*)()>* stringToFunction;
 };

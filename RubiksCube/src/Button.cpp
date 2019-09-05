@@ -46,6 +46,9 @@ void Button::action(sf::Vector2i mousePosition) {
 	}
 }
 
+void Button::update() {
+}
+
 void Button::leftButtonClicked() {
 }
 

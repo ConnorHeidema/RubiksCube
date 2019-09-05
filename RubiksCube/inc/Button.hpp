@@ -22,4 +22,5 @@ public:
 		sf::Text text = sf::Text(), sf::Font font = sf::Font(), std::string buttonText = "null");
 	virtual Image getButtonImage();
 	void action(sf::Vector2i mousePosition);
+	virtual void update();
 };
