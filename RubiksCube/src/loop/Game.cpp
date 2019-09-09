@@ -20,12 +20,11 @@ void Game::start() {
 
 void Game::setupInitialObjects(std::list<ActionSprite*>& actionSpritesPtrs) {
 	sf::Texture* texture = new sf::Texture();
-	texture->loadFromFile("res/white_square.png");
+	texture->loadFromFile("res/png/white_square.png");
 	sf::Sprite* sprite = new sf::Sprite();
 	sprite->setTexture(*texture);
 	sprite->setTextureRect(sf::IntRect(10, 10, 50, 30));
 	sprite->setPosition(100, 25);
-	ActionSprite* actionSprite = new ActionSprite;
-	actionSprite->spritePtr = sprite;
+	ActionSprite* actionSprite = new ActionSprite(sprite);
 	actionSpritesPtrs.emplace_back(actionSprite);
 }

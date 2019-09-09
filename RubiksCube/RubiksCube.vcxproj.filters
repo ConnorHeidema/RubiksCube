@@ -40,6 +40,12 @@
     <Filter Include="Resource Files\png">
       <UniqueIdentifier>{02331916-13f7-41cf-8ea5-1cdc59a849dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{d5ab2f88-1cb9-49c4-ab62-e9fca9dd5c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ui">
+      <UniqueIdentifier>{39ad3540-e10f-4f82-a35c-9dd6ca3e616b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
