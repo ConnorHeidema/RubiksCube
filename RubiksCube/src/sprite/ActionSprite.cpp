@@ -9,7 +9,17 @@ bool ActionSprite::containsMouse() {
 	return (spritePtr->getGlobalBounds().contains(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y));
 }
 
-void ActionSprite::onLeftClick(std::list<ActionSprite*>& allObjects) {}
+void ActionSprite::onLeftClick(std::list<ActionSprite*>& actionSpritesPtrs) {
+	const sf::Texture* texture2 = new sf::Texture();
+	texture2 = spritePtr->getTexture();
+	sf::Sprite* sprite2 = new sf::Sprite();
+	sprite2->setTexture(*texture2);
+	sprite2->setTextureRect(sf::IntRect(spritePtr->getTextureRect()));
+	sprite2->setPosition(100 + spritePtr->getPosition().x, 300 + spritePtr->getPosition().y);
+	ActionSprite* actionSprite2 = new ActionSprite(sprite2);
+	actionSpritesPtrs.emplace_back(actionSprite2);
+	
+}
 void ActionSprite::onMouseDown(std::list<ActionSprite*>& allObjects) {}
 void ActionSprite::onDoubleClick(std::list<ActionSprite*>& allObjects) {}
 void ActionSprite::onStartHold(std::list<ActionSprite*>& allObjects) {}
@@ -129,21 +139,19 @@ ActionSprite::ActionSprite(sf::Sprite* sprite) :
 ActionSprite::ActionSprite(const ActionSprite& other) : 
 	toBeDeleted(false),
 	clickSet(false),
-	isDragging(false),
+	isDragging(false), 
 	isHovering(false),
 	rightClickSet(false) {
-	if (BASE_TEXTURE_PTR == nullptr) {
-		BASE_TEXTURE_PTR = new sf::Texture();
-		BASE_TEXTURE_PTR->loadFromFile("res/png/white_square.png");
-	}
 	sf::Sprite* sprite = new sf::Sprite();
-	sprite->setTexture(*BASE_TEXTURE_PTR);
+	sf::Texture* copyTexture = new sf::Texture(*other.spritePtr->getTexture());
+	sprite->setTexture(*copyTexture);
 	sprite->setTextureRect(other.spritePtr->getTextureRect());
 	sprite->setPosition(other.spritePtr->getPosition());
 	spritePtr = sprite;
 }
 
 ActionSprite::~ActionSprite() {
+	delete spritePtr->getTexture();
 	delete spritePtr;
 }
 
