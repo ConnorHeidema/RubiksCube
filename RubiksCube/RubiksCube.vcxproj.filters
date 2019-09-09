@@ -13,153 +13,82 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\inc">
-      <UniqueIdentifier>{46866174-ba59-4503-8753-9a5c9e4d4be1}</UniqueIdentifier>
+    <Filter Include="Header Files\loop">
+      <UniqueIdentifier>{4ce63a85-13ba-44ec-bb2f-8f60ff333bf7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\inc\cube">
-      <UniqueIdentifier>{b997f1cd-b413-42e5-90ea-509af433c4ba}</UniqueIdentifier>
+    <Filter Include="Source Files\loop">
+      <UniqueIdentifier>{35887b01-acff-4675-8dd1-005c652bb6ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src">
-      <UniqueIdentifier>{2ebe331b-e783-48e1-a60b-4c8ce2388e2d}</UniqueIdentifier>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{6b043ef6-fad7-4a6e-b7a2-a06429dda988}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\cube">
-      <UniqueIdentifier>{9339c6e9-8ace-4618-a9fc-d2fdd02d587c}</UniqueIdentifier>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{5b39a473-8580-488f-bb5d-32b32a200505}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\inc\algorithm">
-      <UniqueIdentifier>{8aadf271-cdea-41ff-be7c-baf71e7376c3}</UniqueIdentifier>
+    <Filter Include="Resource Files\font">
+      <UniqueIdentifier>{0114de62-7ff1-4413-8803-34433d1a6946}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\algorithm">
-      <UniqueIdentifier>{e204bada-727e-4eb1-8c79-4774ab621f46}</UniqueIdentifier>
+    <Filter Include="Resource Files\readme">
+      <UniqueIdentifier>{2af170f2-f0f4-4dab-92da-993964460667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sprite">
+      <UniqueIdentifier>{928f3f11-37d4-493d-9c5d-b6c78dd275a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sprite">
+      <UniqueIdentifier>{7522af86-a9ce-4326-8a52-9fafe6a60eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\png">
+      <UniqueIdentifier>{02331916-13f7-41cf-8ea5-1cdc59a849dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube\ApplicationCube.cpp">
-      <Filter>Source Files\src\cube</Filter>
+    <ClCompile Include="src\loop\Game.cpp">
+      <Filter>Source Files\loop</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube\Cube.cpp">
-      <Filter>Source Files\src\cube</Filter>
+    <ClCompile Include="src\util\GameParameters.cpp">
+      <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube\Drawable2DCube.cpp">
-      <Filter>Source Files\src\cube</Filter>
+    <ClCompile Include="src\sprite\ActionSprite.cpp">
+      <Filter>Source Files\sprite</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube\InteractableCube.cpp">
-      <Filter>Source Files\src\cube</Filter>
+    <ClCompile Include="src\loop\RenderLoop.cpp">
+      <Filter>Source Files\loop</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube\Scramble.cpp">
-      <Filter>Source Files\src\cube</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Util.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Button.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Image.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cube\Reset.cpp">
-      <Filter>Source Files\src\cube</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlgorithmStep.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignBottomCornerStep.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignBottomSidesStep.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cube\Solve.cpp">
-      <Filter>Source Files\src\cube</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignMiddleSidesStep.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignTopCross.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignTopSquares.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignTopCorners.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithm\AlignFinalCornersFully.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cube\TestSolvableCubes.cpp">
-      <Filter>Source Files\src\algorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CondenseCubeList.cpp">
-      <Filter>Source Files\src</Filter>
+    <ClCompile Include="src\loop\ActionLoop.cpp">
+      <Filter>Source Files\loop</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Cube\ApplicationCube.hpp">
-      <Filter>Header Files\inc\cube</Filter>
+    <ClInclude Include="inc\loop\Game.hpp">
+      <Filter>Header Files\loop</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Cube\Cube.hpp">
-      <Filter>Header Files\inc\cube</Filter>
+    <ClInclude Include="inc\util\GameParameters.hpp">
+      <Filter>Header Files\util</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Cube\Drawable2DCube.hpp">
-      <Filter>Header Files\inc\cube</Filter>
+    <ClInclude Include="inc\sprite\ActionSprite.hpp">
+      <Filter>Header Files\sprite</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Cube\InteractableCube.hpp">
-      <Filter>Header Files\inc\cube</Filter>
+    <ClInclude Include="inc\loop\RenderLoop.hpp">
+      <Filter>Header Files\loop</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Cube\Scramble.hpp">
-      <Filter>Header Files\inc\cube</Filter>
+    <ClInclude Include="inc\loop\ActionLoop.hpp">
+      <Filter>Header Files\loop</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Util.hpp">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Button.hpp">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Image.hpp">
-      <Filter>Header Files\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\cube\Reset.hpp">
-      <Filter>Header Files\inc\cube</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlgorithmStep.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignBottomCornerStep.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignBottomSidesStep.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\cube\Solve.hpp">
-      <Filter>Header Files\inc\cube</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignMiddleSidesStep.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignTopCross.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignTopSquares.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignTopCorners.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\algorithm\AlignFinalCornersFully.hpp">
-      <Filter>Header Files\inc\algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\cube\TestSolvableCubes.hpp">
-      <Filter>Header Files\inc\cube</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CondenseCubeList.hpp">
-      <Filter>Header Files\inc</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <Font Include="res\font\arial.ttf">
+      <Filter>Resource Files\font</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\png\white_square.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
   </ItemGroup>
 </Project>

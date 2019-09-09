@@ -18,6 +18,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\loop\ActionLoop.cpp" />
+    <ClCompile Include="src\loop\Game.cpp" />
+    <ClCompile Include="src\loop\RenderLoop.cpp" />
+    <ClCompile Include="src\sprite\ActionSprite.cpp" />
+    <ClCompile Include="src\util\GameParameters.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\loop\ActionLoop.hpp" />
+    <ClInclude Include="inc\loop\Game.hpp" />
+    <ClInclude Include="inc\loop\RenderLoop.hpp" />
+    <ClInclude Include="inc\sprite\ActionSprite.hpp" />
+    <ClInclude Include="inc\util\GameParameters.hpp" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\font\arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\png\white_square.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{5F1AC5BB-DE08-4767-83D2-BAEDE80C33F4}</ProjectGuid>
@@ -134,54 +156,6 @@
       <AdditionalDependencies>sfml-graphics.lib;sfml-system.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\algorithm\AlgorithmStep.cpp" />
-    <ClCompile Include="src\algorithm\AlignBottomCornerStep.cpp" />
-    <ClCompile Include="src\algorithm\AlignBottomSidesStep.cpp" />
-    <ClCompile Include="src\algorithm\AlignFinalCornersFully.cpp" />
-    <ClCompile Include="src\algorithm\AlignMiddleSidesStep.cpp" />
-    <ClCompile Include="src\algorithm\AlignTopCorners.cpp" />
-    <ClCompile Include="src\algorithm\AlignTopCross.cpp" />
-    <ClCompile Include="src\algorithm\AlignTopSquares.cpp" />
-    <ClCompile Include="src\Button.cpp" />
-    <ClCompile Include="src\CondenseCubeList.cpp" />
-    <ClCompile Include="src\Cube\ApplicationCube.cpp" />
-    <ClCompile Include="src\Cube\Cube.cpp" />
-    <ClCompile Include="src\Cube\Drawable2DCube.cpp" />
-    <ClCompile Include="src\Cube\InteractableCube.cpp" />
-    <ClCompile Include="src\cube\Reset.cpp" />
-    <ClCompile Include="src\Cube\Scramble.cpp" />
-    <ClCompile Include="src\cube\Solve.cpp" />
-    <ClCompile Include="src\cube\TestSolvableCubes.cpp" />
-    <ClCompile Include="src\Image.cpp" />
-    <ClCompile Include="src\Util.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="inc\algorithm\AlgorithmStep.hpp" />
-    <ClInclude Include="inc\algorithm\AlignBottomCornerStep.hpp" />
-    <ClInclude Include="inc\algorithm\AlignBottomSidesStep.hpp" />
-    <ClInclude Include="inc\algorithm\AlignFinalCornersFully.hpp" />
-    <ClInclude Include="inc\algorithm\AlignMiddleSidesStep.hpp" />
-    <ClInclude Include="inc\algorithm\AlignTopCorners.hpp" />
-    <ClInclude Include="inc\algorithm\AlignTopCross.hpp" />
-    <ClInclude Include="inc\algorithm\AlignTopSquares.hpp" />
-    <ClInclude Include="inc\Button.hpp" />
-    <ClInclude Include="inc\CondenseCubeList.hpp" />
-    <ClInclude Include="inc\Cube\ApplicationCube.hpp" />
-    <ClInclude Include="inc\Cube\Cube.hpp" />
-    <ClInclude Include="inc\Cube\Drawable2DCube.hpp" />
-    <ClInclude Include="inc\Cube\InteractableCube.hpp" />
-    <ClInclude Include="inc\cube\Reset.hpp" />
-    <ClInclude Include="inc\Cube\Scramble.hpp" />
-    <ClInclude Include="inc\cube\Solve.hpp" />
-    <ClInclude Include="inc\cube\TestSolvableCubes.hpp" />
-    <ClInclude Include="inc\Image.hpp" />
-    <ClInclude Include="inc\Util.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
