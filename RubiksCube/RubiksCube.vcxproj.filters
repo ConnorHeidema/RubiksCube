@@ -52,6 +52,12 @@
     <Filter Include="Source Files\actionobjects\introscreen">
       <UniqueIdentifier>{53037ffb-6df3-4bf6-b2a6-3328a55683de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\actionobjects\playscreen">
+      <UniqueIdentifier>{0465bb96-dc5d-4823-aab9-2cf89b2f473f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\actionobjects\playscreen">
+      <UniqueIdentifier>{74f26763-95ee-4b90-b482-fe4831ddb5f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,8 +111,8 @@
     <ClCompile Include="src\actionobjects\introscreen\RubiksSquare.cpp">
       <Filter>Source Files\actionobjects\introscreen</Filter>
     </ClCompile>
-    <ClCompile Include="src\actionobjects\introscreen\RubiksMoveButton.cpp">
-      <Filter>Source Files\actionobjects\introscreen</Filter>
+    <ClCompile Include="src\actionobjects\playscreen\RubiksMoveButton.cpp">
+      <Filter>Source Files\actionobjects\playscreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,8 +167,8 @@
     <ClInclude Include="inc\actionobjects\introscreen\RubiksSquare.hpp">
       <Filter>Header Files\actionobjects\introscreen</Filter>
     </ClInclude>
-    <ClInclude Include="inc\actionobjects\introscreen\RubiksMoveButton.hpp">
-      <Filter>Header Files\actionobjects\introscreen</Filter>
+    <ClInclude Include="inc\actionobjects\playscreen\RubiksMoveButton.hpp">
+      <Filter>Header Files\actionobjects\playscreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

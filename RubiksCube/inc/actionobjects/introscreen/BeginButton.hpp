@@ -1,6 +1,8 @@
 #pragma once
 #include "../ActionRectangleShape.hpp"
+#include "../playscreen/RubiksMoveButton.hpp"
 #include "../../util/GameParameters.hpp"
+#include "../../loop/Game.hpp"
 class BeginButton : public ActionRectangleShape {
 	virtual void onLeftClick(std::list<ActionObject*>& allObjects) override;
 	virtual void onHover(std::list<ActionObject*>& allObjects) override;

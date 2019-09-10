@@ -28,10 +28,10 @@
     <ClCompile Include="src\actionobjects\introscreen\BeginText.cpp" />
     <ClCompile Include="src\actionobjects\introscreen\InstructionsButton.cpp" />
     <ClCompile Include="src\actionobjects\introscreen\InstructionsText.cpp" />
-    <ClCompile Include="src\actionobjects\introscreen\RubiksMoveButton.cpp" />
     <ClCompile Include="src\actionobjects\introscreen\RubiksSquare.cpp" />
     <ClCompile Include="src\actionobjects\introscreen\Title.cpp" />
     <ClCompile Include="src\actionobjects\introscreen\TitleShape.cpp" />
+    <ClCompile Include="src\actionobjects\playscreen\RubiksMoveButton.cpp" />
     <ClCompile Include="src\datastructure\RubiksCube.cpp" />
     <ClCompile Include="src\loop\ActionLoop.cpp" />
     <ClCompile Include="src\loop\Game.cpp" />
@@ -47,10 +47,10 @@
     <ClInclude Include="inc\actionobjects\introscreen\BeginText.hpp" />
     <ClInclude Include="inc\actionobjects\introscreen\InstructionsButton.hpp" />
     <ClInclude Include="inc\actionobjects\introscreen\InstructionsText.hpp" />
-    <ClInclude Include="inc\actionobjects\introscreen\RubiksMoveButton.hpp" />
     <ClInclude Include="inc\actionobjects\introscreen\RubiksSquare.hpp" />
     <ClInclude Include="inc\actionobjects\introscreen\Title.hpp" />
     <ClInclude Include="inc\actionobjects\introscreen\TitleShape.hpp" />
+    <ClInclude Include="inc\actionobjects\playscreen\RubiksMoveButton.hpp" />
     <ClInclude Include="inc\datastructure\RubiksCube.hpp" />
     <ClInclude Include="inc\loop\ActionLoop.hpp" />
     <ClInclude Include="inc\loop\Game.hpp" />

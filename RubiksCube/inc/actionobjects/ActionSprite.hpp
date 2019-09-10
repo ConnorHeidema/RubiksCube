@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <list>
-class ActionSprite : public ActionObject {
+class ActionSprite : virtual public ActionObject {
 private:
 protected:
 	ActionSprite();

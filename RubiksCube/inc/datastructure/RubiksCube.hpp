@@ -1,5 +1,28 @@
 #pragma once
 #include "SFML\Graphics.hpp"
+
+enum Moves {
+	FRONT_MOVE,
+	RIGHT_MOVE,
+	BACK_MOVE,
+	LEFT_MOVE,
+	TOP_MOVE,
+	BOTTOM_MOVE,
+	FRONT_INVERSE_MOVE,
+	RIGHT_INVERSE_MOVE,
+	BACK_INVERSE_MOVE,
+	LEFT_INVERSE_MOVE,
+	TOP_INVERSE_MOVE,
+	BOTTOM_INVERSE_MOVE,
+	ROTATE_RIGHT_FRONT,
+	ROTATE_TOP_FRONT,
+	ROTATE_FRONT_FRONT,
+	ROTATE_RIGHT_FRONT_INVERSE,
+	ROTATE_TOP_FRONT_INVERSE,
+	ROTATE_FRONT_FRONT_INVERSE,
+	NUM_MOVES
+};
+
 enum Faces {
 	FRONT_FACE,
 	RIGHT_FACE,
@@ -34,6 +57,10 @@ class RubiksCube {
 		Faces fourthFace, Positions fourthPosition);
 	void rotateFace(Faces face);
 	void inverseRotateFace(Faces face);
+
+	void performFunction(Moves move);
+	Moves getMove(std::string moveString);
+	std::string getString(Moves move);
 public:
 	static const sf::Color cubeColors[];
 	static const int NUM_COLORS = 6;

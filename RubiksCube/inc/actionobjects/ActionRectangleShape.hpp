@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <list>
-class ActionRectangleShape : public ActionObject {
+class ActionRectangleShape : virtual public ActionObject {
 private:
 protected:
 	ActionRectangleShape();
@@ -14,6 +14,6 @@ public:
 	ActionRectangleShape(const ActionRectangleShape& other);
 	virtual	~ActionRectangleShape();
 	virtual ActionObject* clone() override;
-	virtual sf::IntRect getBounds() override;
+	sf::IntRect getBounds() override;
 	virtual sf::Drawable* getDrawable() override;
 };

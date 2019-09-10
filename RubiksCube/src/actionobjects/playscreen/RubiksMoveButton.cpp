@@ -1,10 +1,11 @@
-#include "..\..\..\inc\actionobjects\introscreen\RubiksMoveButton.hpp"
+#include "..\..\..\inc\actionobjects\playscreen\RubiksMoveButton.hpp"
 
 void RubiksMoveButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	(*rubiksPtr.*fnPtr)();
 }
 
-RubiksMoveButton::RubiksMoveButton() {
+
+RubiksMoveButton::RubiksMoveButton() : fnPtr(nullptr), rubiksPtr(nullptr) {
 	int yOffset = 300;
 	sf::RectangleShape* rect = new sf::RectangleShape();
 	rect->setSize(sf::Vector2f(GameParameters::REGULAR_BUTTON_WIDTH, GameParameters::REGULAR_BUTTON_HEIGHT));

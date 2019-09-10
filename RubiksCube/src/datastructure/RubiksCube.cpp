@@ -1,5 +1,91 @@
 #include "../../inc/datastructure/RubiksCube.hpp"
 
+void RubiksCube::performFunction(Moves move) {
+	switch (move) {
+	case FRONT_MOVE: return this->frontMove(); break;
+	case RIGHT_MOVE: return this->rightMove(); break;
+	case BACK_MOVE: return this->backMove(); break;
+	case LEFT_MOVE: return this->leftMove(); break;
+	case TOP_MOVE: return topMove(); break;
+	case BOTTOM_MOVE: return bottomMove(); break;
+	case FRONT_INVERSE_MOVE: return frontInverseMove(); break;
+	case RIGHT_INVERSE_MOVE: return rightInverseMove(); break;
+	case BACK_INVERSE_MOVE: return backInverseMove(); break;
+	case LEFT_INVERSE_MOVE: return leftInverseMove(); break;
+	case TOP_INVERSE_MOVE: return topInverseMove(); break;
+	case BOTTOM_INVERSE_MOVE: return bottomInverseMove(); break;
+	case ROTATE_RIGHT_FRONT: return rotateRightFront(); break;
+	case ROTATE_TOP_FRONT: return rotateTopFront(); break;
+	case ROTATE_FRONT_FRONT: return rotateFrontFront(); break;
+	case ROTATE_RIGHT_FRONT_INVERSE: return rotateRightFrontInverse(); break;
+	case ROTATE_TOP_FRONT_INVERSE: return rotateTopFrontInverse(); break;
+	case ROTATE_FRONT_FRONT_INVERSE: return rotateFrontFrontInverse(); break;
+	}
+}
+
+Moves RubiksCube::getMove(std::string moveString) {
+	if (moveString == "Front") {
+		return FRONT_MOVE;
+	} else if (moveString == "Right") {
+		return RIGHT_MOVE;
+	} else if (moveString == "Back") {
+		return BACK_MOVE;
+	} else if (moveString == "Left") {
+		return LEFT_MOVE;
+	} else if (moveString == "Top") {
+		return TOP_MOVE;
+	} else if (moveString == "Bottom") {
+		return BOTTOM_MOVE;
+	} else if (moveString == "Front Inverse") {
+		return FRONT_INVERSE_MOVE;
+	} else if (moveString == "Right Inverse") {
+		return RIGHT_INVERSE_MOVE;
+	} else if (moveString == "Back Inverse") {
+		return BACK_INVERSE_MOVE;
+	} else if (moveString == "Left Inverse") {
+		return LEFT_INVERSE_MOVE;
+	} else if (moveString == "Top Inverse") {
+		return TOP_INVERSE_MOVE;
+	} else if (moveString == "Bottom Inverse") {
+		return BOTTOM_INVERSE_MOVE;
+	} else if (moveString == "Rotate Right Front") {
+		return ROTATE_RIGHT_FRONT;
+	} else if (moveString == "Rotate Top Front") {
+		return ROTATE_TOP_FRONT;
+	} else if (moveString == "Rotate Front Front") {
+		return ROTATE_FRONT_FRONT;
+	} else if (moveString == "Rotate Right Front Inverse") {
+		return ROTATE_RIGHT_FRONT_INVERSE;
+	} else if (moveString == "Rotate Top Front Inverse") {
+		return ROTATE_TOP_FRONT_INVERSE;
+	} else if (moveString == "Rotate Front Front Inverse") {
+		return ROTATE_FRONT_FRONT_INVERSE;
+	}
+}
+
+std::string RubiksCube::getString(Moves move) {
+	switch (move) {
+	case FRONT_MOVE: return "Front"; break;
+	case RIGHT_MOVE: return "Right"; break;
+	case BACK_MOVE: return "Back"; break;
+	case LEFT_MOVE: return "Left"; break;
+	case TOP_MOVE: return "Top"; break;
+	case BOTTOM_MOVE: return "Bottom"; break;
+	case FRONT_INVERSE_MOVE: return "Front Inverse"; break;
+	case RIGHT_INVERSE_MOVE: return "Right Inverse"; break;
+	case BACK_INVERSE_MOVE: return "Back Inverse"; break;
+	case LEFT_INVERSE_MOVE: return "Left Inverse"; break;
+	case TOP_INVERSE_MOVE: return "Top Inverse"; break;
+	case BOTTOM_INVERSE_MOVE: return "Bottom Inverse"; break;
+	case ROTATE_RIGHT_FRONT: return "Rotate Right Front"; break;
+	case ROTATE_TOP_FRONT: return "Rotate Top Front"; break;
+	case ROTATE_FRONT_FRONT: return "Rotate Front Front"; break;
+	case ROTATE_RIGHT_FRONT_INVERSE: return "Rotate Right Front Inverse"; break;
+	case ROTATE_TOP_FRONT_INVERSE: return "Rotate Top Front Inverse"; break;
+	case ROTATE_FRONT_FRONT_INVERSE: return "Rotate Front Front Inverse"; break;
+	}
+}
+
 const sf::Color RubiksCube::cubeColors[NUM_COLORS] = {
 	sf::Color::Green,
 	sf::Color::Red,

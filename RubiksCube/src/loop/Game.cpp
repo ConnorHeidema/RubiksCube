@@ -28,7 +28,6 @@ void Game::setupInitialObjects(std::list<ActionObject*>& actionSpritesPtrs) {
 }
 
 void Game::setupRubiksObjects(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* rubiks) {
-	actionSpritesPtrs.emplace_back(new RubiksMoveButton(100,0,rubiks, &RubiksCube::frontMove));
 	int midXScreen = (GameParameters::SCREEN_WIDTH - 50) / 2;
 	int midYScreen = (GameParameters::SCREEN_HEIGHT - 50) / 2;
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {

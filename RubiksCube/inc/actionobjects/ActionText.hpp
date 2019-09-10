@@ -3,7 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <list>
-class ActionText : public ActionObject {
+class ActionText : virtual public ActionObject {
 private:
 protected:
 	ActionText();
@@ -17,7 +17,7 @@ public:
 	ActionText(const ActionText& other);
 	virtual	~ActionText();
 	virtual ActionObject* clone() override;
-	virtual sf::IntRect getBounds() override;
+	sf::IntRect getBounds() override;
 	virtual sf::Drawable* getDrawable() override;
 };
 

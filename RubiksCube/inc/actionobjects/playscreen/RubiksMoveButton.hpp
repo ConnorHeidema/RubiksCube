@@ -1,9 +1,10 @@
 #pragma once
 #include "../ActionRectangleShape.hpp"
+#include "../ActionText.hpp"
 #include "../../util/GameParameters.hpp"
 #include "../../datastructure/RubiksCube.hpp"
 class RubiksMoveButton :
-	public ActionRectangleShape {
+	virtual public ActionRectangleShape {
 	virtual void onLeftClick(std::list<ActionObject*>& allObjects) override;
 	RubiksMoveButton();
 	virtual RubiksMoveButton* clone() override;
