@@ -5,8 +5,8 @@
 #include <mutex>
 class RenderLoop {
 public:
-	static void start(sf::RenderWindow& window, std::list<ActionSprite*>& actionSpritesPtrs, std::mutex& deletionMutex);
-	static std::list<ActionSprite*> getCopy(const std::list<ActionSprite*>& actionSpritesPtrs);
-	static void drawActionSprites(sf::RenderWindow& window, const std::list<ActionSprite*>& actionSpritesPtrs);
-	static void deleteCopy(std::list<ActionSprite*>& actionSpritesPtrsCopy);
+	static void start(sf::RenderWindow& window, std::list<ActionObject*>& actionSpritesPtrs, std::mutex& deletionMutex);
+	static std::list<ActionObject*> getCopy(const std::list<ActionObject*>& actionSpritesPtrs);
+	static void drawActionObjects(sf::RenderWindow& window, const std::list<ActionObject*>& actionSpritesPtrs);
+	static void deleteCopy(std::list<ActionObject*>& actionSpritesPtrsCopy);
 };

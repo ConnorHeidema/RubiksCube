@@ -20,17 +20,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\datastructure\RubiksCube.cpp" />
     <ClCompile Include="src\loop\ActionLoop.cpp" />
     <ClCompile Include="src\loop\Game.cpp" />
     <ClCompile Include="src\loop\RenderLoop.cpp" />
+    <ClCompile Include="src\sprite\ActionObject.cpp" />
     <ClCompile Include="src\sprite\ActionSprite.cpp" />
+    <ClCompile Include="src\sprite\introscreen\BeginButton.cpp" />
+    <ClCompile Include="src\sprite\introscreen\InstructionsButton.cpp" />
+    <ClCompile Include="src\sprite\introscreen\Title.cpp" />
     <ClCompile Include="src\util\GameParameters.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\datastructure\RubiksCube.hpp" />
     <ClInclude Include="inc\loop\ActionLoop.hpp" />
     <ClInclude Include="inc\loop\Game.hpp" />
     <ClInclude Include="inc\loop\RenderLoop.hpp" />
+    <ClInclude Include="inc\sprite\ActionObject.hpp" />
     <ClInclude Include="inc\sprite\ActionSprite.hpp" />
+    <ClInclude Include="inc\sprite\introscreen\BeginButton.hpp" />
+    <ClInclude Include="inc\sprite\introscreen\InstructionsButton.hpp" />
+    <ClInclude Include="inc\sprite\introscreen\Title.hpp" />
     <ClInclude Include="inc\util\GameParameters.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -38,7 +48,14 @@
     <Font Include="res\font\arial.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\png\blue.png" />
+    <Image Include="res\png\green.png" />
+    <Image Include="res\png\orange.png" />
+    <Image Include="res\png\red.png" />
+    <Image Include="res\png\seethrough.png" />
+    <Image Include="res\png\white.png" />
     <Image Include="res\png\white_square.png" />
+    <Image Include="res\png\yellow.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

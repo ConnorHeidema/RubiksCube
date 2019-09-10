@@ -46,6 +46,18 @@
     <Filter Include="Header Files\ui">
       <UniqueIdentifier>{39ad3540-e10f-4f82-a35c-9dd6ca3e616b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\datastructure">
+      <UniqueIdentifier>{fffe728b-9ded-47e4-afbd-6f3ebc8200b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\datastructure">
+      <UniqueIdentifier>{b9a87beb-2180-47ba-a6de-98429087ca29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sprite\introscreen">
+      <UniqueIdentifier>{ea0a624d-a460-4091-a19b-3a3712eba9c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sprite\introscreen">
+      <UniqueIdentifier>{0ea5b8cc-3f90-457b-9cf7-1d57ece8c484}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +77,21 @@
     </ClCompile>
     <ClCompile Include="src\loop\ActionLoop.cpp">
       <Filter>Source Files\loop</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\RubiksCube.cpp">
+      <Filter>Source Files\datastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sprite\introscreen\InstructionsButton.cpp">
+      <Filter>Source Files\sprite\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sprite\introscreen\BeginButton.cpp">
+      <Filter>Source Files\sprite\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sprite\introscreen\Title.cpp">
+      <Filter>Source Files\sprite\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sprite\ActionObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +113,21 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\datastructure\RubiksCube.hpp">
+      <Filter>Header Files\datastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sprite\introscreen\InstructionsButton.hpp">
+      <Filter>Header Files\sprite\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sprite\introscreen\BeginButton.hpp">
+      <Filter>Header Files\sprite\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sprite\introscreen\Title.hpp">
+      <Filter>Header Files\sprite\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sprite\ActionObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\font\arial.ttf">
@@ -94,6 +136,27 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\png\white_square.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\blue.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\green.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\orange.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\red.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\seethrough.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\white.png">
+      <Filter>Resource Files\png</Filter>
+    </Image>
+    <Image Include="res\png\yellow.png">
       <Filter>Resource Files\png</Filter>
     </Image>
   </ItemGroup>
