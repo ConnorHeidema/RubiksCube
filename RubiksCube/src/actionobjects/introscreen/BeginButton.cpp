@@ -1,7 +1,17 @@
 #include "..\..\..\inc\actionobjects\introscreen\BeginButton.hpp"
 
 void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
-	std::cout << "Begin button clicked" << std::endl;
+	std::for_each(allObjects.begin(), allObjects.end(), [](ActionObject* actionObjectPtr) {
+		actionObjectPtr->toBeDeleted = true;
+		});
+}
+
+void BeginButton::onHover(std::list<ActionObject*>& allObjects) {
+	rectShapePtr->setFillColor(sf::Color(0, 230, 0, 255));
+}
+
+void BeginButton::onEndHover(std::list<ActionObject*>& allObjects) {
+	rectShapePtr->setFillColor(sf::Color::Green);
 }
 
 BeginButton::BeginButton() {

@@ -1,7 +1,18 @@
 #include "../../../inc/actionobjects/introscreen/InstructionsButton.hpp"
 
+
 void InstructionsButton::onLeftClick(std::list<ActionObject*>& allObjects) {
-	std::cout << "Begin button clicked" << std::endl;
+	std::for_each(allObjects.begin(), allObjects.end(), [](ActionObject* actionObjectPtr) {
+		actionObjectPtr->toBeDeleted = true;
+		});
+}
+
+void InstructionsButton::onHover(std::list<ActionObject*>& allObjects) {
+	rectShapePtr->setFillColor(sf::Color(230, 230, 0, 255));
+}
+
+void InstructionsButton::onEndHover(std::list<ActionObject*>& allObjects) {
+	rectShapePtr->setFillColor(sf::Color::Yellow);
 }
 
 InstructionsButton::InstructionsButton() {
