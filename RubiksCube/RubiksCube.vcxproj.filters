@@ -105,6 +105,9 @@
     <ClCompile Include="src\actionobjects\introscreen\RubiksSquare.cpp">
       <Filter>Source Files\actionobjects\introscreen</Filter>
     </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\RubiksMoveButton.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\loop\Game.hpp">
@@ -156,6 +159,9 @@
       <Filter>Header Files\actionobjects\introscreen</Filter>
     </ClInclude>
     <ClInclude Include="inc\actionobjects\introscreen\RubiksSquare.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\RubiksMoveButton.hpp">
       <Filter>Header Files\actionobjects\introscreen</Filter>
     </ClInclude>
   </ItemGroup>

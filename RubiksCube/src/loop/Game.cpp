@@ -28,6 +28,10 @@ void Game::setupInitialObjects(std::list<ActionObject*>& actionSpritesPtrs) {
 
 void Game::setupRubiksObjects(std::list<ActionObject*>& actionSpritesPtrs) {
 	RubiksCube* rubiks = new RubiksCube();
+
+	actionSpritesPtrs.emplace_back(new RubiksMoveButton(100,0,rubiks, &RubiksCube::frontMove));
+
+
 	int midXScreen = (GameParameters::SCREEN_WIDTH - 50) / 2;
 	int midYScreen = (GameParameters::SCREEN_HEIGHT - 50) / 2;
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
@@ -40,7 +44,7 @@ void Game::placeFace(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* ru
 	int yFaceOffset = 0;
 	switch (face) {
 	case TOP_FACE:
-		yFaceOffset += 150;
+		yFaceOffset -= 150;
 		break;
 	case LEFT_FACE:
 		xFaceOffset -= 150;
@@ -54,7 +58,7 @@ void Game::placeFace(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* ru
 		xFaceOffset += 300;
 		break;
 	case BOTTOM_FACE:
-		yFaceOffset -= 150;
+		yFaceOffset += 150;
 		break;
 	}
 	Game::placeSquares(actionSpritesPtrs, rubiks, xFaceOffset, yFaceOffset, face);

@@ -10,6 +10,7 @@
 #include "../actionobjects/introscreen/Title.hpp"
 #include "../actionobjects/introscreen/TitleShape.hpp"
 #include "../actionobjects/introscreen/RubiksSquare.hpp"
+#include "../actionobjects/introscreen/RubiksMoveButton.hpp"
 #include "../util/GameParameters.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
