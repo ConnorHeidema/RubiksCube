@@ -18,5 +18,9 @@ void Game::start() {
 
 void Game::setupInitialObjects(std::list<ActionObject*>& actionSpritesPtrs) {
 	actionSpritesPtrs.emplace_back(new InstructionsButton());
+	actionSpritesPtrs.emplace_back(new InstructionsText());
 	actionSpritesPtrs.emplace_back(new BeginButton());
+	actionSpritesPtrs.emplace_back(new BeginText());
+	actionSpritesPtrs.emplace_back(new TitleShape());
+	actionSpritesPtrs.emplace_back(new Title());
 }

@@ -13,7 +13,7 @@ public:
 	ActionSprite(sf::Sprite* sprite);
 	ActionSprite(const ActionSprite& other);
 	virtual	~ActionSprite();
-	virtual ActionObject* clone() override;
+	virtual ActionSprite* clone() override;
 	virtual sf::IntRect getBounds() override;
 	virtual sf::Drawable* getDrawable() override;
 };

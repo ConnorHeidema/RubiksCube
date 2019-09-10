@@ -1,5 +1,5 @@
 #pragma once
-#include "../sprite/ActionSprite.hpp"
+#include "../actionobjects/ActionSprite.hpp"
 #include <list>
 #include <mutex>
 class ActionLoop {

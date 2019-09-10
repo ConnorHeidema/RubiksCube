@@ -1,4 +1,4 @@
-#include "../../inc/sprite/ActionObject.hpp"
+#include "../../inc/actionobjects/ActionObject.hpp"
 
 const int ActionObject::CLICK_MIN_GAP_MILLIS = 2;
 const int ActionObject::DOUBLE_CLICK_MAX_GAP_MILLIS = 150;

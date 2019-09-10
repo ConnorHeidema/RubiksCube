@@ -2,6 +2,7 @@
 
 void RenderLoop::start(sf::RenderWindow& window, std::list<ActionObject*>& ActionObjectsPtrs, std::mutex& deletionMutex) {
 	window.setFramerateLimit(GameParameters::FRAMERATE);
+	using namespace std::chrono_literals;
 	std::list<ActionObject*> copiedList;
 	while (window.isOpen()) {
 		window.clear(GameParameters::BACKGROUND_COLOR);

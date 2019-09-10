@@ -1,4 +1,4 @@
-#include "..\..\inc\sprite\ActionSprite.hpp"
+#include "..\..\inc\actionobjects\ActionSprite.hpp"
 
 ActionSprite::ActionSprite() : spritePtr(nullptr) {
 }
@@ -21,7 +21,7 @@ ActionSprite::~ActionSprite() {
 	delete spritePtr;
 }
 
-ActionObject* ActionSprite::clone() {
+ActionSprite* ActionSprite::clone() {
 	return new ActionSprite(*this);
 }
 

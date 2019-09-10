@@ -31,20 +31,8 @@
     <Filter Include="Resource Files\readme">
       <UniqueIdentifier>{2af170f2-f0f4-4dab-92da-993964460667}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\sprite">
-      <UniqueIdentifier>{928f3f11-37d4-493d-9c5d-b6c78dd275a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\sprite">
-      <UniqueIdentifier>{7522af86-a9ce-4326-8a52-9fafe6a60eef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\png">
       <UniqueIdentifier>{02331916-13f7-41cf-8ea5-1cdc59a849dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ui">
-      <UniqueIdentifier>{d5ab2f88-1cb9-49c4-ab62-e9fca9dd5c8e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\ui">
-      <UniqueIdentifier>{39ad3540-e10f-4f82-a35c-9dd6ca3e616b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\datastructure">
       <UniqueIdentifier>{fffe728b-9ded-47e4-afbd-6f3ebc8200b8}</UniqueIdentifier>
@@ -52,11 +40,17 @@
     <Filter Include="Header Files\datastructure">
       <UniqueIdentifier>{b9a87beb-2180-47ba-a6de-98429087ca29}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\sprite\introscreen">
-      <UniqueIdentifier>{ea0a624d-a460-4091-a19b-3a3712eba9c3}</UniqueIdentifier>
+    <Filter Include="Source Files\actionobjects">
+      <UniqueIdentifier>{928f3f11-37d4-493d-9c5d-b6c78dd275a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\sprite\introscreen">
-      <UniqueIdentifier>{0ea5b8cc-3f90-457b-9cf7-1d57ece8c484}</UniqueIdentifier>
+    <Filter Include="Header Files\actionobjects">
+      <UniqueIdentifier>{7522af86-a9ce-4326-8a52-9fafe6a60eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\actionobjects\introscreen">
+      <UniqueIdentifier>{80aaee9a-6361-4ceb-b05f-85ae1c8a0d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\actionobjects\introscreen">
+      <UniqueIdentifier>{53037ffb-6df3-4bf6-b2a6-3328a55683de}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +63,6 @@
     <ClCompile Include="src\util\GameParameters.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="src\sprite\ActionSprite.cpp">
-      <Filter>Source Files\sprite</Filter>
-    </ClCompile>
     <ClCompile Include="src\loop\RenderLoop.cpp">
       <Filter>Source Files\loop</Filter>
     </ClCompile>
@@ -81,17 +72,35 @@
     <ClCompile Include="src\datastructure\RubiksCube.cpp">
       <Filter>Source Files\datastructure</Filter>
     </ClCompile>
-    <ClCompile Include="src\sprite\introscreen\InstructionsButton.cpp">
-      <Filter>Source Files\sprite\introscreen</Filter>
+    <ClCompile Include="src\actionobjects\ActionObject.cpp">
+      <Filter>Source Files\actionobjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\sprite\introscreen\BeginButton.cpp">
-      <Filter>Source Files\sprite\introscreen</Filter>
+    <ClCompile Include="src\actionobjects\ActionRectangleShape.cpp">
+      <Filter>Source Files\actionobjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\sprite\introscreen\Title.cpp">
-      <Filter>Source Files\sprite\introscreen</Filter>
+    <ClCompile Include="src\actionobjects\ActionSprite.cpp">
+      <Filter>Source Files\actionobjects</Filter>
     </ClCompile>
-    <ClCompile Include="src\sprite\ActionObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\actionobjects\ActionText.cpp">
+      <Filter>Source Files\actionobjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\BeginButton.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\InstructionsButton.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\Title.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\TitleShape.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\BeginText.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionobjects\introscreen\InstructionsText.cpp">
+      <Filter>Source Files\actionobjects\introscreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="inc\util\GameParameters.hpp">
       <Filter>Header Files\util</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\sprite\ActionSprite.hpp">
-      <Filter>Header Files\sprite</Filter>
     </ClInclude>
     <ClInclude Include="inc\loop\RenderLoop.hpp">
       <Filter>Header Files\loop</Filter>
@@ -116,17 +122,35 @@
     <ClInclude Include="inc\datastructure\RubiksCube.hpp">
       <Filter>Header Files\datastructure</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sprite\introscreen\InstructionsButton.hpp">
-      <Filter>Header Files\sprite\introscreen</Filter>
+    <ClInclude Include="inc\actionobjects\ActionObject.hpp">
+      <Filter>Header Files\actionobjects</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sprite\introscreen\BeginButton.hpp">
-      <Filter>Header Files\sprite\introscreen</Filter>
+    <ClInclude Include="inc\actionobjects\ActionRectangleShape.hpp">
+      <Filter>Header Files\actionobjects</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sprite\introscreen\Title.hpp">
-      <Filter>Header Files\sprite\introscreen</Filter>
+    <ClInclude Include="inc\actionobjects\ActionSprite.hpp">
+      <Filter>Header Files\actionobjects</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sprite\ActionObject.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="inc\actionobjects\ActionText.hpp">
+      <Filter>Header Files\actionobjects</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\BeginButton.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\InstructionsButton.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\Title.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\TitleShape.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\BeginText.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\introscreen\InstructionsText.hpp">
+      <Filter>Header Files\actionobjects\introscreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

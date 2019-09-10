@@ -1,8 +1,9 @@
 #pragma once
-#include "../sprite/ActionSprite.hpp"
+#include "../actionobjects/ActionSprite.hpp"
 #include "../util/GameParameters.hpp"
 #include <list>
 #include <mutex>
+#include <thread>
 class RenderLoop {
 public:
 	static void start(sf::RenderWindow& window, std::list<ActionObject*>& actionSpritesPtrs, std::mutex& deletionMutex);
