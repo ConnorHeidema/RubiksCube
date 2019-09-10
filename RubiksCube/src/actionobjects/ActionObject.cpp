@@ -39,6 +39,12 @@ void ActionObject::onEndHover(std::list<ActionObject*>& allObjects) {
 void ActionObject::onRightClick(std::list<ActionObject*>& allObjects) {
 }
 
+void ActionObject::onTimePassing(std::list<ActionObject*>& allObjects) {
+}
+
+void ActionObject::onRemove(std::list<ActionObject*>& allObjects) {
+}
+
 void ActionObject::leftClickActions(std::list<ActionObject*>& allObjects, bool isDragging) {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		clock = lastClock;
@@ -151,6 +157,7 @@ ActionObject::ActionObject(const ActionObject& other) :
 }
 
 void ActionObject::action(std::list<ActionObject*>& actionObjectPtrs) {
+	onTimePassing(actionObjectPtrs);
 	bool isDragging = dragActions(actionObjectPtrs);
 	if (!isDragging && sf::Mouse::isButtonPressed(sf::Mouse::Left)
 		&& lastClickTime.getElapsedTime().asMilliseconds() > DOUBLE_CLICK_MAX_GAP_MILLIS)

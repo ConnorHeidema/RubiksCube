@@ -30,8 +30,8 @@ void RenderLoop::drawActionObjects(sf::RenderWindow& window, const std::list<Act
 		});
 }
 
-void RenderLoop::deleteCopy(std::list<ActionObject*>& ActionObjectsPtrsCopy) {
-	std::for_each(ActionObjectsPtrsCopy.begin(), ActionObjectsPtrsCopy.end(), [](ActionObject* actionObjectsPtrCopy) {
+void RenderLoop::deleteCopy(std::list<ActionObject*>& actionObjectsPtrsCopy) {
+	std::for_each(actionObjectsPtrsCopy.begin(), actionObjectsPtrsCopy.end(), [&actionObjectsPtrsCopy](ActionObject* actionObjectsPtrCopy) {
 		delete actionObjectsPtrCopy;
 		});
 }

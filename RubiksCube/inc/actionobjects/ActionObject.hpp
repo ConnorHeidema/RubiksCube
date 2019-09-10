@@ -35,6 +35,7 @@ class ActionObject {
 	virtual void onHover(std::list<ActionObject*>& allObjects);
 	virtual void onEndHover(std::list<ActionObject*>& allObjects);
 	virtual void onRightClick(std::list<ActionObject*>& allObjects);
+	virtual void onTimePassing(std::list<ActionObject*>& allObjects);
 
 	void leftClickActions(std::list<ActionObject*>& allObjects, bool isDragging);
 	void rightClickActions(std::list<ActionObject*>& allObjects, bool isDragging);
@@ -50,5 +51,6 @@ public:
 	void action(std::list<ActionObject*>& actionObjectPtrs);
 	virtual	~ActionObject() = 0;
 	virtual ActionObject* clone() = 0;
+	virtual void onRemove(std::list<ActionObject*>& allObjects);
 	bool toBeDeleted;
 };

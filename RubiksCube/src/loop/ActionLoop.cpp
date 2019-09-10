@@ -29,6 +29,7 @@ void ActionLoop::spriteCleanup(std::list<ActionObject*>& actionSpritesPtrs, std:
 	while (actionSpriteIterator != actionSpritesPtrs.end()) {
 		if ((*actionSpriteIterator)->toBeDeleted) {
 			deletionMutex.lock();
+			(*actionSpriteIterator)->onRemove(actionSpritesPtrs);
 			delete* actionSpriteIterator;
 			actionSpriteIterator = actionSpritesPtrs.erase(actionSpriteIterator);
 			deletionMutex.unlock();

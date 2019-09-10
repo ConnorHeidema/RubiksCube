@@ -17,21 +17,18 @@ void Game::start() {
 }
 
 void Game::setupInitialObjects(std::list<ActionObject*>& actionSpritesPtrs) {
-	setupRubiksObjects(actionSpritesPtrs);
+	RubiksCube* rubiks = new RubiksCube();
+	setupRubiksObjects(actionSpritesPtrs, rubiks);
 	actionSpritesPtrs.emplace_back(new InstructionsButton());
 	actionSpritesPtrs.emplace_back(new InstructionsText());
 	actionSpritesPtrs.emplace_back(new BeginButton());
 	actionSpritesPtrs.emplace_back(new BeginText());
 	actionSpritesPtrs.emplace_back(new TitleShape());
-	actionSpritesPtrs.emplace_back(new Title());
+	actionSpritesPtrs.emplace_back(new Title(rubiks));
 }
 
-void Game::setupRubiksObjects(std::list<ActionObject*>& actionSpritesPtrs) {
-	RubiksCube* rubiks = new RubiksCube();
-
+void Game::setupRubiksObjects(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* rubiks) {
 	actionSpritesPtrs.emplace_back(new RubiksMoveButton(100,0,rubiks, &RubiksCube::frontMove));
-
-
 	int midXScreen = (GameParameters::SCREEN_WIDTH - 50) / 2;
 	int midYScreen = (GameParameters::SCREEN_HEIGHT - 50) / 2;
 	for (int face = FRONT_FACE; face < NUM_FACES; face++) {

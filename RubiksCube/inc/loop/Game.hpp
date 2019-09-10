@@ -21,7 +21,7 @@ class Game {
 public:
 	static void start();
 	static void setupInitialObjects(std::list<ActionObject*>& actionSpritesPtrs);
-	static void setupRubiksObjects(std::list<ActionObject*>& setupRubiksObject);
+	static void setupRubiksObjects(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* rubiks);
 	static void placeFace(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* rubiks, Faces face);
 	static void placeSquares(std::list<ActionObject*>& actionSpritesPtrs, RubiksCube* rubiks, int xFaceOffset, int yFaceOffset, Faces face);
 };
