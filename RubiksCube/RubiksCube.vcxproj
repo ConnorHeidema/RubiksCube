@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="inc\actionobjects\playscreen\ScrambleButton.cpp" />
+    <ClCompile Include="inc\actionobjects\playscreen\SolveButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\actionobjects\ActionObject.cpp" />
     <ClCompile Include="src\actionobjects\ActionRectangleShape.cpp" />
@@ -62,6 +64,8 @@
     <ClInclude Include="inc\actionobjects\introscreen\TitleShape.hpp" />
     <ClInclude Include="inc\actionobjects\playscreen\MoveText.hpp" />
     <ClInclude Include="inc\actionobjects\playscreen\RubiksMoveButton.hpp" />
+    <ClInclude Include="inc\actionobjects\playscreen\ScrambleButton.hpp" />
+    <ClInclude Include="inc\actionobjects\playscreen\SolveButton.hpp" />
     <ClInclude Include="inc\datastructure\algorithm\AlgorithmStep.hpp" />
     <ClInclude Include="inc\datastructure\algorithm\AlignBottomCornerStep.hpp" />
     <ClInclude Include="inc\datastructure\algorithm\AlignBottomSidesStep.hpp" />

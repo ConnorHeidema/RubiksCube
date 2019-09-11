@@ -8,7 +8,6 @@ private:
 protected:
 	ActionRectangleShape();
 	sf::RectangleShape* rectShapePtr;
-
 public:
 	ActionRectangleShape(sf::RectangleShape* rectShapePtr);
 	ActionRectangleShape(const ActionRectangleShape& other);

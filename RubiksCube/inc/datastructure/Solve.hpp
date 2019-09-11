@@ -18,7 +18,7 @@ class Solve {
 	bool removeQuadrouples(std::list<Moves>& movesList);
 public:
 	Solve();
-	std::list<Moves> solveCube(RubiksCube* rubiks);
+	std::list<Moves> solveCube(const RubiksCube* rubiks);
 	void condenseSolvedList(std::list<Moves>& moveList);
 };
 

@@ -153,6 +153,12 @@
     <ClCompile Include="src\datastructure\Solve.cpp">
       <Filter>Source Files\datastructure</Filter>
     </ClCompile>
+    <ClCompile Include="inc\actionobjects\playscreen\SolveButton.cpp">
+      <Filter>Source Files\actionobjects\playscreen</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\actionobjects\playscreen\ScrambleButton.cpp">
+      <Filter>Source Files\actionobjects\playscreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\loop\Game.hpp">
@@ -236,8 +242,14 @@
     <ClInclude Include="inc\datastructure\algorithm\AlignTopSquares.hpp">
       <Filter>Header Files\datastructure\algorithm</Filter>
     </ClInclude>
+    <ClInclude Include="inc\actionobjects\playscreen\SolveButton.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="inc\datastructure\Solve.hpp">
-      <Filter>Header Files\datastructure</Filter>
+      <Filter>Header Files\actionobjects\playscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\playscreen\ScrambleButton.hpp">
+      <Filter>Header Files\actionobjects\playscreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

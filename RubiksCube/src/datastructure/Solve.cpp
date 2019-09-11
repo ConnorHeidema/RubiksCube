@@ -159,7 +159,13 @@ Moves Solve::getReverseMove(Moves move) {
 Solve::Solve() {
 }
 
-std::list<Moves> Solve::solveCube(RubiksCube* rubiks) {
+std::list<Moves> Solve::solveCube(const RubiksCube* rubiks) {
+	RubiksCube tempCube;
+	for (int face = FRONT_FACE; face < NUM_FACES; face++) {
+		for (int position = TOP_LEFT; position < NUM_POSITIONS; position++) {
+			tempCube.thisCube[face][position] = rubiks->thisCube[face][position];
+		}
+	}
 	std::list<Moves> moveList;
 	std::list<AlgorithmStep*> currentStep = {
 		new AlignBottomSidesStep(),
@@ -171,11 +177,11 @@ std::list<Moves> Solve::solveCube(RubiksCube* rubiks) {
 		new AlignFinalCornersFully()
 	};
 
-	std::for_each(currentStep.begin(), currentStep.end(), [&moveList, &currentStep, &rubiks](AlgorithmStep* step) {
-		if (!step->stepIsComplete(*rubiks)) {
-			moveList.splice((moveList).end(), step->makeMoves(*rubiks));
+	std::for_each(currentStep.begin(), currentStep.end(), [&moveList, &currentStep, &tempCube](AlgorithmStep* step) {
+		if (!step->stepIsComplete(tempCube)) {
+			moveList.splice((moveList).end(), step->makeMoves(tempCube));
 		}
-		std::cout << (step->stepIsComplete(*rubiks) ? "Step successful\n" : "ERROR IN STEP\n");
+		std::cout << (step->stepIsComplete(tempCube) ? "Step successful\n" : "ERROR IN STEP\n");
 		delete step;
 		});
 	return moveList;

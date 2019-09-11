@@ -1,11 +1,6 @@
 #include "..\..\..\inc\actionobjects\introscreen\BeginButton.hpp"
 
-void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
-	std::for_each(allObjects.begin(), allObjects.end(), [](ActionObject* actionObjectPtr) {
-		actionObjectPtr->toBeDeleted = true;
-		});
-	RubiksCube* rubiks = new RubiksCube();
-	Game::setupRubiksObjects(allObjects, rubiks);
+void BeginButton::setupMoveButtons(std::list<ActionObject*>& allObjects, RubiksCube* rubiks) {
 	int left = 100;
 	int top = 100;
 	allObjects.emplace_back(new RubiksMoveButton(left, top, rubiks, &RubiksCube::frontMove));
@@ -20,7 +15,7 @@ void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH, top + 3 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::leftInverseMove));
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH, top + 4 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::topInverseMove));
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH, top + 5 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::bottomInverseMove));
-	
+
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH / 2, top + 7 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::rotateRightFront));
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH / 2, top + 8 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::rotateTopFront));
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH / 2, top + 9 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::rotateFrontFront));
@@ -50,6 +45,35 @@ void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	allObjects.emplace_back(new MoveText(left + GameParameters::REGULAR_BUTTON_WIDTH / 2, top + 10 * GameParameters::REGULAR_BUTTON_HEIGHT, "Rot R. F. Inv"));
 	allObjects.emplace_back(new MoveText(left + GameParameters::REGULAR_BUTTON_WIDTH / 2, top + 11 * GameParameters::REGULAR_BUTTON_HEIGHT, "Rot Top Front Inv"));
 	allObjects.emplace_back(new MoveText(left + GameParameters::REGULAR_BUTTON_WIDTH / 2, top + 12 * GameParameters::REGULAR_BUTTON_HEIGHT, "Rot F. F. Inv"));
+
+}
+
+void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
+	std::for_each(allObjects.begin(), allObjects.end(), [](ActionObject* actionObjectPtr) {
+		actionObjectPtr->toBeDeleted = true;
+		});
+	RubiksCube* rubiks = new RubiksCube();
+	Game::setupRubiksObjects(allObjects, rubiks);
+	setupMoveButtons(allObjects, rubiks);
+
+	allObjects.emplace_back(new ScrambleButton(rubiks));
+	sf::Text* text = new sf::Text();
+
+	int textYAlign = 280;
+	int textXAlign = 110;
+	text->setString("Scramble Cube");
+	text->setCharacterSize(32);
+	text->setPosition(GameParameters::SCREEN_WIDTH/2 - textXAlign, GameParameters::SCREEN_HEIGHT/2 + textYAlign);
+	allObjects.emplace_back(new ActionText(text));
+
+	std::list<Moves>* moveList = new std::list<Moves>;
+	allObjects.emplace_back(new SolveButton(rubiks, moveList));
+	int textYAlign2 = 355;
+	int textXAlign2 = 110;
+	text->setString("Solve Cube");
+	text->setCharacterSize(32);
+	text->setPosition(GameParameters::SCREEN_WIDTH / 2 - textXAlign2, GameParameters::SCREEN_HEIGHT / 2 + textYAlign2);
+	allObjects.emplace_back(new ActionText(text));
 }
 
 void BeginButton::onHover(std::list<ActionObject*>& allObjects) {
