@@ -279,15 +279,15 @@ void RubiksCube::rotateFrontFront() {
 }
 
 void RubiksCube::rotateRightFrontInverse() {
-	rotateTopFront();
-	rotateTopFront();
-	rotateTopFront();
+	rotateRightFront();
+	rotateRightFront();
+	rotateRightFront();
 }
 
 void RubiksCube::rotateTopFrontInverse() {
-	rotateRightFront();
-	rotateRightFront();
-	rotateRightFront();
+	rotateTopFront();
+	rotateTopFront();
+	rotateTopFront();
 }
 
 void RubiksCube::rotateFrontFrontInverse() {
