@@ -4,8 +4,9 @@ void Game::start() {
 	if (!music.openFromFile("res/music/rubiks_cube.wav")) {
 		std::cout << "error" << std::endl;
 	}
-	music.play();
+	music.setVolume(0.2);
 	music.setLoop(true);
+	music.play();
 	sf::RenderWindow window(
 		sf::VideoMode(GameParameters::SCREEN_WIDTH, GameParameters::SCREEN_HEIGHT),
 		"Rubiks Game",
