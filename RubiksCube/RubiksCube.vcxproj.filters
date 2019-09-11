@@ -61,6 +61,12 @@
     <Filter Include="Resource Files\music">
       <UniqueIdentifier>{947c789f-c8a2-40d2-ae61-2acecb3f5708}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\datastructure\algorithm">
+      <UniqueIdentifier>{563623b8-f434-41a1-bf58-627c7c9a8b0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\datastructure\algorithm">
+      <UniqueIdentifier>{a5125b89-2cb1-4807-b7c9-46faa033aede}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -120,6 +126,30 @@
     <ClCompile Include="src\actionobjects\playscreen\MoveText.cpp">
       <Filter>Source Files\actionobjects\playscreen</Filter>
     </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlgorithmStep.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignBottomCornerStep.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignBottomSidesStep.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignFinalCornersFully.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignMiddleSidesStep.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignTopCorners.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignTopCross.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\datastructure\algorithm\AlignTopSquares.cpp">
+      <Filter>Source Files\datastructure\algorithm</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\loop\Game.hpp">
@@ -178,6 +208,30 @@
     </ClInclude>
     <ClInclude Include="inc\actionobjects\playscreen\MoveText.hpp">
       <Filter>Header Files\actionobjects\playscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlgorithmStep.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignBottomCornerStep.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignBottomSidesStep.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignFinalCornersFully.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignMiddleSidesStep.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignTopCorners.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignTopCross.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\algorithm\AlignTopSquares.hpp">
+      <Filter>Header Files\datastructure\algorithm</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

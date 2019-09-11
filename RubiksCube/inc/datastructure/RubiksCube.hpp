@@ -58,10 +58,10 @@ class RubiksCube {
 	void rotateFace(Faces face);
 	void inverseRotateFace(Faces face);
 
+public:
 	void performFunction(Moves move);
 	Moves getMove(std::string moveString);
 	std::string getString(Moves move);
-public:
 	static const sf::Color cubeColors[];
 	static const int NUM_COLORS = 6;
 

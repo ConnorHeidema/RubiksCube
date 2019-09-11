@@ -4,7 +4,7 @@ void Game::start() {
 	if (!music.openFromFile("res/music/rubiks_cube.wav")) {
 		std::cout << "error" << std::endl;
 	}
-	music.setVolume(0.2);
+	music.setVolume(0.2f);
 	music.setLoop(true);
 	music.play();
 	sf::RenderWindow window(
