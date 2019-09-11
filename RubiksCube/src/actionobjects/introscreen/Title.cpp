@@ -5,7 +5,7 @@ void Title::onTimePassing(std::list<ActionObject*>& allObjects) {
 		std::cout << "here" << std::endl;
 		timer.restart();
 		srand(time(0));
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1; i++) {
 			int r = (rand() % 12);
 			switch (r) {
 			case 0: rubiks->frontMove(); break;
@@ -24,6 +24,7 @@ void Title::onTimePassing(std::list<ActionObject*>& allObjects) {
 		}
 		Solve solve;
 		std::list<Moves> moves = solve.solveCube(rubiks);
+		solve.condenseSolvedList(moves);
 	}
 }
 

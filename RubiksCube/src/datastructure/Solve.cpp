@@ -199,8 +199,7 @@ void Solve::removeRotations(std::list<Moves>& movesList) {
 		case ROTATE_FRONT_FRONT:
 		case ROTATE_FRONT_FRONT_INVERSE:
 		case ROTATE_TOP_FRONT:
-		case ROTATE_TOP_FRONT_INVERSE:
-		{
+		case ROTATE_TOP_FRONT_INVERSE: {
 			Moves rotation = *listIter;
 			listIter = movesList.erase(listIter);
 			for (auto morphingIter = listIter; morphingIter != movesList.end(); morphingIter++) {
