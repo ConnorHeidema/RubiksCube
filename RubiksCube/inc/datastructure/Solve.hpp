@@ -9,6 +9,7 @@
 #include "algorithm/AlignTopCross.hpp"
 #include "algorithm/AlignTopSquares.hpp"
 class Solve {
+public:
 	Solve();
 	std::list<Moves> solveCube(RubiksCube* rubiks);
 };

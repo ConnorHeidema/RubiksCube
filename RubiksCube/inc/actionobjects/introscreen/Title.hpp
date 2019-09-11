@@ -3,6 +3,7 @@
 #include "../../util/GameParameters.hpp"
 #include "../../datastructure/RubiksCube.hpp"
 #include "SFML/Graphics.hpp"
+#include "../../datastructure/Solve.hpp"
 #include <ctime>
 #include <cstdlib>
 class Title :
