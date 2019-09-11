@@ -1,6 +1,7 @@
 #pragma once
 #include "../ActionRectangleShape.hpp"
 #include "../playscreen/RubiksMoveButton.hpp"
+#include "../playscreen/MoveText.hpp"
 #include "../../util/GameParameters.hpp"
 #include "../../loop/Game.hpp"
 class BeginButton : public ActionRectangleShape {

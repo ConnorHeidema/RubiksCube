@@ -20,6 +20,22 @@ void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH, top + 3 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::leftInverseMove));
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH, top + 4 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::topInverseMove));
 	allObjects.emplace_back(new RubiksMoveButton(left + GameParameters::REGULAR_BUTTON_WIDTH, top + 5 * GameParameters::REGULAR_BUTTON_HEIGHT, rubiks, &RubiksCube::bottomInverseMove));
+	
+	int xAlignment = 50;
+	int xAlignment2 = 35;
+	int xAlignment3 = 20;
+	allObjects.emplace_back(new MoveText(xAlignment + left, top, "Front Move"));
+	allObjects.emplace_back(new MoveText(xAlignment + left, top + GameParameters::REGULAR_BUTTON_HEIGHT, "Right Move"));
+	allObjects.emplace_back(new MoveText(xAlignment + left, top + 2 * GameParameters::REGULAR_BUTTON_HEIGHT, "Back Move"));
+	allObjects.emplace_back(new MoveText(xAlignment + left, top + 3 * GameParameters::REGULAR_BUTTON_HEIGHT, "Left Move"));
+	allObjects.emplace_back(new MoveText(xAlignment + left, top + 4 * GameParameters::REGULAR_BUTTON_HEIGHT, "Top Move"));
+	allObjects.emplace_back(new MoveText(xAlignment2 + left, top + 5 * GameParameters::REGULAR_BUTTON_HEIGHT, "Bottom Move"));
+	allObjects.emplace_back(new MoveText(xAlignment2 + left + GameParameters::REGULAR_BUTTON_WIDTH, top, "Front Inverse"));
+	allObjects.emplace_back(new MoveText(xAlignment2 + left + GameParameters::REGULAR_BUTTON_WIDTH, top + GameParameters::REGULAR_BUTTON_HEIGHT, "Right Inverse"));
+	allObjects.emplace_back(new MoveText(xAlignment2 + left + GameParameters::REGULAR_BUTTON_WIDTH, top + 2 * GameParameters::REGULAR_BUTTON_HEIGHT, "Back Inverse"));
+	allObjects.emplace_back(new MoveText(xAlignment2 + left + GameParameters::REGULAR_BUTTON_WIDTH, top + 3 * GameParameters::REGULAR_BUTTON_HEIGHT, "Left Inverse"));
+	allObjects.emplace_back(new MoveText(xAlignment2 + left + GameParameters::REGULAR_BUTTON_WIDTH, top + 4 * GameParameters::REGULAR_BUTTON_HEIGHT, "Top Inverse"));
+	allObjects.emplace_back(new MoveText(xAlignment3 + left + GameParameters::REGULAR_BUTTON_WIDTH, top + 5 * GameParameters::REGULAR_BUTTON_HEIGHT, "Bottom Inverse"));
 }
 
 void BeginButton::onHover(std::list<ActionObject*>& allObjects) {

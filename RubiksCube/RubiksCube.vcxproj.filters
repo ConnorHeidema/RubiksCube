@@ -114,6 +114,9 @@
     <ClCompile Include="src\actionobjects\playscreen\RubiksMoveButton.cpp">
       <Filter>Source Files\actionobjects\playscreen</Filter>
     </ClCompile>
+    <ClCompile Include="src\actionobjects\playscreen\MoveText.cpp">
+      <Filter>Source Files\actionobjects\playscreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\loop\Game.hpp">
@@ -168,6 +171,9 @@
       <Filter>Header Files\actionobjects\introscreen</Filter>
     </ClInclude>
     <ClInclude Include="inc\actionobjects\playscreen\RubiksMoveButton.hpp">
+      <Filter>Header Files\actionobjects\playscreen</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\actionobjects\playscreen\MoveText.hpp">
       <Filter>Header Files\actionobjects\playscreen</Filter>
     </ClInclude>
   </ItemGroup>
