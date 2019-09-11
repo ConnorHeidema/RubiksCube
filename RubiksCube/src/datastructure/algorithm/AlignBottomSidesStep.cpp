@@ -12,8 +12,8 @@ bool AlignBottomSidesStep::stepIsComplete(RubiksCube& cube) {
 	return false;
 }
 
-std::list<std::string> AlignBottomSidesStep::makeMoves(RubiksCube& cube) {
-	std::list <std::string> stepsUsed;
+std::list<Moves> AlignBottomSidesStep::makeMoves(RubiksCube& cube) {
+	std::list <Moves> stepsUsed;
 	for (int backRotation = 0; backRotation < 4; backRotation++) {
 		for (int rotation = 0; rotation < 4; rotation++) {
 			bool cubePositioned = false;
@@ -36,7 +36,7 @@ std::list<std::string> AlignBottomSidesStep::makeMoves(RubiksCube& cube) {
 	return stepsUsed;
 }
 
-bool AlignBottomSidesStep::frontFaceTop(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::frontFaceTop(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[FRONT_FACE][TOP] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[TOP_FACE][BOTTOM] == cube.thisCube[RIGHT_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, TOP_MOVE));
@@ -65,7 +65,7 @@ bool AlignBottomSidesStep::frontFaceTop(std::list<std::string>& stepsUsed, Rubik
 	return false;
 }
 
-bool AlignBottomSidesStep::backFaceTop(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::backFaceTop(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[BACK_FACE][TOP] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[TOP_FACE][TOP] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, TOP_MOVE));
@@ -92,7 +92,7 @@ bool AlignBottomSidesStep::backFaceTop(std::list<std::string>& stepsUsed, Rubiks
 	return false;
 }
 
-bool AlignBottomSidesStep::rightFaceTop(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::rightFaceTop(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[RIGHT_FACE][TOP] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[TOP_FACE][RIGHT] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, TOP_MOVE));
@@ -124,7 +124,7 @@ bool AlignBottomSidesStep::rightFaceTop(std::list<std::string>& stepsUsed, Rubik
 	return false;
 }
 
-bool AlignBottomSidesStep::leftFaceTop(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::leftFaceTop(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[LEFT_FACE][TOP] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[TOP_FACE][LEFT] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, TOP_INVERSE_MOVE));
@@ -156,7 +156,7 @@ bool AlignBottomSidesStep::leftFaceTop(std::list<std::string>& stepsUsed, Rubiks
 	return false;
 }
 
-bool AlignBottomSidesStep::topFaceTop(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::topFaceTop(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[TOP_FACE][TOP] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[BACK_FACE][TOP] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, BACK_MOVE));
@@ -185,7 +185,7 @@ bool AlignBottomSidesStep::topFaceTop(std::list<std::string>& stepsUsed, RubiksC
 	return false;
 }
 
-bool AlignBottomSidesStep::topFaceRight(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::topFaceRight(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[TOP_FACE][RIGHT] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[RIGHT_FACE][TOP] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
@@ -216,7 +216,7 @@ bool AlignBottomSidesStep::topFaceRight(std::list<std::string>& stepsUsed, Rubik
 	return false;
 }
 
-bool AlignBottomSidesStep::topFaceLeft(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::topFaceLeft(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[TOP_FACE][LEFT] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[LEFT_FACE][TOP] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
@@ -247,7 +247,7 @@ bool AlignBottomSidesStep::topFaceLeft(std::list<std::string>& stepsUsed, Rubiks
 	return false;
 }
 
-bool AlignBottomSidesStep::topFaceBottom(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+bool AlignBottomSidesStep::topFaceBottom(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	if (cube.thisCube[TOP_FACE][BOTTOM] == cube.thisCube[FRONT_FACE][CENTER]) {
 		if (cube.thisCube[FRONT_FACE][TOP] == cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, TOP_MOVE));

@@ -3,7 +3,7 @@
 AlgorithmStep::~AlgorithmStep() {
 }
 
-std::string AlgorithmStep::performStep(RubiksCube& cube, Moves move) {
+Moves AlgorithmStep::performStep(RubiksCube& cube, Moves move) {
 	cube.performFunction(move);
-	return cube.getString(move);
+	return move;
 }

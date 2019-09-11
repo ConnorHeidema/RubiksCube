@@ -14,8 +14,8 @@ bool AlignMiddleSidesStep::stepIsComplete(RubiksCube& cube) {
 	return false;
 }
 
-std::list<std::string> AlignMiddleSidesStep::makeMoves(RubiksCube& cube) {
-	std::list <std::string> stepsUsed;
+std::list<Moves> AlignMiddleSidesStep::makeMoves(RubiksCube& cube) {
+	std::list <Moves> stepsUsed;
 	for (int i = 0; i < 4; i++) {
 		if (cube.thisCube[FRONT_FACE][RIGHT] != cube.thisCube[TOP_FACE][CENTER] &&
 			cube.thisCube[RIGHT_FACE][LEFT] != cube.thisCube[TOP_FACE][CENTER]) {
@@ -47,7 +47,7 @@ std::list<std::string> AlignMiddleSidesStep::makeMoves(RubiksCube& cube) {
 	return stepsUsed;
 }
 
-void AlignMiddleSidesStep::topRight(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignMiddleSidesStep::topRight(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, TOP_MOVE));
 	stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
 	stepsUsed.emplace_back(performStep(cube, TOP_INVERSE_MOVE));
@@ -58,7 +58,7 @@ void AlignMiddleSidesStep::topRight(std::list<std::string>& stepsUsed, RubiksCub
 	stepsUsed.emplace_back(performStep(cube, FRONT_MOVE));
 }
 
-void AlignMiddleSidesStep::topLeft(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignMiddleSidesStep::topLeft(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, TOP_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, TOP_MOVE));

@@ -10,8 +10,8 @@ bool AlignTopSquares::stepIsComplete(RubiksCube& cube) {
 	return false;
 }
 
-std::list<std::string> AlignTopSquares::makeMoves(RubiksCube& cube) {
-	std::list<std::string> stepsUsed;
+std::list<Moves> AlignTopSquares::makeMoves(RubiksCube& cube) {
+	std::list<Moves> stepsUsed;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			if (cube.thisCube[RIGHT_FACE][TOP] == cube.thisCube[RIGHT_FACE][CENTER] &&
@@ -40,10 +40,10 @@ std::list<std::string> AlignTopSquares::makeMoves(RubiksCube& cube) {
 		}
 		stepsUsed.emplace_back(performStep(cube, ROTATE_RIGHT_FRONT));
 	}
-	return std::list<std::string>();
+	return std::list<Moves>();
 }
 
-void AlignTopSquares::topSquaresPermutation(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignTopSquares::topSquaresPermutation(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
 	stepsUsed.emplace_back(performStep(cube, TOP_MOVE));
 	stepsUsed.emplace_back(performStep(cube, RIGHT_INVERSE_MOVE));

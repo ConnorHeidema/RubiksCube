@@ -10,8 +10,8 @@ bool AlignFinalCornersFully::stepIsComplete(RubiksCube& cube) {
 	return false;
 }
 
-std::list<std::string> AlignFinalCornersFully::makeMoves(RubiksCube& cube) {
-	std::list<std::string> stepsUsed;
+std::list<Moves> AlignFinalCornersFully::makeMoves(RubiksCube& cube) {
+	std::list<Moves> stepsUsed;
 	for (int i = 0; i < 4; i++) {
 		while (cube.thisCube[TOP_FACE][BOTTOM_RIGHT] != cube.thisCube[TOP_FACE][CENTER]) {
 			stepsUsed.emplace_back(performStep(cube, RIGHT_INVERSE_MOVE));

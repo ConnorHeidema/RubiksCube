@@ -42,6 +42,7 @@
     <ClCompile Include="src\datastructure\algorithm\AlignTopCross.cpp" />
     <ClCompile Include="src\datastructure\algorithm\AlignTopSquares.cpp" />
     <ClCompile Include="src\datastructure\RubiksCube.cpp" />
+    <ClCompile Include="src\datastructure\Solve.cpp" />
     <ClCompile Include="src\loop\ActionLoop.cpp" />
     <ClCompile Include="src\loop\Game.cpp" />
     <ClCompile Include="src\loop\RenderLoop.cpp" />
@@ -70,6 +71,7 @@
     <ClInclude Include="inc\datastructure\algorithm\AlignTopCross.hpp" />
     <ClInclude Include="inc\datastructure\algorithm\AlignTopSquares.hpp" />
     <ClInclude Include="inc\datastructure\RubiksCube.hpp" />
+    <ClInclude Include="inc\datastructure\Solve.hpp" />
     <ClInclude Include="inc\loop\ActionLoop.hpp" />
     <ClInclude Include="inc\loop\Game.hpp" />
     <ClInclude Include="inc\loop\RenderLoop.hpp" />

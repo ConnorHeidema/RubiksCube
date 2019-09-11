@@ -10,8 +10,8 @@ bool AlignTopCross::stepIsComplete(RubiksCube& cube) {
 	return false;
 }
 
-std::list<std::string> AlignTopCross::makeMoves(RubiksCube& cube) {
-	std::list <std::string> stepsUsed;
+std::list<Moves> AlignTopCross::makeMoves(RubiksCube& cube) {
+	std::list <Moves> stepsUsed;
 	if (cube.thisCube[TOP_FACE][RIGHT] == cube.thisCube[TOP_FACE][CENTER] &&
 		cube.thisCube[TOP_FACE][LEFT] == cube.thisCube[TOP_FACE][CENTER] &&
 		cube.thisCube[TOP_FACE][TOP] == cube.thisCube[TOP_FACE][CENTER] &&
@@ -46,7 +46,7 @@ std::list<std::string> AlignTopCross::makeMoves(RubiksCube& cube) {
 	return stepsUsed;
 }
 
-void AlignTopCross::topCrossPermutation(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignTopCross::topCrossPermutation(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 		stepsUsed.emplace_back(performStep(cube, FRONT_MOVE));
 		stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
 		stepsUsed.emplace_back(performStep(cube, TOP_MOVE));

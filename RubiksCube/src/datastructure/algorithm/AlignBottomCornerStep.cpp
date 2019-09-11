@@ -22,8 +22,8 @@ bool AlignBottomCornerStep::stepIsComplete(RubiksCube& cube) {
 	return false;
 }
 
-std::list<std::string> AlignBottomCornerStep::makeMoves(RubiksCube& cube) {
-	std::list <std::string> stepsUsed;
+std::list<Moves> AlignBottomCornerStep::makeMoves(RubiksCube& cube) {
+	std::list <Moves> stepsUsed;
 	stepsUsed.emplace_back(performStep(cube, ROTATE_TOP_FRONT_INVERSE));
 	for (int rotations = 0; rotations < 5; rotations++) {
 		bool cubeMoved = false;
@@ -38,7 +38,7 @@ std::list<std::string> AlignBottomCornerStep::makeMoves(RubiksCube& cube) {
 	return stepsUsed;
 }
 
-bool AlignBottomCornerStep::alignCorner(std::list<std::string>& stepsUsed,RubiksCube& cube) {
+bool AlignBottomCornerStep::alignCorner(std::list<Moves>& stepsUsed,RubiksCube& cube) {
 	bool piecesMoved = false;
 	if (cube.thisCube[TOP_FACE][TOP_LEFT] == cube.thisCube[TOP_FACE][CENTER] ||
 		cube.thisCube[BACK_FACE][TOP_RIGHT] == cube.thisCube[TOP_FACE][CENTER] ||
@@ -137,7 +137,7 @@ bool AlignBottomCornerStep::alignCorner(std::list<std::string>& stepsUsed,Rubiks
 	return piecesMoved;
 }
 
-void AlignBottomCornerStep::movements1(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements1(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
@@ -147,7 +147,7 @@ void AlignBottomCornerStep::movements1(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, LEFT_MOVE));
 }
 
-void AlignBottomCornerStep::movements2(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements2(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
 	stepsUsed.emplace_back(performStep(cube, RIGHT_INVERSE_MOVE));
@@ -156,7 +156,7 @@ void AlignBottomCornerStep::movements2(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, LEFT_MOVE));
 }
 
-void AlignBottomCornerStep::movements3(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements3(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, FRONT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
@@ -164,7 +164,7 @@ void AlignBottomCornerStep::movements3(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, LEFT_MOVE));
 }
 
-void AlignBottomCornerStep::movements4(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements4(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
@@ -174,7 +174,7 @@ void AlignBottomCornerStep::movements4(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 }
 
-void AlignBottomCornerStep::movements5(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements5(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_INVERSE_MOVE));
@@ -182,7 +182,7 @@ void AlignBottomCornerStep::movements5(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, RIGHT_INVERSE_MOVE));
 }
 
-void AlignBottomCornerStep::movements6(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements6(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, FRONT_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
@@ -191,7 +191,7 @@ void AlignBottomCornerStep::movements6(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, LEFT_MOVE));
 }
 
-void AlignBottomCornerStep::movements7(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements7(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, LEFT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, LEFT_MOVE));
@@ -202,7 +202,7 @@ void AlignBottomCornerStep::movements7(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, BACK_INVERSE_MOVE));
 }
 
-void AlignBottomCornerStep::movements8(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements8(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, BACK_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BACK_INVERSE_MOVE));
@@ -213,7 +213,7 @@ void AlignBottomCornerStep::movements8(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, LEFT_MOVE));
 }
 
-void AlignBottomCornerStep::movements9(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements9(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, BACK_MOVE));
 	stepsUsed.emplace_back(performStep(cube, FRONT_INVERSE_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
@@ -221,7 +221,7 @@ void AlignBottomCornerStep::movements9(std::list<std::string>& stepsUsed, Rubiks
 	stepsUsed.emplace_back(performStep(cube, BACK_INVERSE_MOVE));
 }
 
-void AlignBottomCornerStep::movements10(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements10(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, BACK_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
@@ -232,7 +232,7 @@ void AlignBottomCornerStep::movements10(std::list<std::string>& stepsUsed, Rubik
 	stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
 }
 
-void AlignBottomCornerStep::movements11(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignBottomCornerStep::movements11(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, BACK_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BOTTOM_MOVE));
 	stepsUsed.emplace_back(performStep(cube, BACK_INVERSE_MOVE));

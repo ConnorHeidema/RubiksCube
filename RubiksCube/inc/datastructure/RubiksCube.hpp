@@ -1,6 +1,6 @@
 #pragma once
 #include "SFML\Graphics.hpp"
-
+#include <list>
 enum Moves {
 	FRONT_MOVE,
 	RIGHT_MOVE,

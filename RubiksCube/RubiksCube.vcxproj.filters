@@ -150,6 +150,9 @@
     <ClCompile Include="src\datastructure\algorithm\AlignTopSquares.cpp">
       <Filter>Source Files\datastructure\algorithm</Filter>
     </ClCompile>
+    <ClCompile Include="src\datastructure\Solve.cpp">
+      <Filter>Source Files\datastructure</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\loop\Game.hpp">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="inc\datastructure\algorithm\AlignTopSquares.hpp">
       <Filter>Header Files\datastructure\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\datastructure\Solve.hpp">
+      <Filter>Header Files\datastructure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

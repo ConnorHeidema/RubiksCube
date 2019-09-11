@@ -10,6 +10,6 @@ class AlgorithmStep {
 public:
 	virtual ~AlgorithmStep() = 0;
 	virtual bool stepIsComplete(RubiksCube& cube) = 0;
-	virtual std::list<std::string> makeMoves(RubiksCube& cube) = 0;
-	std::string performStep(RubiksCube& cube, Moves move);
+	virtual std::list<Moves> makeMoves(RubiksCube& cube) = 0;
+	Moves performStep(RubiksCube& cube, Moves move);
 };

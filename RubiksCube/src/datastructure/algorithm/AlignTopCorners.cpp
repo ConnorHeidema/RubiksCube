@@ -19,9 +19,9 @@ bool AlignTopCorners::stepIsComplete(RubiksCube& cube) {
 	return cornersCompleted == 4;
 }
 
-std::list<std::string> AlignTopCorners::makeMoves(RubiksCube& cube) {
+std::list<Moves> AlignTopCorners::makeMoves(RubiksCube& cube) {
 
-	std::list<std::string> stepsUsed;
+	std::list<Moves> stepsUsed;
 	for (int k = 0; k < 4; k++) {
 		for (int i = 0; i < 4; i++) {
 			if ((cube.thisCube[FRONT_FACE][TOP_RIGHT] == cube.thisCube[TOP_FACE][CENTER] ||
@@ -55,7 +55,7 @@ std::list<std::string> AlignTopCorners::makeMoves(RubiksCube& cube) {
 	return stepsUsed;
 }
 
-void AlignTopCorners::topCornerPermutation(std::list<std::string>& stepsUsed, RubiksCube& cube) {
+void AlignTopCorners::topCornerPermutation(std::list<Moves>& stepsUsed, RubiksCube& cube) {
 	stepsUsed.emplace_back(performStep(cube, TOP_MOVE));
 	stepsUsed.emplace_back(performStep(cube, RIGHT_MOVE));
 	stepsUsed.emplace_back(performStep(cube, TOP_INVERSE_MOVE));
