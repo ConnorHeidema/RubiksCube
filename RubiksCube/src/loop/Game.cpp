@@ -1,7 +1,11 @@
 #include "..\..\inc\loop\Game.hpp"
-
 void Game::start() {
-
+	sf::Music music;
+	if (!music.openFromFile("res/music/rubiks_cube.wav")) {
+		std::cout << "error" << std::endl;
+	}
+	music.play();
+	music.setLoop(true);
 	sf::RenderWindow window(
 		sf::VideoMode(GameParameters::SCREEN_WIDTH, GameParameters::SCREEN_HEIGHT),
 		"Rubiks Game",

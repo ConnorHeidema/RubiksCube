@@ -13,6 +13,7 @@
 #include "../util/GameParameters.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include <list>
 #include <mutex>
 #include <thread>

@@ -58,6 +58,9 @@
     <Filter Include="Header Files\actionobjects\playscreen">
       <UniqueIdentifier>{74f26763-95ee-4b90-b482-fe4831ddb5f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\music">
+      <UniqueIdentifier>{947c789f-c8a2-40d2-ae61-2acecb3f5708}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -207,5 +210,10 @@
     <Image Include="res\png\yellow.png">
       <Filter>Resource Files\png</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\music\rubiks_cube.wav">
+      <Filter>Resource Files\music</Filter>
+    </Media>
   </ItemGroup>
 </Project>

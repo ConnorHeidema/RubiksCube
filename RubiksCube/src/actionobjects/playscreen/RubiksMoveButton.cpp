@@ -1,9 +1,18 @@
 #include "..\..\..\inc\actionobjects\playscreen\RubiksMoveButton.hpp"
 
+void RubiksMoveButton::onHover(std::list<ActionObject*>& allObjects) {
+	rectShapePtr->setFillColor(sf::Color(0, 230, 0, 255));
+}
+
+
+void RubiksMoveButton::onEndHover(std::list<ActionObject*>& allObjects) {
+	rectShapePtr->setFillColor(sf::Color::Green);
+}
+
+
 void RubiksMoveButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	(*rubiksPtr.*fnPtr)();
 }
-
 
 RubiksMoveButton::RubiksMoveButton() : fnPtr(nullptr), rubiksPtr(nullptr) {
 	int yOffset = 300;

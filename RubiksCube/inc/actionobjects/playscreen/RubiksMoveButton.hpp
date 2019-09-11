@@ -5,6 +5,8 @@
 #include "../../datastructure/RubiksCube.hpp"
 class RubiksMoveButton :
 	virtual public ActionRectangleShape {
+	virtual void onHover(std::list<ActionObject*>& allObjects);
+	virtual void onEndHover(std::list<ActionObject*>& allObjects);
 	virtual void onLeftClick(std::list<ActionObject*>& allObjects) override;
 	RubiksMoveButton();
 	virtual RubiksMoveButton* clone() override;

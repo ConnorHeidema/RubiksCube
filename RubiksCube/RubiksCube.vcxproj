@@ -73,6 +73,9 @@
     <Image Include="res\png\white_square.png" />
     <Image Include="res\png\yellow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\music\rubiks_cube.wav" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{5F1AC5BB-DE08-4767-83D2-BAEDE80C33F4}</ProjectGuid>

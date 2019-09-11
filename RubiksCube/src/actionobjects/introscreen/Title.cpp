@@ -1,7 +1,7 @@
 #include "..\..\..\inc\actionobjects\introscreen\Title.hpp"
 
 void Title::onTimePassing(std::list<ActionObject*>& allObjects) {
-	if (timer.getElapsedTime() > sf::seconds(1)) {
+	if (timer.getElapsedTime() > sf::milliseconds(1600)) {
 		std::cout << "here" << std::endl;
 		timer.restart();
 		srand(time(0));
