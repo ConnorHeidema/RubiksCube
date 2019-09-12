@@ -1,4 +1,4 @@
-#include "ScrambleButton.hpp"
+#include "../../../inc/actionobjects/playscreen/ScrambleButton.hpp"
 
 void ScrambleButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	const int MOVES_TO_MAKE = 1000;

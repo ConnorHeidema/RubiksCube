@@ -1,15 +1,28 @@
-#include "SolveButton.hpp"
+#include "../../../inc/actionobjects/playscreen/SolveButton.hpp"
 
 void SolveButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	Solve solve;
 	moveList = solve.solveCube(rubiksPtr);
-	//@TODO fix bug!
 	solve.condenseSolvedList(moveList);
-	std::for_each(moveList.begin(), moveList.end(), [this](Moves move) {
+	lastSolution->setPosition(1350, 240);
+	lastSolution->setCharacterSize(15);
+	lastSolution->setString("Solved in " + std::to_string(moveList.size()) + " moves\n");
+	allObjects.emplace_back(new ActionText(lastSolution));
+	int i = 0;
+	std::for_each(moveList.begin(), moveList.end(), [this, &i](Moves move) {
+		if (i % 5 == 4) {
+			lastSolution->setString(lastSolution->getString() +
+				rubiksPtr->getString(move) + "\n");
+		} else {
+			lastSolution->setString(lastSolution->getString() +
+				rubiksPtr->getString(move) + ", ");
+		}
 		rubiksPtr->performFunction(move);
 		using namespace std::chrono_literals;
-		std::this_thread::sleep_for(.01s);
+		std::this_thread::sleep_for(.2s);
+		i++;
 		});
+
 	moveList.clear();
 }
 
@@ -24,7 +37,11 @@ void SolveButton::onEndHover(std::list<ActionObject*>& allObjects) {
 SolveButton::SolveButton() {
 }
 
+SolveButton::~SolveButton() {
+}
+
 SolveButton::SolveButton(RubiksCube* rubiks, std::list<Moves>* moveList) : rubiksPtr(rubiks), moveList(*moveList) {
+	lastSolution = new sf::Text();
 	clock.restart();
 	int yOffset = 375;
 	sf::RectangleShape* rect = new sf::RectangleShape();
@@ -42,6 +59,7 @@ SolveButton* SolveButton::clone() {
 
 SolveButton::SolveButton(const SolveButton& other) : ActionRectangleShape(other) {
 	clock = other.clock;
+	lastSolution = other.lastSolution;
 	moveList = other.moveList;
 	rubiksPtr = other.rubiksPtr;
 }
