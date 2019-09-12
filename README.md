@@ -3,7 +3,7 @@ An open-ended windows application which displays a Rubik's cube being solved giv
 
 The executable begins by showing a user a basic rubik's cube set out as seen in figure 1. The white face is initially considered the `Front` side due to its alignment. To its right are the `Right` side in blue and the `Back` side in yellow sides. Above the white face is the top face in orange and below is the bottom side in red. and a set of buttons to interact with as shown in Figure 1.
 
-See version 1 [here](res/readme/Version1.0/README.md)
+See version 1 [here](RubiksCube/res/readme/Version1.0/README.md)
 (commit hash 36226e0f325396eb4b9d75c30bb032b830e82d40)
 
 Version 2

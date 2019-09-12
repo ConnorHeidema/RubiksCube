@@ -282,10 +282,31 @@
     <Image Include="res\png\yellow.png">
       <Filter>Resource Files\png</Filter>
     </Image>
+    <Image Include="res\readme\afterSolving.png">
+      <Filter>Resource Files\readme</Filter>
+    </Image>
+    <Image Include="res\readme\clickFront.png">
+      <Filter>Resource Files\readme</Filter>
+    </Image>
+    <Image Include="res\readme\initScreen.png">
+      <Filter>Resource Files\readme</Filter>
+    </Image>
+    <Image Include="res\readme\leftClickSquare.png">
+      <Filter>Resource Files\readme</Filter>
+    </Image>
+    <Image Include="res\readme\rotateRightFront.png">
+      <Filter>Resource Files\readme</Filter>
+    </Image>
+    <Image Include="res\readme\scrambled.png">
+      <Filter>Resource Files\readme</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\music\rubiks_cube.wav">
       <Filter>Resource Files\music</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

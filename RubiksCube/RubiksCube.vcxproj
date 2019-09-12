@@ -94,9 +94,18 @@
     <Image Include="res\png\white.png" />
     <Image Include="res\png\white_square.png" />
     <Image Include="res\png\yellow.png" />
+    <Image Include="res\readme\afterSolving.png" />
+    <Image Include="res\readme\clickFront.png" />
+    <Image Include="res\readme\initScreen.png" />
+    <Image Include="res\readme\leftClickSquare.png" />
+    <Image Include="res\readme\rotateRightFront.png" />
+    <Image Include="res\readme\scrambled.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\music\rubiks_cube.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
