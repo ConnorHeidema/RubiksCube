@@ -57,22 +57,23 @@ void BeginButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	setupMoveButtons(allObjects, rubiks);
 
 	allObjects.emplace_back(new ScrambleButton(rubiks));
+
+	sf::Text* text2 = new sf::Text();
+	std::list<Moves>* moveList = new std::list<Moves>;
+	allObjects.emplace_back(new SolveButton(rubiks, moveList));
+	int textYAlign2 = 355;
+	int textXAlign2 = 80;
+	text2->setString("Solve Cube");
+	text2->setCharacterSize(32);
+	text2->setPosition(GameParameters::SCREEN_WIDTH / 2 - textXAlign2, GameParameters::SCREEN_HEIGHT / 2 + textYAlign2);
+	allObjects.emplace_back(new ActionText(text2));
 	sf::Text* text = new sf::Text();
 
 	int textYAlign = 280;
 	int textXAlign = 110;
 	text->setString("Scramble Cube");
 	text->setCharacterSize(32);
-	text->setPosition(GameParameters::SCREEN_WIDTH/2 - textXAlign, GameParameters::SCREEN_HEIGHT/2 + textYAlign);
-	allObjects.emplace_back(new ActionText(text));
-
-	std::list<Moves>* moveList = new std::list<Moves>;
-	allObjects.emplace_back(new SolveButton(rubiks, moveList));
-	int textYAlign2 = 355;
-	int textXAlign2 = 110;
-	text->setString("Solve Cube");
-	text->setCharacterSize(32);
-	text->setPosition(GameParameters::SCREEN_WIDTH / 2 - textXAlign2, GameParameters::SCREEN_HEIGHT / 2 + textYAlign2);
+	text->setPosition(GameParameters::SCREEN_WIDTH / 2 - textXAlign, GameParameters::SCREEN_HEIGHT / 2 + textYAlign);
 	allObjects.emplace_back(new ActionText(text));
 }
 

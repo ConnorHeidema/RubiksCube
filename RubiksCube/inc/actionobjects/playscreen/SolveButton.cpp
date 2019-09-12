@@ -4,11 +4,11 @@ void SolveButton::onLeftClick(std::list<ActionObject*>& allObjects) {
 	Solve solve;
 	moveList = solve.solveCube(rubiksPtr);
 	//@TODO fix bug!
-	//solve.condenseSolvedList(moveList);
+	solve.condenseSolvedList(moveList);
 	std::for_each(moveList.begin(), moveList.end(), [this](Moves move) {
 		rubiksPtr->performFunction(move);
 		using namespace std::chrono_literals;
-		std::this_thread::sleep_for(.1s);
+		std::this_thread::sleep_for(.01s);
 		});
 	moveList.clear();
 }
